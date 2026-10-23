@@ -17,7 +17,7 @@ def get_changed_files() -> List[str]:
         list: 修改的文件路径列表
     """
     result = subprocess.run(
-        ["git", "diff", "--name-only", "HEAD"],
+        ["git", "diff", "--name-only"],
         capture_output=True,
         text=True,
         check=True
@@ -39,9 +39,9 @@ def accept_changes(commit_msg: str):
 
 
 def rollback():
-    """回滚到上一个提交"""
-    subprocess.run(["git", "reset", "--hard", "HEAD~1"], check=True)
-    print("⚠️  已回滚到上一个提交")
+    """回滚工作区修改（不删除 commit）"""
+    subprocess.run(["git", "reset", "--hard", "HEAD"], check=True)
+    print("⚠️  已回滚工作区修改")
 
 
 def get_last_commit_hash() -> str:
