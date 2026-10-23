@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 # 期望哈希值（首次运行后手动填入）
-EXPECTED_HASH = "e8b53aa346541980f1a03e90ca6ecdb1ae30ef740284a19ba3380ce9c0b6b710"
+EXPECTED_HASH = "c8875574273b289f9ef6554a74a1ddce99c3703e68b274c2f83d77d1f357d611"
 
 
 class SecurityError(Exception):
