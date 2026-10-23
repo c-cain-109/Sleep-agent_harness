@@ -21,16 +21,21 @@ class SecurityError(Exception):
 
 def verify_integrity():
     """验证评估器自身完整性"""
+    # 读取文件内容，排除 EXPECTED_HASH 行来计算哈希
+    with open(__file__, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    # 过滤掉包含 EXPECTED_HASH 的行
+    filtered_lines = [line for line in lines if 'EXPECTED_HASH = ' not in line]
+    filtered_content = ''.join(filtered_lines).encode('utf-8')
+
+    actual_hash = hashlib.sha256(filtered_content).hexdigest()
+
     if not EXPECTED_HASH:
         # 首次运行，生成哈希值
-        with open(__file__, 'rb') as f:
-            actual_hash = hashlib.sha256(f.read()).hexdigest()
         print(f"首次运行，请将以下哈希值复制到 EXPECTED_HASH 常量:")
         print(f'EXPECTED_HASH = "{actual_hash}"')
         sys.exit(0)
-
-    with open(__file__, 'rb') as f:
-        actual_hash = hashlib.sha256(f.read()).hexdigest()
 
     if actual_hash != EXPECTED_HASH:
         raise SecurityError(f"评估器已被篡改! 期望: {EXPECTED_HASH}, 实际: {actual_hash}")
