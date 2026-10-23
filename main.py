@@ -16,6 +16,7 @@ from datetime import datetime
 from harness.whitelist import load_whitelist, validate_changes
 from harness.sandbox import run_evaluation
 from harness.git_manager import accept_changes, rollback, get_last_commit_hash, get_changed_files
+from harness.agent import generate_strategy, apply_strategy
 
 
 def init_logs():
@@ -70,23 +71,52 @@ def main():
 
     best_score = baseline_score
 
+    # Phase 2: 读取当前参数
+    model_file = project_root / "test_task" / "model.py"
+
+    def get_current_params():
+        """从 model.py 提取当前参数"""
+        with open(model_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        # 简单正则提取 a, b, c = ...
+        import re
+        match = re.search(r'a,\s*b,\s*c\s*=\s*([\d.-]+)\s*,\s*([\d.-]+)\s*,\s*([\d.-]+)', content)
+        if match:
+            return {
+                "a": float(match.group(1)),
+                "b": float(match.group(2)),
+                "c": float(match.group(3))
+            }
+        return {"a": 1.0, "b": 1.0, "c": 1.0}  # fallback
+
     # 主循环：10 轮
     for round_num in range(1, 11):
         print(f"\n{'=' * 60}")
         print(f"第 {round_num}/10 轮")
         print(f"{'=' * 60}")
         print(f"当前最佳 MSE: {best_score:.6f}")
-        print(f"\n📝 请修改 test_task/model.py 中的参数 (a, b, c)")
-        print(f"   目标函数: 2.5*x² - 3.0*x + 1.5")
-        print(f"   等待文件修改...")
 
-        # 轮询检测文件修改
-        while True:
-            changed_files = get_changed_files()
-            if changed_files:
-                print(f"✓ 检测到修改: {', '.join(changed_files)}")
-                break
-            time.sleep(1)  # 每秒检查一次
+        # Phase 2: 调用 LLM Agent 生成策略
+        current_params = get_current_params()
+        print(f"\n🤖 正在调用 Claude API 生成优化策略...")
+        print(f"   当前参数: a={current_params['a']}, b={current_params['b']}, c={current_params['c']}")
+
+        try:
+            strategy = generate_strategy(
+                current_params=current_params,
+                current_score=best_score,
+                best_score=best_score,
+                round_num=round_num,
+                target_function="2.5*x² - 3.0*x + 1.5"
+            )
+            apply_strategy(strategy, model_file)
+        except Exception as e:
+            print(f"❌ Agent 调用失败: {e}")
+            log_round(log_file, round_num, None, "error", 0, error=f"agent_error: {e}")
+            continue
+
+        # 等待文件写入完成
+        time.sleep(0.1)
 
         # 白名单验证
         is_valid, illegal_files = validate_changes(whitelist)
