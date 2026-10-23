@@ -32,7 +32,7 @@ python harness/evaluate.py
 python main.py
 ```
 
-按提示修改 `toy_task/model.py` 中的参数 `a, b, c`，目标是逼近目标函数 `2.5*x² - 3.0*x + 1.5`。
+按提示修改 `test_task` 中的参数 `a, b, c`，目标是逼近目标函数 `2.5*x² - 3.0*x + 1.5`。
 
 ## 项目结构
 
@@ -90,7 +90,7 @@ python main.py  # 预期：抛出 "评估器已被篡改"
 ### 3. 白名单验证
 
 `harness/whitelist.py` 检查修改的文件是否在白名单中：
-- 允许修改：`toy_task/model.py`, `toy_task/config.yaml`
+- 允许修改：`test_task`, `test_task`
 - 其他文件修改 → 拒绝评估
 
 **验证方法**：
@@ -158,7 +158,7 @@ git commit -m "Initial commit"
 ```
 
 ### 问题：没有检测到文件修改
-**解决**：确保修改了 `toy_task/model.py` 并保存。
+**解决**：确保修改了 `test_task` 并保存。
 
 ### 问题：沙箱执行超时
 **解决**：检查 `model.py` 是否有死循环或长时间计算。
@@ -169,7 +169,7 @@ Phase 1 验证了核心机制，Phase 2 将扩展为：
 - **真实任务**：睡眠分期模型优化（基于 EEG 信号）
 - **LLM Agent**：用 Claude API 替代手动修改参数
 - **Docker 沙箱**：替换 `subprocess`，实现网络隔离
-- **配置扩展**：使用 `toy_task/config.yaml` 管理超参数
+- **配置扩展**：使用 `test_task` 管理超参数
 
 ## 技术规格
 

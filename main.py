@@ -3,7 +3,7 @@
 流程：
 1. 初始化：加载白名单，获取基线分数
 2. 循环 10 轮：
-   - 提示用户修改 toy_task/model.py
+   - 提示用户修改 test_task/model.py
    - 白名单验证 → 沙箱评估 → accept/rollback 决策
    - 记录 JSONL 日志
 """

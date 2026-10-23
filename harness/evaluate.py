@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 # 期望哈希值（首次运行后手动填入）
-EXPECTED_HASH = "31170b44a1d60d154f2939412ffa827d2ed815a9bd96a0a5e024cd5e0d9fdf75"
+EXPECTED_HASH = "7c97ba4c89fa2b97d7d404df490e3ef79149dc2ad89a69730edf4d9fe964bcc8"
 
 
 class SecurityError(Exception):
@@ -48,8 +48,8 @@ def evaluate():
 
         # 导入模型和目标函数
         sys.path.insert(0, str(Path(__file__).parent.parent))
-        from toy_task.model import model_function
-        from toy_task.target_function import target_function
+        from test_task.model import model_function
+        from test_task.target_function import target_function
 
         # 生成测试点 x ∈ [-10, 10]
         import numpy as np
