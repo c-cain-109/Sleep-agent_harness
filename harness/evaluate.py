@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 # 期望哈希值（首次运行后手动填入）
-EXPECTED_HASH = ""  # 运行 python -c "import hashlib; print(hashlib.sha256(open('harness/evaluate.py', 'rb').read()).hexdigest())" 获取
+EXPECTED_HASH = "31170b44a1d60d154f2939412ffa827d2ed815a9bd96a0a5e024cd5e0d9fdf75"
 
 
 class SecurityError(Exception):
