@@ -1,7 +1,7 @@
 {
   "allowed_files": [
-    "toy_task/model.py",
-    "toy_task/config.yaml"
+    "test_task/model.py",
+    "test_task/config.yaml"
   ],
   "description": "Phase 1 仅允许修改模型参数和配置文件"
 }
