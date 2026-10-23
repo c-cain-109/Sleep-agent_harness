@@ -76,15 +76,17 @@ def main():
         print(f"第 {round_num}/10 轮")
         print(f"{'=' * 60}")
         print(f"当前最佳 MSE: {best_score:.6f}")
-        print(f"\n📝 请修改 toy_task/model.py 中的参数 (a, b, c)")
+        print(f"\n📝 请修改 test_task/model.py 中的参数 (a, b, c)")
         print(f"   目标函数: 2.5*x² - 3.0*x + 1.5")
-        input("   修改完成后按 Enter 继续...")
+        print(f"   等待文件修改...")
 
-        # 检查是否有修改
-        changed_files = get_changed_files()
-        if not changed_files:
-            print("⚠️  未检测到文件修改，跳过本轮")
-            continue
+        # 轮询检测文件修改
+        while True:
+            changed_files = get_changed_files()
+            if changed_files:
+                print(f"✓ 检测到修改: {', '.join(changed_files)}")
+                break
+            time.sleep(1)  # 每秒检查一次
 
         # 白名单验证
         is_valid, illegal_files = validate_changes(whitelist)
