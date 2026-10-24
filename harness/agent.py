@@ -207,14 +207,13 @@ def generate_strategy(
     for attempt in range(3):
         try:
             response = requests.post(
-                "https://www.sui-xiang.vip/v1/messages",
+                "https://www.sui-xiang.net/v1/chat/completions",
                 headers={
-                    "anthropic-version": "2023-06-01",
-                    "content-type": "application/json",
-                    "x-api-key": api_key
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {api_key}"
                 },
                 json={
-                    "model": "claude-sonnet-4-20250514",
+                    "model": "claude-opus-5",
                     "max_tokens": 1024,
                     "messages": [{"role": "user", "content": prompt}]
                 },
@@ -225,13 +224,10 @@ def generate_strategy(
             data = response.json()
 
             # 安全提取 content
-            content = data.get("content")
-            if not content or not isinstance(content, list):
-                raise ValueError("API 返回格式错误：缺少 content 字段")
-
-            response_text = content[0].get("text", "")
-            if not response_text:
-                raise ValueError("API 返回为空")
+            try:
+                response_text = data["choices"][0]["message"]["content"]
+            except (KeyError, IndexError):
+                raise ValueError(f"API 返回格式错误，找不到内容。原始返回：{data}")
 
             # 提取并校验 JSON
             result = _extract_json_safely(response_text)

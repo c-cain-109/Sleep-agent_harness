@@ -8,6 +8,9 @@
    - 记录 JSONL 日志
 """
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import json
 import time
 from pathlib import Path
@@ -124,7 +127,7 @@ def main():
                 f.write(new_content)
 
             print(f"✏️  Agent 建议: a={a}, b={b}, c={c} (修改了 {modified})")
-            print(f"   推理: {strategy['reasoning'][:100]}...")
+            print(f"   推理: {strategy['reasoning']}...")
 
         except Exception as e:
             print(f"❌ Agent 调用失败: {e}")
