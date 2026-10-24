@@ -16,7 +16,7 @@ from datetime import datetime
 from harness.whitelist import load_whitelist, validate_changes
 from harness.sandbox import run_evaluation
 from harness.git_manager import accept_changes, rollback, get_last_commit_hash, get_changed_files
-from harness.agent import generate_strategy, apply_strategy
+from harness.agent import generate_strategy
 
 
 def init_logs():
@@ -107,9 +107,25 @@ def main():
                 current_score=best_score,
                 best_score=best_score,
                 round_num=round_num,
-                target_function="2.5*x² - 3.0*x + 1.5"
+                target_function="2.5*x² - 3.0*x + 1.5",
+                project_root=project_root
             )
-            apply_strategy(strategy, model_file)
+
+            # 由 main.py 负责写文件（agent.py 只返回策略）
+            a, b, c = strategy["a"], strategy["b"], strategy["c"]
+            modified = strategy["modified_param"]
+
+            new_content = f"""def model_function(x):
+    \"\"\"待优化的模型函数\"\"\"
+    a, b, c = {a}, {b}, {c}  # Agent 自动优化
+    return a * x**2 + b * x + c
+"""
+            with open(model_file, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+
+            print(f"✏️  Agent 建议: a={a}, b={b}, c={c} (修改了 {modified})")
+            print(f"   推理: {strategy['reasoning'][:100]}...")
+
         except Exception as e:
             print(f"❌ Agent 调用失败: {e}")
             log_round(log_file, round_num, None, "error", 0, error=f"agent_error: {e}")
