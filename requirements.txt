@@ -1,0 +1,10 @@
+python-dotenv
+requests
+torch
+selfeeg==0.2.2
+mne
+pyEDFlib
+scikit-learn
+numpy
+scipy
+pandas

@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-10-28T00:38:53+00:00",
+  "tool": {
+    "name": "prepare_sleepedf",
+    "version": "1.0.0",
+    "python": "3.14.6",
+    "numpy": "2.4.6",
+    "mne": null,
+    "reference": "https://github.com/akaraspt/tinysleepnet/blob/main/prepare_sleepedf.py"
+  },
+  "dataset": {
+    "name": "Sleep-EDF Expanded (Sleep Cassette)",
+    "input_dir": "../data/physionet-sleep-data",
+    "output_dir": "../data/prepared",
+    "path_origin": {},
+    "discovered_files": [
+      "../data/physionet-sleep-data/SC4001E0-PSG.edf",
+      "../data/physionet-sleep-data/SC4001EC-Hypnogram.edf"
+    ],
+    "n_records_ok": 1,
+    "n_records_failed": 0,
+    "n_subjects": 1
+  },
+  "processing_parameters": {
+    "channel": "EEG Fpz-Cz",
+    "target_fs": 100,
+    "epoch_duration": 30,
+    "epoch_samples": 3000,
+    "label_map": {
+      "Sleep stage W": 0,
+      "Sleep stage 1": 1,
+      "Sleep stage 2": 2,
+      "Sleep stage 3": 3,
+      "Sleep stage 4": 3,
+      "Sleep stage R": 4
+    },
+    "excluded_stages": {
+      "Movement time": 5,
+      "Sleep stage ?": 6
+    },
+    "label_names": {
+      "0": "W",
+      "1": "N1",
+      "2": "N2",
+      "3": "N3",
+      "4": "REM"
+    },
+    "trim_edge_wake": true,
+    "edge_wake_epochs": 60,
+    "on_annotation_gap": "drop",
+    "on_stage_conflict": "error",
+    "drop_nonfinite_epochs": true,
+    "reader": "auto",
+    "signal_transform": "none (raw values in microvolts; float32)",
+    "alignment_rule": "Epoch grid anchored at the first PSG sample; epoch k covers [k*epoch_duration, (k+1)*epoch_duration). An annotation labels the epochs fully covered by [onset, onset+duration) and is accepted only when both onset and duration are exact multiples of epoch_duration.",
+    "preprocessing_is_deterministic": true
+  },
+  "pairing": [
+    {
+      "record_id": "SC4001E0",
+      "subject_id": "SC4001",
+      "psg_file": "SC4001E0-PSG.edf",
+      "hypnogram_file": "SC4001EC-Hypnogram.edf",
+      "pairing_method": "start_datetime",
+      "psg_sha256": "2b40a18adf76af69a42d6db1f30f31d26b369f6d27ca0050ef30147ef892b131",
+      "hypnogram_sha256": "a4cf67694ade1b52a0ddd06d5817fd45d2d3e8bac5302f640f3e9cfbbf12a996",
+      "start_datetime": "1989-04-24T16:13:00"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "SC4001E0",
+      "subject_id": "SC4001",
+      "status": "ok",
+      "psg_file": "SC4001E0-PSG.edf",
+      "hypnogram_file": "SC4001EC-Hypnogram.edf",
+      "pairing_method": "start_datetime",
+      "psg_sha256": "2b40a18adf76af69a42d6db1f30f31d26b369f6d27ca0050ef30147ef892b131",
+      "hypnogram_sha256": "a4cf67694ade1b52a0ddd06d5817fd45d2d3e8bac5302f640f3e9cfbbf12a996",
+      "start_datetime": "1989-04-24T16:13:00",
+      "patient": "X F X Female_33yr",
+      "signal_duration_s": 79500.0,
+      "annotation_duration_s": 86400.0,
+      "n_annotation_entries": 154,
+      "channel": "EEG Fpz-Cz",
+      "native_sfreq": 100.0,
+      "target_fs": 100.0,
+      "reader": "native",
+      "epoch_duration_s": 30.0,
+      "n_epoch_samples": 3000,
+      "npz_file": "SC4001E0.npz",
+      "epoch_accounting": {
+        "n_epochs_in_signal": 2650,
+        "n_epochs_uncovered_by_annotation": 0,
+        "n_epochs_annotation_beyond_signal": 230,
+        "n_epochs_eligible_before_trim": 2650,
+        "edge_trim": {
+          "applied": true,
+          "start_epoch": 961,
+          "end_epoch": 1801,
+          "first_non_wake_epoch": 1021,
+          "last_non_wake_epoch": 1741,
+          "edge_wake_epochs": 60
+        },
+        "n_dropped_by_edge_trim": 1809,
+        "n_dropped_movement": 0,
+        "n_dropped_unknown_stage": 0,
+        "n_dropped_nonfinite": 0,
+        "n_epochs_final": 841,
+        "n_epochs_final_check_ok": true
+      },
+      "label_distribution": {
+        "W": 188,
+        "N1": 58,
+        "N2": 250,
+        "N3": 220,
+        "REM": 125
+      },
+      "label_percent": {
+        "W": 22.35,
+        "N1": 6.9,
+        "N2": 29.73,
+        "N3": 26.16,
+        "REM": 14.86
+      },
+      "raw_stage_share_of_record_percent": {
+        "Sleep stage 1": 2.19,
+        "Sleep stage 2": 9.43,
+        "Sleep stage 3": 3.81,
+        "Sleep stage 4": 4.49,
+        "Sleep stage R": 4.72,
+        "Sleep stage W": 75.36
+      },
+      "signal_stats": {
+        "min_uV": -192.0,
+        "max_uV": 170.61978149414062,
+        "mean_uV": 0.16535063087940216,
+        "std_uV": 23.02145767211914,
+        "flat_epochs": 0
+      },
+      "checks": [
+        {
+          "check": "psg_has_signal",
+          "ok": true,
+          "detail": "PSG channels: ['EEG Fpz-Cz', 'EEG Pz-Oz', 'EOG horizontal', 'Resp oro-nasal', 'EMG submental', 'Temp rectal', 'Event marker']"
+        },
+        {
+          "check": "hypnogram_is_annotation_file",
+          "ok": true,
+          "detail": "hypnogram channels: ['EDF Annotations']"
+        },
+        {
+          "check": "start_datetime_matches",
+          "ok": true,
+          "detail": "PSG 1989-04-24T16:13:00 vs hypnogram 1989-04-24T16:13:00"
+        },
+        {
+          "check": "patient_id_matches",
+          "ok": true,
+          "detail": "PSG 'X F X Female_33yr' vs hypnogram 'X F X Female_33yr'"
+        },
+        {
+          "check": "channel_present",
+          "ok": true,
+          "detail": "'EEG Fpz-Cz' -> index 0, 3000 samples/record"
+        },
+        {
+          "check": "record_duration_positive",
+          "ok": true,
+          "detail": "record duration 30.0s"
+        },
+        {
+          "check": "native_sfreq_matches_header",
+          "ok": true,
+          "detail": "native 100.0000 Hz from 3000 samples / 30.0s"
+        },
+        {
+          "check": "annotation_within_signal",
+          "ok": false,
+          "detail": "annotations end at 86400.0s, signal ends at 79500.0s"
+        },
+        {
+          "check": "annotation_starts_at_zero",
+          "ok": true,
+          "detail": "first annotation onset 0.0s"
+        },
+        {
+          "check": "epoch_samples",
+          "ok": true,
+          "detail": "3000 samples per 30s epoch at 100 Hz"
+        }
+      ],
+      "notes": [
+        "annotation_within_signal: annotations end at 86400.0s, signal ends at 79500.0s",
+        "Annotation 'Sleep stage ?' extends 230 epoch(s) beyond the end of the EEG signal -> truncated"
+      ]
+    }
+  ],
+  "totals": {
+    "n_epochs": 841,
+    "label_distribution": {
+      "W": 188,
+      "N1": 58,
+      "N2": 250,
+      "N3": 220,
+      "REM": 125
+    },
+    "label_percent": {
+      "W": 22.35,
+      "N1": 6.9,
+      "N2": 29.73,
+      "N3": 26.16,
+      "REM": 14.86
+    }
+  },
+  "exclusions": {
+    "movement_time_epochs": 0,
+    "unknown_stage_epochs": 0,
+    "edge_trim_epochs": 1809,
+    "uncovered_epochs": 0,
+    "nonfinite_epochs": 0
+  },
+  "anomalies": [
+    {
+      "record_id": "SC4001E0",
+      "notes": [
+        "annotation_within_signal: annotations end at 86400.0s, signal ends at 79500.0s",
+        "Annotation 'Sleep stage ?' extends 230 epoch(s) beyond the end of the EEG signal -> truncated"
+      ]
+    }
+  ],
+  "errors": [],
+  "subject_split": null,
+  "outputs": [
+    "SC4001E0.npz",
+    "dataset_manifest.json",
+    "epoch_metadata.csv",
+    "preprocessing.log"
+  ],
+  "no_split_reason": "subject split not requested (pass --make-split)"
+}

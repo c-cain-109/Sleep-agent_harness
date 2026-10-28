@@ -1,0 +1,44 @@
+# ===========================================================================
+# Sleep-EDF preprocessing module - dependency list
+# Reference interpreter: Python 3.11 (3.9+ should work, 3.11 is what was tested)
+#
+# Install:
+#   python -m venv .venv
+#   .venv\Scripts\activate            # Windows
+#   source .venv/bin/activate         # Linux / macOS
+#   pip install -r requirements.txt
+# ===========================================================================
+
+# --- required -------------------------------------------------------------
+# Array maths, the .npz container, and the built-in EDF reader.
+numpy>=2.0,<3.0
+#   tested: 2.4.6      (1.26.x also works, but MNE 1.13 requires numpy>=2)
+
+# --- strongly recommended ------------------------------------------------
+# EDF reading backend used by default, and an independent cross-check of the
+# built-in reader. Without it the module still runs on `--reader native`.
+mne>=1.9,<2.0
+#   tested: 1.13.2
+# Only needed for the resampling path (used when a recording is not already at
+# the target sampling rate); MNE also requires it.
+scipy>=1.11
+#   tested: 1.17.1
+
+# --- optional ------------------------------------------------------------
+# Only needed for a .yaml/.yml config file. A .json config works without it.
+PyYAML>=6.0
+#   tested: 6.0.3
+
+# --- not required by this module ----------------------------------------
+# pandas>=2.0   # only for poking at epoch_metadata.csv
+# torch>=2.0    # TinySleepNet training lives in a different module
+#
+# ===========================================================================
+# Version combinations that DO NOT work (hit while building this module):
+#   * mne 1.6.1  + scipy >= 1.15  -> ImportError: cannot import name 'sph_harm'
+#                                    from 'scipy.special' (scipy removed it)
+#   * mne 1.13.x + numpy 1.26.x   -> AttributeError: module 'numpy.dtypes'
+#                                    has no attribute 'StringDType' (needs numpy 2)
+# If the EDF reader fails at import time the module logs the reason and falls
+# back to the built-in reader, so preprocessing never silently produces nothing.
+# ===========================================================================

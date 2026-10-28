@@ -1,0 +1,28 @@
+/opt/anaconda3/envs/sleep-harness/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/opt/anaconda3/envs/sleep-harness/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/opt/anaconda3/envs/sleep-harness/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/opt/anaconda3/envs/sleep-harness/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/opt/anaconda3/envs/sleep-harness/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+模式：单条记录管线验证（按时间切分）
+读取文件: data/prepared/SC4001E0.npz
+记录 SC4001E0，受试者 SC4001，共 841 个 epoch
+按时间切分：前 673 个训练，后 168 个验证
+  训练集: 673 个 epoch，类别分布 {'W': 82, 'N1': 42, 'N2': 246, 'N3': 220, 'REM': 83}
+  验证集: 168 个 epoch，类别分布 {'W': 106, 'N1': 16, 'N2': 4, 'N3': 0, 'REM': 42}
+    注意：验证集 中缺少类别 ['N3']，这些类别的指标没有意义
+⚠️  train/val 来自同一受试者同一晚的不同时间段，
+   指标只说明管线能跑通，不代表模型的泛化能力。
+Epoch 1/5 | train_loss=1.3795 | val_loss=1.9034 | balanced_accuracy=0.1994 | macro_f1=0.1102
+Epoch 2/5 | train_loss=1.2676 | val_loss=1.5865 | balanced_accuracy=0.4137 | macro_f1=0.1457
+Epoch 3/5 | train_loss=1.2893 | val_loss=1.4927 | balanced_accuracy=0.4256 | macro_f1=0.1494
+Epoch 4/5 | train_loss=1.2376 | val_loss=1.5140 | balanced_accuracy=0.3738 | macro_f1=0.1453
+Epoch 5/5 | train_loss=1.2214 | val_loss=1.5325 | balanced_accuracy=0.4303 | macro_f1=0.1474
+
+训练流程结束。
+日志文件: outputs/pipeline_test/metrics.jsonl
+最佳模型: outputs/pipeline_test/best_model.pt

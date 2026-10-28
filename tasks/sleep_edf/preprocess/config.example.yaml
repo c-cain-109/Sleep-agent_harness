@@ -1,0 +1,86 @@
+# ===========================================================================
+# Sleep-EDF preprocessing - example configuration
+# ===========================================================================
+# Every key below mirrors a CLI flag; explicit CLI flags always win over the
+# file, so you can keep this file as a baseline and override ad hoc.
+#
+# Run with:
+#   python prepare_sleepedf.py --config config.example.yaml
+#
+# Relative paths are resolved against the current working directory, so the
+# same file works on any machine as long as you run it from the project root
+# (or edit the two paths below).
+# ===========================================================================
+
+# --- input / output --------------------------------------------------------
+# Both keys are OPTIONAL. Omit a path and it is resolved for you:
+#   input_dir  -> probed from $SLEEPEDF_DATA_DIR, then <cwd>/data/sleep-edf,
+#                 <project>/data/sleep-edf, ... (first folder holding *-PSG.edf wins)
+#   output_dir -> <project>/outputs/prepared
+# The values below are examples of being explicit, not requirements.
+#
+# Directory scanned (recursively) for "*-PSG.edf" and "*-Hypnogram.edf".
+input_dir: "./data/sleep-edf"
+
+# Where .npz / dataset_manifest.json / epoch_metadata.csv / .log are written.
+# MUST NOT be the same directory as input_dir.
+output_dir: "./outputs/prepared"
+
+# Alternative to input_dir: run a single pair explicitly.
+# psg: "./data/sleep-edf/SC4001E0-PSG.edf"
+# hypnogram: "./data/sleep-edf/SC4001EC-Hypnogram.edf"
+
+# Never wipe an existing output directory. Set to true to replace files that
+# this tool wrote previously (unrelated files are still left untouched).
+overwrite: false
+
+# --- signal / epoch definition --------------------------------------------
+channel: "EEG Fpz-Cz"   # single channel, first version
+target_fs: 100          # Hz; 30 s * 100 Hz = 3000 samples per epoch
+epoch_duration: 30      # seconds
+
+# EDF reader backend: auto (MNE if installed, else native) | mne | native
+reader: "auto"
+
+# --- label mapping (AASM five-class) --------------------------------------
+# 0=W 1=N1 2=N2 3=N3 4=REM. S3 and S4 both collapse into N3.
+label_map:
+  "Sleep stage W": 0
+  "Sleep stage 1": 1
+  "Sleep stage 2": 2
+  "Sleep stage 3": 3
+  "Sleep stage 4": 3
+  "Sleep stage R": 4
+
+# Recognised but excluded. Internal codes 5/6 are placeholders that only
+# participate in edge trimming, then get dropped from the dataset.
+excluded_stages:
+  "Movement time": 5
+  "Sleep stage ?": 6
+
+# --- alignment / cleaning policy ------------------------------------------
+# Keep this wake at both ends of the scored sleep period.
+# 60 epochs = 30 min, matching TinySleepNet's (w_edge_mins=30) * 2.
+trim_edge_wake: true
+edge_wake_epochs: 60
+
+# Hypnogram discontinuity handling: "drop" (exclude affected epochs, report)
+# or "error" (abort the record). --strict forces "error".
+on_annotation_gap: "drop"
+on_stage_conflict: "error"   # overlapping annotations with different stages
+
+drop_nonfinite_epochs: true
+
+# --- subject level split (only used with --make-split) -------------------
+split_seed: 42
+split_ratios:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+# Optional regex with one capture group; empty/omitted = Sleep-EDF default,
+# SC4001E0 -> SC4001.
+subject_id_regex: null
+
+# --- misc -----------------------------------------------------------------
+log_level: "INFO"

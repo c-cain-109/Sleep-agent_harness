@@ -1,0 +1,27 @@
+2026-10-28 08:38:52 INFO     ==============================================================================
+2026-10-28 08:38:52 INFO     prepare_sleepedf 1.0.0 - Sleep-EDF preprocessing
+2026-10-28 08:38:52 INFO     started: 2026-10-28T00:38:52+00:00
+2026-10-28 08:38:52 INFO     python: 3.14.6 | platform: macOS-26.6-arm64-arm-64bit-Mach-O
+2026-10-28 08:38:52 INFO     numpy: 2.4.6 | mne: not installed
+2026-10-28 08:38:52 INFO     input dir : ../data/physionet-sleep-data
+2026-10-28 08:38:52 INFO     output dir: ../data/prepared
+2026-10-28 08:38:52 INFO     Discovered 1 PSG file(s) and 1 hypnogram file(s)
+2026-10-28 08:38:52 INFO     pairs to process: 1
+2026-10-28 08:38:52 INFO     ------------------------------------------------------------------------------
+2026-10-28 08:38:52 INFO     record SC4001E0 (subject SC4001)
+2026-10-28 08:38:52 INFO       PSG       : ../data/physionet-sleep-data/SC4001E0-PSG.edf
+2026-10-28 08:38:52 INFO       hypnogram : ../data/physionet-sleep-data/SC4001EC-Hypnogram.edf
+2026-10-28 08:38:52 INFO       paired by : start_datetime
+2026-10-28 08:38:52 INFO     SC4001E0: signal 79500.000s, annotations 0 - 86400.000s (154 entries)
+2026-10-28 08:38:52 WARNING  SC4001E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79500.0s
+2026-10-28 08:38:52 INFO     SC4001E0: read 7950000 samples at 100.000 Hz via native
+2026-10-28 08:38:53 INFO       wrote SC4001E0.npz
+2026-10-28 08:38:53 INFO       epochs: signal=2650 eligible=2650 -> edge_trim=-1809 movement=-0 unknown=-0 nonfinite=-0 => final=841
+2026-10-28 08:38:53 INFO       label distribution: {'W': 188, 'N1': 58, 'N2': 250, 'N3': 220, 'REM': 125}
+2026-10-28 08:38:53 INFO     wrote epoch_metadata.csv (841 rows)
+2026-10-28 08:38:53 INFO     ------------------------------------------------------------------------------
+2026-10-28 08:38:53 INFO     TOTAL epochs: 841 | distribution: {'W': 188, 'N1': 58, 'N2': 250, 'N3': 220, 'REM': 125}
+2026-10-28 08:38:53 INFO     TOTAL label percent: {'W': '22.35%', 'N1': '6.90%', 'N2': '29.73%', 'N3': '26.16%', 'REM': '14.86%'}
+2026-10-28 08:38:53 INFO     exclusions: {'movement_time_epochs': 0, 'unknown_stage_epochs': 0, 'edge_trim_epochs': 1809, 'uncovered_epochs': 0, 'nonfinite_epochs': 0}
+2026-10-28 08:38:53 INFO     wrote ../data/prepared/dataset_manifest.json
+2026-10-28 08:38:53 INFO     done

@@ -75,7 +75,7 @@ def main():
     best_score = baseline_score
 
     # Phase 2: 读取当前参数
-    model_file = project_root / "test_task" / "model.py"
+    model_file = project_root / "tasks" / "test_task" / "model.py"
 
     def get_current_params():
         """从 model.py 提取当前参数"""

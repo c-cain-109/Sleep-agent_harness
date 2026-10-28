@@ -53,8 +53,8 @@ def evaluate():
 
         # 导入模型和目标函数
         sys.path.insert(0, str(Path(__file__).parent.parent))
-        from test_task.model import model_function
-        from test_task.target_function import target_function
+        from tasks.test_task.model import model_function
+        from tasks.test_task.target_function import target_function
 
         # 生成测试点 x ∈ [-10, 10]
         import numpy as np
