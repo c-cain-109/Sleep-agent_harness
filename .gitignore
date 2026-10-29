@@ -14,3 +14,9 @@ build/
 outputs/
 .idea/
 .vscode/
+*.npz
+*.pt
+*.pth
+.venv/
+venv/
+env/
