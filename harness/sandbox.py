@@ -1,80 +1,63 @@
-"""沙箱执行模块
+"""Subprocess helpers for task scripts.
 
-功能：
-1. 在受限环境中执行评估器
-2. 限制执行时间和内存
-3. 捕获异常并返回结构化结果
+This is process isolation with a timeout, not an OS-level security sandbox.
 """
 
+from __future__ import annotations
+
 import subprocess
-import time
-import json
 import sys
+import time
 from pathlib import Path
 
 
-def run_evaluation(timeout: int = 300) -> dict:
-    """在沙箱中运行评估
-
-    Args:
-        timeout: 超时时间（秒）
-
-    Returns:
-        dict: {
-            "score": float or None,
-            "duration": float,
-            "success": bool,
-            "error": str or None
-        }
-    """
-    project_root = Path(__file__).parent.parent
-    evaluate_script = project_root / "harness" / "evaluate.py"
-
+def run_python_script(
+    script: Path,
+    args: list[str] | None = None,
+    cwd: Path | None = None,
+    timeout: int = 600,
+) -> dict:
+    """Run a project Python script using the current interpreter."""
+    script = Path(script).resolve()
+    command = [sys.executable, str(script), *(args or [])]
     start_time = time.time()
 
     try:
-        # 使用 subprocess 执行评估器
-        # macOS 上 resource.setrlimit 对内存限制支持有限，暂时只用超时
         proc = subprocess.Popen(
-            [sys.executable, str(evaluate_script)],
+            command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
-            cwd=str(project_root)
+            cwd=str(cwd or script.parent),
         )
-
         try:
             stdout, stderr = proc.communicate(timeout=timeout)
-            duration = time.time() - start_time
-
-            if proc.returncode != 0:
-                return {
-                    "score": None,
-                    "duration": duration,
-                    "success": False,
-                    "error": f"评估器退出异常 (退出码 {proc.returncode}): {stderr}"
-                }
-
-            # 解析 JSON 输出
-            result = json.loads(stdout)
-            result["duration"] = duration
-            return result
-
         except subprocess.TimeoutExpired:
             proc.kill()
-            proc.communicate()
+            stdout, stderr = proc.communicate()
             return {
-                "score": None,
-                "duration": timeout,
+                "returncode": None,
+                "duration": time.time() - start_time,
                 "success": False,
-                "error": f"执行超时（超过 {timeout} 秒）"
+                "stdout": stdout,
+                "stderr": stderr,
+                "error": f"执行超时（超过 {timeout} 秒）",
             }
 
-    except Exception as e:
-        duration = time.time() - start_time
         return {
-            "score": None,
-            "duration": duration,
+            "returncode": proc.returncode,
+            "duration": time.time() - start_time,
+            "success": proc.returncode == 0,
+            "stdout": stdout,
+            "stderr": stderr,
+            "error": None if proc.returncode == 0 else stderr.strip(),
+        }
+    except Exception as exc:
+        return {
+            "returncode": None,
+            "duration": time.time() - start_time,
             "success": False,
-            "error": f"沙箱执行失败: {str(e)}"
+            "stdout": "",
+            "stderr": "",
+            "error": f"脚本启动失败: {exc}",
         }

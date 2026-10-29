@@ -12,6 +12,9 @@ from sklearn.metrics import balanced_accuracy_score, f1_score
 
 from model import build_model, CLASS_NAMES
 
+# Agent 可修改的配置文件
+import model_config
+
 
 def set_seed(seed=42):
     random.seed(seed)
@@ -222,9 +225,10 @@ def main():
         help="单条记录 NPZ，按时间切分 train/val（仅用于管线验证）",
     )
     parser.add_argument("--val-ratio", type=float, default=0.2)
-    parser.add_argument("--epochs", type=int, default=20)
-    parser.add_argument("--batch-size", type=int, default=32)
-    parser.add_argument("--lr", type=float, default=1e-3)
+    # None means "use model_config.py". Explicit CLI values still win.
+    parser.add_argument("--epochs", type=int)
+    parser.add_argument("--batch-size", type=int)
+    parser.add_argument("--lr", type=float)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
     parser.add_argument("--smoke-test", action="store_true")
@@ -235,8 +239,10 @@ def main():
     )
     args = parser.parse_args()
 
-    if args.epochs < 1 or args.batch_size < 1:
-        parser.error("epochs 和 batch-size 必须为正整数")
+    if args.epochs is not None and args.epochs < 1:
+        parser.error("epochs 必须为正整数")
+    if args.batch_size is not None and args.batch_size < 1:
+        parser.error("batch-size 必须为正整数")
 
     if not args.smoke_test and args.data_file is None and (
         args.train_dir is None or args.val_dir is None
@@ -252,43 +258,76 @@ def main():
     if args.smoke_test:
         print("模式：模拟数据训练测试")
         train_dataset, val_dataset = make_smoke_test_data()
-        epochs = 1
     elif args.data_file is not None:
         print("模式：单条记录管线验证（按时间切分）")
         train_dataset, val_dataset = load_single_record_time_split(
             args.data_file, args.val_ratio
         )
-        epochs = args.epochs
     else:
         print("模式：真实数据训练")
         train_dataset = load_npz_directory(args.train_dir)
         val_dataset = load_npz_directory(args.val_dir)
-        epochs = args.epochs
+
+    # 读取 Agent 配置的超参数
+    batch_size = model_config.BATCH_SIZE
+    learning_rate = model_config.LEARNING_RATE
+    num_epochs = model_config.NUM_EPOCHS
+    patience = model_config.PATIENCE
+    weight_decay = model_config.WEIGHT_DECAY
+
+    # 命令行参数可覆盖配置文件
+    if args.batch_size is not None:
+        batch_size = args.batch_size
+    if args.epochs is not None:
+        num_epochs = args.epochs
+    if args.lr is not None:
+        learning_rate = args.lr
+
+    if args.smoke_test:
+        num_epochs = 1
+    if not isinstance(batch_size, int) or batch_size < 1:
+        parser.error("model_config.BATCH_SIZE 必须是正整数")
+    if not isinstance(num_epochs, int) or num_epochs < 1:
+        parser.error("model_config.NUM_EPOCHS 必须是正整数")
+    if not isinstance(patience, int) or patience < 1:
+        parser.error("model_config.PATIENCE 必须是正整数")
 
     train_loader = DataLoader(
         train_dataset,
-        batch_size=args.batch_size,
+        batch_size=batch_size,
         shuffle=True,
         num_workers=0,
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=args.batch_size,
+        batch_size=batch_size,
         shuffle=False,
         num_workers=0,
     )
 
-    model = build_model(seed=args.seed).to(device)
+    model = build_model(
+        lstm_hidden_size=model_config.LSTM_HIDDEN_SIZE,
+        dropout=model_config.DROPOUT,
+        seed=args.seed
+    ).to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = torch.optim.Adam(
+        model.parameters(),
+        lr=learning_rate,
+        weight_decay=weight_decay
+    )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     log_path = args.output_dir / "metrics.jsonl"
     checkpoint_path = args.output_dir / "best_model.pt"
+    with log_path.open("w", encoding="utf-8"):
+        pass
 
-    best_score = -1.0
+    print(f"开始训练 ({num_epochs} epochs)...")
+    best_score = float("-inf")
+    no_improve_count = 0
 
-    for epoch in range(1, epochs + 1):
+    for epoch in range(1, num_epochs + 1):
         train_loss = run_training_epoch(
             model, train_loader, criterion, optimizer, device
         )
@@ -306,7 +345,7 @@ def main():
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
         print(
-            f"Epoch {epoch}/{epochs} | "
+            f"Epoch {epoch}/{num_epochs} | "
             f"train_loss={train_loss:.4f} | "
             f"val_loss={metrics['val_loss']:.4f} | "
             f"balanced_accuracy={metrics['balanced_accuracy']:.4f} | "
@@ -316,6 +355,7 @@ def main():
         # 只根据验证集 Balanced Accuracy 保存最佳模型
         if metrics["balanced_accuracy"] > best_score:
             best_score = metrics["balanced_accuracy"]
+            no_improve_count = 0
             torch.save(
                 {
                     "epoch": epoch,
@@ -323,9 +363,20 @@ def main():
                     "optimizer_state_dict": optimizer.state_dict(),
                     "metrics": record,
                     "class_names": CLASS_NAMES,
+                    "model_config": {
+                        "lstm_hidden_size": model_config.LSTM_HIDDEN_SIZE,
+                        "dropout": model_config.DROPOUT,
+                    },
                 },
                 checkpoint_path,
             )
+        else:
+            no_improve_count += 1
+            if no_improve_count >= patience:
+                print(
+                    f"早停：Balanced Accuracy 连续 {patience} 个 epoch 未改善"
+                )
+                break
 
     print("\n训练流程结束。")
     print("日志文件:", log_path)

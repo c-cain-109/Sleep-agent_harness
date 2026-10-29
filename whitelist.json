@@ -1,7 +1,6 @@
 {
   "allowed_files": [
-    "tasks/test_task/model.py",
-    "tasks/test_task/config.yaml"
+    "tasks/sleep_edf/model_config.py"
   ],
-  "description": "Phase 1 仅允许修改模型参数和配置文件"
+  "description": "最终睡眠分期任务只允许 Agent 修改该配置文件"
 }

@@ -31,14 +31,14 @@ def get_changed_files() -> List[str]:
         list: 修改的文件路径列表
     """
     result = subprocess.run(
-        ["git", "diff", "--name-only", "HEAD"],
+        ["git", "status", "--porcelain", "--"],
         capture_output=True,
         text=True,
         check=True
     )
 
-    changed_files = result.stdout.strip().split('\n')
-    return [f for f in changed_files if f]  # 过滤空字符串
+    # ``git status`` also reports untracked files, unlike ``git diff``.
+    return [line[3:] for line in result.stdout.splitlines() if len(line) > 3]
 
 
 def validate_changes(whitelist: Dict) -> tuple[bool, List[str]]:

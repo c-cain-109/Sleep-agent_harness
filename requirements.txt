@@ -1,6 +1,8 @@
 python-dotenv
 requests
 torch
+# Official PyTorch TinySleepNet implementation used by this project.
+# Source: https://github.com/MedMaxLab/selfEEG/tree/v0.2.2
 selfeeg==0.2.2
 mne
 pyEDFlib

@@ -1,189 +1,203 @@
-"""Sleep-Harness Phase 1: 玩具任务主控循环
+"""Sleep staging self-improvement loop.
 
-流程：
-1. 初始化：加载白名单，获取基线分数
-2. 循环 10 轮：
-   - 提示用户修改 test_task/model.py
-   - 白名单验证 → 沙箱评估 → accept/rollback 决策
-   - 记录 JSONL 日志
+The loop proposes one hyperparameter configuration, evaluates it on the fixed
+validation split, and keeps only configurations that improve the primary metric.
 """
 
-from dotenv import load_dotenv
-load_dotenv()
+from __future__ import annotations
 
+import argparse
 import json
 import time
 from pathlib import Path
-from datetime import datetime
 
-from harness.whitelist import load_whitelist, validate_changes
-from harness.sandbox import run_evaluation
-from harness.git_manager import accept_changes, rollback, get_last_commit_hash, get_changed_files
-from harness.agent import generate_strategy
+from dotenv import load_dotenv
 
 
-def init_logs():
-    """初始化日志目录"""
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
-    return log_dir / "run_history.jsonl"
+PROJECT_ROOT = Path(__file__).resolve().parent
+TASK_DIR = PROJECT_ROOT / "tasks" / "sleep_edf"
+CONFIG_FILE = TASK_DIR / "model_config.py"
+DATA_FILE = TASK_DIR / "data" / "prepared" / "SC4001E0.npz"
+RUN_HISTORY = PROJECT_ROOT / "logs" / "sleep_run_history.jsonl"
+
+load_dotenv(PROJECT_ROOT / ".env")
+
+from harness.agent import generate_sleep_strategy
+from harness.git_manager import GitManager
+from harness.sandbox import run_python_script
 
 
-def log_round(log_file: Path, round_num: int, score: float, action: str, duration: float, commit_hash: str = None, error: str = None):
-    """记录一轮评估结果"""
-    entry = {
-        "timestamp": datetime.now().isoformat(),
-        "round": round_num,
-        "score": score,
-        "action": action,
-        "duration": duration,
-        "commit_hash": commit_hash,
-        "error": error
+def write_config(config_file: Path, hyperparams: dict) -> None:
+    """Write the validated hyperparameter surface consumed by train.py."""
+    content = f'''"""TinySleepNet hyperparameters managed by the sleep harness."""
+
+LEARNING_RATE = {hyperparams.get("learning_rate", 0.0001)}
+BATCH_SIZE = {hyperparams.get("batch_size", 32)}
+NUM_EPOCHS = {hyperparams.get("num_epochs", 5)}
+PATIENCE = {hyperparams.get("patience", 3)}
+
+LSTM_HIDDEN_SIZE = {hyperparams.get("lstm_hidden_size", 128)}
+DROPOUT = {hyperparams.get("dropout", 0.5)}
+WEIGHT_DECAY = {hyperparams.get("weight_decay", 0.0001)}
+
+INPUT_SIZE = 3000
+NUM_CLASSES = 5
+'''
+    config_file.write_text(content, encoding="utf-8")
+
+
+def run_experiment(
+    output_dir: Path,
+    timeout_seconds: int = 900,
+) -> dict:
+    """Train once and evaluate the saved best checkpoint."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    checkpoint = output_dir / "best_model.pt"
+    evaluation_file = output_dir / "evaluation.json"
+
+    train = run_python_script(
+        TASK_DIR / "train.py",
+        [
+            "--data-file",
+            str(DATA_FILE),
+            "--output-dir",
+            str(output_dir),
+            "--seed",
+            "42",
+        ],
+        cwd=TASK_DIR,
+        timeout=timeout_seconds,
+    )
+    print(train["stdout"], end="")
+    if not train["success"]:
+        raise RuntimeError(f"训练失败: {train['error']}")
+
+    evaluation = run_python_script(
+        PROJECT_ROOT / "harness" / "evaluate.py",
+        [
+            "--checkpoint",
+            str(checkpoint),
+            "--data-file",
+            str(DATA_FILE),
+            "--output",
+            str(evaluation_file),
+        ],
+        cwd=PROJECT_ROOT,
+        timeout=300,
+    )
+    if not evaluation["success"]:
+        raise RuntimeError(f"评估失败: {evaluation['error']}")
+
+    result = json.loads(evaluation_file.read_text(encoding="utf-8"))
+    return {
+        "balanced_accuracy": result["balanced_accuracy"],
+        "macro_f1": result["macro_f1"],
+        "val_loss": result["val_loss"],
+        "checkpoint_epoch": result["checkpoint_epoch"],
     }
 
-    with open(log_file, 'a', encoding='utf-8') as f:
-        f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+
+def is_better(new: dict, best: dict) -> bool:
+    """Lexicographic metric comparison: BalAcc, Macro-F1, then loss."""
+    return (
+        new["balanced_accuracy"] > best["balanced_accuracy"]
+        or (
+            new["balanced_accuracy"] == best["balanced_accuracy"]
+            and new["macro_f1"] > best["macro_f1"]
+        )
+        or (
+            new["balanced_accuracy"] == best["balanced_accuracy"]
+            and new["macro_f1"] == best["macro_f1"]
+            and new["val_loss"] < best["val_loss"]
+        )
+    )
 
 
-def main():
-    print("=" * 60)
-    print("Sleep-Harness Phase 1: 玩具任务验证")
-    print("=" * 60)
+def append_history(entry: dict) -> None:
+    RUN_HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    with RUN_HISTORY.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    # 初始化
-    project_root = Path(__file__).parent
-    whitelist_path = project_root / "whitelist.json"
-    log_file = init_logs()
 
-    whitelist = load_whitelist(whitelist_path)
-    print(f"\n✅ 白名单已加载，允许修改文件:")
-    for file in whitelist["allowed_files"]:
-        print(f"   - {file}")
+def main_loop(max_rounds: int) -> None:
+    print("=" * 70)
+    print("Sleep staging self-improvement")
+    print("=" * 70)
 
-    # 获取基线分数（第 0 轮）
-    print("\n🎯 第 0 轮: 获取基线分数...")
-    baseline_result = run_evaluation()
+    config_before_round = CONFIG_FILE.read_text(encoding="utf-8")
+    initial_metrics = run_experiment(TASK_DIR / "outputs" / "round_0_initial")
+    best_metrics = initial_metrics.copy()
+    current_metrics = initial_metrics.copy()
+    best_round = 0
+    append_history({"round": 0, "action": "init", **initial_metrics})
 
-    if not baseline_result["success"]:
-        print(f"❌ 基线评估失败: {baseline_result['error']}")
-        return
+    git = GitManager(PROJECT_ROOT)
+    config_relative = str(CONFIG_FILE.relative_to(PROJECT_ROOT))
 
-    baseline_score = baseline_result["score"]
-    print(f"   基线 MSE: {baseline_score:.6f}")
-    log_round(log_file, 0, baseline_score, "baseline", baseline_result["duration"])
-
-    best_score = baseline_score
-
-    # Phase 2: 读取当前参数
-    model_file = project_root / "tasks" / "test_task" / "model.py"
-
-    def get_current_params():
-        """从 model.py 提取当前参数"""
-        with open(model_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-        # 简单正则提取 a, b, c = ...
-        import re
-        match = re.search(r'a,\s*b,\s*c\s*=\s*([\d.-]+)\s*,\s*([\d.-]+)\s*,\s*([\d.-]+)', content)
-        if match:
-            return {
-                "a": float(match.group(1)),
-                "b": float(match.group(2)),
-                "c": float(match.group(3))
-            }
-        return {"a": 1.0, "b": 1.0, "c": 1.0}  # fallback
-
-    # 主循环：10 轮
-    for round_num in range(1, 11):
-        print(f"\n{'=' * 60}")
-        print(f"第 {round_num}/10 轮")
-        print(f"{'=' * 60}")
-        print(f"当前最佳 MSE: {best_score:.6f}")
-
-        # Phase 2: 调用 LLM Agent 生成策略
-        current_params = get_current_params()
-        print(f"\n🤖 正在调用 Claude API 生成优化策略...")
-        print(f"   当前参数: a={current_params['a']}, b={current_params['b']}, c={current_params['c']}")
-
+    for round_num in range(1, max_rounds + 1):
+        print(f"\nRound {round_num}/{max_rounds}")
+        config_before_round = CONFIG_FILE.read_text(encoding="utf-8")
         try:
-            strategy = generate_strategy(
-                current_params=current_params,
-                current_score=best_score,
-                best_score=best_score,
+            proposal = generate_sleep_strategy(
+                current_metrics=current_metrics,
+                best_metrics=best_metrics,
                 round_num=round_num,
-                target_function="2.5*x² - 3.0*x + 1.5",
-                project_root=project_root
+                project_root=PROJECT_ROOT,
+            )
+            write_config(CONFIG_FILE, proposal)
+
+            config_after_round = CONFIG_FILE.read_text(encoding="utf-8")
+            if config_after_round == config_before_round:
+                print("[SKIP] Agent 没有产生配置变化")
+                continue
+
+            new_metrics = run_experiment(TASK_DIR / "outputs" / f"round_{round_num}")
+            action = "accept" if is_better(new_metrics, best_metrics) else "rollback"
+
+            if action == "accept":
+                git.commit_changes(
+                    f"[Round {round_num}] accept sleep config\n\n"
+                    f"Balanced Accuracy: {new_metrics['balanced_accuracy']:.6f}\n"
+                    f"Reasoning: {proposal.get('reasoning', '')}",
+                    paths=[config_relative],
+                )
+                best_metrics = new_metrics.copy()
+                best_round = round_num
+            else:
+                CONFIG_FILE.write_text(config_before_round, encoding="utf-8")
+
+            current_metrics = new_metrics.copy()
+            append_history(
+                {
+                    "round": round_num,
+                    "action": action,
+                    **new_metrics,
+                    "proposal": proposal,
+                }
+            )
+        except KeyboardInterrupt:
+            print("用户中断")
+            CONFIG_FILE.write_text(config_before_round, encoding="utf-8")
+            break
+        except Exception as exc:
+            CONFIG_FILE.write_text(config_before_round, encoding="utf-8")
+            print(f"[ERROR] Round {round_num}: {exc}")
+            append_history(
+                {"round": round_num, "action": "error", "error": str(exc)}
             )
 
-            # 由 main.py 负责写文件（agent.py 只返回策略）
-            a, b, c = strategy["a"], strategy["b"], strategy["c"]
-            modified = strategy["modified_param"]
+        if round_num < max_rounds:
+            time.sleep(2)
 
-            new_content = f"""def model_function(x):
-    \"\"\"待优化的模型函数\"\"\"
-    a, b, c = {a}, {b}, {c}  # Agent 自动优化
-    return a * x**2 + b * x + c
-"""
-            with open(model_file, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-
-            print(f"✏️  Agent 建议: a={a}, b={b}, c={c} (修改了 {modified})")
-            print(f"   推理: {strategy['reasoning']}")
-
-        except Exception as e:
-            print(f"❌ Agent 调用失败: {e}")
-            log_round(log_file, round_num, None, "error", 0, error=f"agent_error: {e}")
-            continue
-
-        # 等待文件写入完成
-        time.sleep(0.1)
-
-        # 白名单验证
-        is_valid, illegal_files = validate_changes(whitelist)
-        if not is_valid:
-            print(f"❌ 白名单验证失败！非法修改文件:")
-            for file in illegal_files:
-                print(f"   - {file}")
-            log_round(log_file, round_num, None, "reject", 0, error="whitelist_violation")
-            print("   已拒绝评估，请撤销非法修改")
-            continue
-
-        print("✅ 白名单验证通过")
-
-        # 沙箱评估
-        print("🔍 正在评估...")
-        result = run_evaluation()
-
-        if not result["success"]:
-            print(f"❌ 评估失败: {result['error']}")
-            log_round(log_file, round_num, None, "error", result["duration"], error=result["error"])
-            continue
-
-        score = result["score"]
-        print(f"   MSE: {score:.6f} (用时 {result['duration']:.2f}s)")
-
-        # Accept/Rollback 决策
-        if score < best_score:
-            print(f"✅ 性能提升！({best_score:.6f} → {score:.6f})")
-            commit_msg = f"Round {round_num}: 优化参数，MSE={score:.6f}"
-            accept_changes(commit_msg)
-            commit_hash = get_last_commit_hash()
-            log_round(log_file, round_num, score, "accept", result["duration"], commit_hash)
-            best_score = score
-        else:
-            print(f"⚠️  性能未提升 ({score:.6f} >= {best_score:.6f})")
-            rollback()
-            log_round(log_file, round_num, score, "rollback", result["duration"])
-
-    # 总结
-    print(f"\n{'=' * 60}")
-    print("🎉 Phase 1 验证完成！")
-    print(f"{'=' * 60}")
-    print(f"初始 MSE: {baseline_score:.6f}")
-    print(f"最终 MSE: {best_score:.6f}")
-    print(f"改进幅度: {((baseline_score - best_score) / baseline_score * 100):.2f}%")
-    print(f"\n📊 日志文件: {log_file}")
-    print(f"📜 Git 历史: git log --oneline")
+    print("\nBest round:", best_round)
+    print(json.dumps(best_metrics, ensure_ascii=False, indent=2))
+    print("History:", RUN_HISTORY)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Run the sleep staging optimization loop")
+    parser.add_argument("--rounds", type=int, default=10)
+    args = parser.parse_args()
+    if args.rounds < 1:
+        parser.error("--rounds must be positive")
+    main_loop(args.rounds)

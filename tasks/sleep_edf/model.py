@@ -8,12 +8,25 @@ import selfeeg.models as models
 CLASS_NAMES = ("W", "N1", "N2", "N3", "REM")
 
 
-def build_model(seed: int = 42) -> nn.Module:
-    """创建单通道、100 Hz、五分类的 TinySleepNet。"""
+def build_model(
+    seed: int = 42,
+    lstm_hidden_size: int = 128,
+    dropout: float = 0.5,
+) -> nn.Module:
+    """创建 MedMaxLab/selfEEG v0.2.2 官方 TinySleepNet。
+
+    selfeeg 的 TinySleepNet 用 ``hidden_lstm`` 和 ``dropRate`` 命名这两个参数。
+    在这里统一转换成项目自己的配置名，避免训练脚本依赖第三方参数名称。
+
+    上游实现：
+    https://github.com/MedMaxLab/selfEEG/blob/v0.2.2/selfeeg/models/zoo.py
+    """
     return models.TinySleepNet(
         nb_classes=len(CLASS_NAMES),
         Chans=1,
         Fs=100,
+        hidden_lstm=lstm_hidden_size,
+        dropRate=dropout,
         return_logits=True,
         seed=seed,
     )

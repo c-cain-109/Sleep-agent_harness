@@ -1,96 +1,151 @@
-"""评估器模块 - 防篡改核心
+"""Evaluate a saved TinySleepNet checkpoint on the validation split."""
 
-功能：
-1. SHA256 哈希验证自身完整性
-2. 计算模型函数与目标函数的 MSE
-3. 返回评估分数
-"""
+from __future__ import annotations
 
-import hashlib
+import argparse
+import json
 import sys
 from pathlib import Path
+from typing import Any
 
-# 期望哈希值（首次运行后手动填入）
-EXPECTED_HASH = "c8875574273b289f9ef6554a74a1ddce99c3703e68b274c2f83d77d1f357d611"
-
-
-class SecurityError(Exception):
-    """安全验证失败"""
-    pass
+import numpy as np
 
 
-def verify_integrity():
-    """验证评估器自身完整性"""
-    # 读取文件内容，排除 EXPECTED_HASH 行来计算哈希
-    with open(__file__, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+TASK_DIR = PROJECT_ROOT / "tasks" / "sleep_edf"
+if str(TASK_DIR) not in sys.path:
+    sys.path.insert(0, str(TASK_DIR))
 
-    # 过滤掉包含 EXPECTED_HASH 的行
-    filtered_lines = [line for line in lines if 'EXPECTED_HASH = ' not in line]
-    filtered_content = ''.join(filtered_lines).encode('utf-8')
+import torch
+from sklearn.metrics import balanced_accuracy_score, confusion_matrix, f1_score
+from torch import nn
+from torch.utils.data import DataLoader, TensorDataset
 
-    actual_hash = hashlib.sha256(filtered_content).hexdigest()
-
-    if not EXPECTED_HASH:
-        # 首次运行，生成哈希值
-        print(f"首次运行，请将以下哈希值复制到 EXPECTED_HASH 常量:")
-        print(f'EXPECTED_HASH = "{actual_hash}"')
-        sys.exit(0)
-
-    if actual_hash != EXPECTED_HASH:
-        raise SecurityError(f"评估器已被篡改! 期望: {EXPECTED_HASH}, 实际: {actual_hash}")
+from model import CLASS_NAMES, build_model
 
 
-def evaluate():
-    """评估模型函数性能
+def load_validation_split(data_file: Path, val_ratio: float = 0.2) -> TensorDataset:
+    """Load the same chronological split used by ``train.py``."""
+    with np.load(data_file, allow_pickle=False) as data:
+        required = ("x", "y", "epoch_index")
+        missing = [key for key in required if key not in data]
+        if missing:
+            raise ValueError(f"{data_file.name} 缺少字段: {missing}")
+        x = np.asarray(data["x"], dtype=np.float32)
+        y = np.asarray(data["y"], dtype=np.int64).reshape(-1)
+        epoch_index = np.asarray(data["epoch_index"])
 
-    返回:
-        dict: {"score": float, "success": bool, "error": str or None}
-    """
-    try:
-        # 验证自身完整性
-        verify_integrity()
+    if x.ndim != 2 or x.shape[1] != 3000:
+        raise ValueError(f"x 形状应为 (N, 3000)，实际为 {x.shape}")
+    if len(x) != len(y):
+        raise ValueError("x 和 y 的样本数不一致")
+    if not np.isfinite(x).all():
+        raise ValueError("x 包含 NaN 或 Inf")
+    if not np.isin(y, [0, 1, 2, 3, 4]).all():
+        raise ValueError("y 包含 0-4 之外的标签")
+    if not (np.diff(epoch_index) > 0).all():
+        raise ValueError("epoch_index 不是严格递增，无法复现时间切分")
 
-        # 导入模型和目标函数
-        sys.path.insert(0, str(Path(__file__).parent.parent))
-        from tasks.test_task.model import model_function
-        from tasks.test_task.target_function import target_function
+    n_val = int(round(len(y) * val_ratio))
+    if n_val < 1 or n_val >= len(y):
+        raise ValueError("val_ratio 无法产生非空训练集和验证集")
+    val_x = x[len(y) - n_val :, None, :]
+    val_y = y[len(y) - n_val :]
+    return TensorDataset(torch.from_numpy(val_x), torch.from_numpy(val_y))
 
-        # 生成测试点 x ∈ [-10, 10]
-        import numpy as np
-        x_values = np.linspace(-10, 10, 100)
 
-        # 计算 MSE
-        errors = []
-        for x in x_values:
-            model_y = model_function(x)
-            target_y = target_function(x)
-            errors.append((model_y - target_y) ** 2)
+def evaluate_checkpoint(
+    checkpoint_path: Path,
+    data_file: Path,
+    val_ratio: float = 0.2,
+    batch_size: int = 32,
+    device_name: str = "cpu",
+) -> dict[str, Any]:
+    """Load the best checkpoint and return validation metrics."""
+    device = torch.device(device_name)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    config = checkpoint.get("model_config", {})
+    model = build_model(
+        seed=42,
+        lstm_hidden_size=int(config.get("lstm_hidden_size", 128)),
+        dropout=float(config.get("dropout", 0.5)),
+    ).to(device)
+    model.load_state_dict(checkpoint["model_state_dict"])
+    model.eval()
 
-        mse = sum(errors) / len(errors)
+    dataset = load_validation_split(data_file, val_ratio)
+    loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+    criterion = nn.CrossEntropyLoss()
 
-        return {
-            "score": mse,
-            "success": True,
-            "error": None
-        }
+    total_loss = 0.0
+    total_samples = 0
+    all_predictions: list[int] = []
+    all_labels: list[int] = []
 
-    except SecurityError as e:
-        return {
-            "score": None,
-            "success": False,
-            "error": f"安全验证失败: {str(e)}"
-        }
+    with torch.no_grad():
+        for x, y in loader:
+            x = x.to(device)
+            y = y.to(device)
+            logits = model(x)
+            loss = criterion(logits, y)
+            predictions = logits.argmax(dim=1)
+            total_loss += float(loss.item()) * len(y)
+            total_samples += len(y)
+            all_predictions.extend(predictions.cpu().tolist())
+            all_labels.extend(y.cpu().tolist())
 
-    except Exception as e:
-        return {
-            "score": None,
-            "success": False,
-            "error": f"评估失败: {str(e)}"
-        }
+    y_true = np.asarray(all_labels)
+    y_pred = np.asarray(all_predictions)
+    labels = list(range(len(CLASS_NAMES)))
+    matrix = confusion_matrix(y_true, y_pred, labels=labels)
+
+    return {
+        "checkpoint_epoch": int(checkpoint.get("epoch", -1)),
+        "n_samples": int(total_samples),
+        "val_loss": total_loss / max(1, total_samples),
+        "balanced_accuracy": float(balanced_accuracy_score(y_true, y_pred)),
+        "macro_f1": float(
+            f1_score(
+                y_true,
+                y_pred,
+                labels=labels,
+                average="macro",
+                zero_division=0,
+            )
+        ),
+        "class_names": list(CLASS_NAMES),
+        "confusion_matrix": matrix.tolist(),
+        "label_counts": {
+            name: int((y_true == index).sum())
+            for index, name in enumerate(CLASS_NAMES)
+        },
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument("--data-file", type=Path, required=True)
+    parser.add_argument("--val-ratio", type=float, default=0.2)
+    parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+
+    result = evaluate_checkpoint(
+        checkpoint_path=args.checkpoint,
+        data_file=args.data_file,
+        val_ratio=args.val_ratio,
+        batch_size=args.batch_size,
+        device_name=args.device,
+    )
+    text = json.dumps(result, ensure_ascii=False, indent=2)
+    print(text)
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(text + "\n", encoding="utf-8")
+    return 0
 
 
 if __name__ == "__main__":
-    import json
-    result = evaluate()
-    print(json.dumps(result, ensure_ascii=False))
+    raise SystemExit(main())
