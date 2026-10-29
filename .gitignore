@@ -12,3 +12,5 @@ build/
 .env
 .DS_Store
 outputs/
+.idea/
+.vscode/
