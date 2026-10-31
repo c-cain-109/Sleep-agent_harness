@@ -189,7 +189,7 @@ def generate_sleep_strategy(
         raise ValueError("未设置 ANTHROPIC_API_KEY 环境变量")
 
     # 加载历史
-    log_file = project_root / "logs" / "run_history.jsonl"
+    log_file = project_root / "logs" / "sleep_run_history.jsonl"
     history = _load_history(log_file, last_n=3)
 
     strategy_doc_file = project_root / "strategy.md"

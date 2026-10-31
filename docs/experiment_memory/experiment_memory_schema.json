@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sleep-harness-run-record.schema.json",
+  "title": "Sleep-Harness Experiment Run Record",
+  "description": "建议的追加式 run_history.jsonl 单行记录格式。正式集成前需与现有日志格式兼容，不要覆盖已有历史记录。",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "timestamp_utc",
+    "status",
+    "hypothesis",
+    "changed_files",
+    "code_commit",
+    "data_split_id",
+    "evaluator_hash",
+    "metrics",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "parent_run_id": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["completed", "failed", "timeout", "rejected"]},
+    "hypothesis": {"type": "string"},
+    "changed_files": {"type": "array", "items": {"type": "string"}},
+    "code_commit": {"type": ["string", "null"]},
+    "config_hash": {"type": ["string", "null"]},
+    "data_split_id": {"type": ["string", "null"]},
+    "evaluator_hash": {"type": ["string", "null"]},
+    "seed": {"type": ["integer", "null"]},
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "train_loss": {"type": ["number", "null"]},
+        "val_loss": {"type": ["number", "null"]},
+        "balanced_accuracy": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "macro_f1": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "per_class_f1": {"type": "object", "additionalProperties": {"type": ["number", "null"]}}
+      },
+      "additionalProperties": true
+    },
+    "decision": {"type": "string", "enum": ["accept", "rollback", "no_change", "not_evaluated"]},
+    "failure_reason": {"type": ["string", "null"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}
