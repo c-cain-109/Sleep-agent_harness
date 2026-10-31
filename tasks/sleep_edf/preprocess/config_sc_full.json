@@ -1,0 +1,31 @@
+
+{
+  "input_dir": "./tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data",
+  "output_dir": "./tasks/sleep_edf/data/processed/sleep-edf-sc-full",
+
+  "channel": "EEG Fpz-Cz",
+  "target_fs": 100,
+  "epoch_duration": 30,
+
+  "reader": "auto",
+
+  "make_split": true,
+  "split_seed": 42,
+  "split_ratios": {
+    "train": 0.70,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "subject_id_regex": "^(SC4\\d{2})",
+
+  "trim_edge_wake": true,
+  "edge_wake_epochs": 60,
+
+  "on_annotation_gap": "drop",
+  "on_stage_conflict": "error",
+  "drop_nonfinite_epochs": true,
+
+  "overwrite": false,
+  "strict": false,
+  "log_level": "INFO"
+}
