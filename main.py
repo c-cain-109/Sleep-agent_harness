@@ -80,8 +80,10 @@ def run_experiment(
         [
             "--checkpoint",
             str(checkpoint),
-            "--data-file",
+            "--data-dir",
             str(DATA_DIR),
+            "--split-file",
+            str(SPLIT_FILE),
             "--output",
             str(evaluation_file),
         ],

@@ -21,6 +21,12 @@ from sklearn.metrics import balanced_accuracy_score, confusion_matrix, f1_score
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
+# 确保直接运行 evaluate.py 时也能找到项目根目录
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from tasks.sleep_edf.model import CLASS_NAMES, build_model
 from tasks.sleep_edf.data_loader import load_subject_split
 
