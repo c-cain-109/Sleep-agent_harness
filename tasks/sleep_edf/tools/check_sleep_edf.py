@@ -3,9 +3,11 @@ from pathlib import Path
 
 import mne
 
-# 以当前脚本所在目录为基准，避免工作目录不同导致找不到文件
+# 定位到 tasks/sleep_edf 目录
+TASK_DIR = Path(__file__).resolve().parents[1]
+
 data_dir = (
-    Path(__file__).resolve().parent
+    TASK_DIR
     / "data"
     / "raw"
     / "sleep-edf"

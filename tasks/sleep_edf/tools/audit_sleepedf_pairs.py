@@ -2,9 +2,14 @@
 from pathlib import Path
 from collections import defaultdict
 
+TASK_DIR = Path(__file__).resolve().parents[1]
+
 DATA_DIR = (
-    Path(__file__).resolve().parent
-    / "data/raw/sleep-edf/physionet-sleep-data"
+    TASK_DIR
+    / "data"
+    / "raw"
+    / "sleep-edf"
+    / "physionet-sleep-data"
 )
 
 psg_files = list(DATA_DIR.glob("*-PSG.edf"))

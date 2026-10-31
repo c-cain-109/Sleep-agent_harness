@@ -4,8 +4,8 @@ import json
 import re
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent
-DATA_DIR = ROOT / "data/processed/sleep-edf-sc-full"
+TASK_DIR = Path(__file__).resolve().parents[1]
+DATA_DIR = TASK_DIR / "data" / "processed" / "sleep-edf-sc-full"
 
 split = json.loads(
     (DATA_DIR / "subject_split.json").read_text(encoding="utf-8")
