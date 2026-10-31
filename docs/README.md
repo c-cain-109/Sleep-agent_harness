@@ -31,9 +31,9 @@
 
 | 文件 | 内容 | 使用说明 |
 |---|---|---|
-| [phase2_plan.md](phase2_plan.md) | Phase 2 接入 Sleep-EDF 的初期计划 | 历史设计参考 |
-| [phase3_guide.md](phase3_guide.md) | 睡眠分期自动调参运行说明 | 早期运行指南，部分路径和参数可能已经过时 |
-| [progress_history.md](progress_history.md) | Phase 1 至 Phase 2 的开发过程 | 历史记录 |
+| [Phase 2 初期计划](archive/phase2_plan.md) | Phase 2 接入 Sleep-EDF 的初期计划 | 历史设计参考 |
+| [Phase 3 旧版运行指南](archive/phase3_guide_legacy.md) | 睡眠分期自动调参运行说明 | 早期运行指南，部分路径和参数可能已经过时 |
+| [项目历史进展](archive/progress_history.md) | Phase 1 至 Phase 2 的开发过程 | 历史记录 |
 
 ## 4. 文档维护约定
 
