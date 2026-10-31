@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from sklearn.metrics import balanced_accuracy_score, f1_score
 
 from model import build_model, CLASS_NAMES
+from data_loader import load_subject_split
 
 # Agent 可修改的配置文件
 import model_config
@@ -232,6 +233,10 @@ def main():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
     parser.add_argument("--smoke-test", action="store_true")
+    parser.add_argument("--data-dir", type=Path,
+                        help="所有预处理 NPZ 所在目录，与 --split-file 配合使用")
+    parser.add_argument("--split-file", type=Path,
+                        help="prepare_sleepedf 生成的 subject_split.json")
     parser.add_argument(
         "--output-dir",
         type=Path,
@@ -244,10 +249,21 @@ def main():
     if args.batch_size is not None and args.batch_size < 1:
         parser.error("batch-size 必须为正整数")
 
-    if not args.smoke_test and args.data_file is None and (
-        args.train_dir is None or args.val_dir is None
-    ):
-        parser.error("真实训练必须提供 --data-file，或同时提供 --train-dir 和 --val-dir")
+    # 三种互斥模式：模拟 smoke-test、单记录管线演示、正式 subject split。
+    if not args.smoke_test:
+        if args.data_file is not None:
+            if any((args.train_dir, args.val_dir, args.data_dir, args.split_file)):
+                parser.error("--data-file 不能与其他数据参数同时使用")
+        elif args.data_dir is not None or args.split_file is not None:
+            if args.data_dir is None or args.split_file is None:
+                parser.error("正式全量训练必须同时提供 --data-dir 和 --split-file")
+            if args.train_dir is not None or args.val_dir is not None:
+                parser.error("--data-dir/--split-file 不能与 --train-dir/--val-dir 混用")
+        elif args.train_dir is None or args.val_dir is None:
+            parser.error(
+                "真实训练请提供 --data-dir 与 --split-file，"
+                "或同时提供 --train-dir 和 --val-dir"
+            )
 
     if args.device == "mps" and not torch.backends.mps.is_available():
         parser.error("当前 PyTorch 环境无法使用 MPS，请改用 --device cpu")
@@ -259,12 +275,16 @@ def main():
         print("模式：模拟数据训练测试")
         train_dataset, val_dataset = make_smoke_test_data()
     elif args.data_file is not None:
-        print("模式：单条记录管线验证（按时间切分）")
+        print("模式：单条记录管线验证（按时间切分；不可用于泛化结论）")
         train_dataset, val_dataset = load_single_record_time_split(
             args.data_file, args.val_ratio
         )
+    elif args.data_dir is not None and args.split_file is not None:
+        print("模式：Sleep-EDF 全量数据的受试者级训练/验证")
+        train_dataset = load_subject_split(args.data_dir, args.split_file, "train")
+        val_dataset = load_subject_split(args.data_dir, args.split_file, "val")
     else:
-        print("模式：真实数据训练")
+        print("模式：显式 train-dir / val-dir")
         train_dataset = load_npz_directory(args.train_dir)
         val_dataset = load_npz_directory(args.val_dir)
 

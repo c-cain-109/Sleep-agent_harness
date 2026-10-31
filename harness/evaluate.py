@@ -21,7 +21,8 @@ from sklearn.metrics import balanced_accuracy_score, confusion_matrix, f1_score
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
-from model import CLASS_NAMES, build_model
+from tasks.sleep_edf.model import CLASS_NAMES, build_model
+from tasks.sleep_edf.data_loader import load_subject_split
 
 
 def load_validation_split(data_file: Path, val_ratio: float = 0.2) -> TensorDataset:
@@ -56,10 +57,12 @@ def load_validation_split(data_file: Path, val_ratio: float = 0.2) -> TensorData
 
 def evaluate_checkpoint(
     checkpoint_path: Path,
-    data_file: Path,
+    data_file: Path | None = None,
     val_ratio: float = 0.2,
     batch_size: int = 32,
     device_name: str = "cpu",
+    data_dir: Path | None = None,
+    split_file: Path | None = None,
 ) -> dict[str, Any]:
     """Load the best checkpoint and return validation metrics."""
     device = torch.device(device_name)
@@ -73,7 +76,14 @@ def evaluate_checkpoint(
     model.load_state_dict(checkpoint["model_state_dict"])
     model.eval()
 
-    dataset = load_validation_split(data_file, val_ratio)
+    if data_dir is not None or split_file is not None:
+        if data_dir is None or split_file is None or data_file is not None:
+            raise ValueError("全量评估必须同时提供 data_dir 和 split_file，且不能传 data_file")
+        dataset = load_subject_split(data_dir, split_file, "val")
+    elif data_file is not None:
+        dataset = load_validation_split(data_file, val_ratio)
+    else:
+        raise ValueError("必须提供 --data-file，或同时提供 --data-dir 和 --split-file")
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
     criterion = nn.CrossEntropyLoss()
 
@@ -125,12 +135,21 @@ def evaluate_checkpoint(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, required=True)
-    parser.add_argument("--data-file", type=Path, required=True)
+    parser.add_argument("--data-file", type=Path)
+    parser.add_argument("--data-dir", type=Path)
+    parser.add_argument("--split-file", type=Path)
     parser.add_argument("--val-ratio", type=float, default=0.2)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+
+    if args.data_file is not None and (args.data_dir is not None or args.split_file is not None):
+        parser.error("--data-file 不能与 --data-dir/--split-file 混用")
+    if (args.data_dir is None) != (args.split_file is None):
+        parser.error("--data-dir 和 --split-file 必须同时提供")
+    if args.data_file is None and args.data_dir is None:
+        parser.error("必须提供 --data-file，或同时提供 --data-dir 和 --split-file")
 
     result = evaluate_checkpoint(
         checkpoint_path=args.checkpoint,
@@ -138,6 +157,8 @@ def main() -> int:
         val_ratio=args.val_ratio,
         batch_size=args.batch_size,
         device_name=args.device,
+        data_dir=args.data_dir,
+        split_file=args.split_file,
     )
     text = json.dumps(result, ensure_ascii=False, indent=2)
     print(text)

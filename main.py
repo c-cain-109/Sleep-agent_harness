@@ -17,7 +17,8 @@ from dotenv import load_dotenv
 PROJECT_ROOT = Path(__file__).resolve().parent
 TASK_DIR = PROJECT_ROOT / "tasks" / "sleep_edf"
 CONFIG_FILE = TASK_DIR / "model_config.py"
-DATA_FILE = TASK_DIR / "data" / "prepared" / "SC4001E0.npz"
+DATA_DIR = TASK_DIR / "data" / "processed" / "sleep-edf-sc-full"
+SPLIT_FILE = DATA_DIR / "subject_split.json"
 RUN_HISTORY = PROJECT_ROOT / "logs" / "sleep_run_history.jsonl"
 
 load_dotenv(PROJECT_ROOT / ".env")
@@ -58,8 +59,10 @@ def run_experiment(
     train = run_python_script(
         TASK_DIR / "train.py",
         [
-            "--data-file",
-            str(DATA_FILE),
+            "--data-dir",
+            str(DATA_DIR),
+            "--split-file",
+            str(SPLIT_FILE),
             "--output-dir",
             str(output_dir),
             "--seed",
@@ -78,7 +81,7 @@ def run_experiment(
             "--checkpoint",
             str(checkpoint),
             "--data-file",
-            str(DATA_FILE),
+            str(DATA_DIR),
             "--output",
             str(evaluation_file),
         ],
@@ -119,11 +122,50 @@ def append_history(entry: dict) -> None:
         handle.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 
+def validate_dataset_inputs() -> None:
+    if not DATA_DIR.is_dir():
+        raise FileNotFoundError(f"预处理数据目录不存在：{DATA_DIR}")
+    if not SPLIT_FILE.is_file():
+        raise FileNotFoundError(f"受试者划分文件不存在：{SPLIT_FILE}")
+
+    split = json.loads(SPLIT_FILE.read_text(encoding="utf-8"))
+    if split.get("feasible") is not True:
+        raise ValueError(f"受试者划分不可用：{split.get('reason')}")
+
+    groups = ("train", "val", "test")
+    subjects = {name: set(split["subjects"][name]) for name in groups}
+    records = {name: list(split["records"][name]) for name in groups}
+
+    for i, left in enumerate(groups):
+        for right in groups[i + 1:]:
+            if subjects[left] & subjects[right]:
+                raise ValueError(f"受试者泄漏：{left} 与 {right} 有交集")
+            if set(records[left]) & set(records[right]):
+                raise ValueError(f"记录重复：{left} 与 {right} 有交集")
+
+    all_records = [record for name in groups for record in records[name]]
+    if len(all_records) != len(set(all_records)):
+        raise ValueError("subject_split.json 存在重复记录")
+
+    missing = [rid for rid in all_records if not (DATA_DIR / f"{rid}.npz").is_file()]
+    if missing:
+        raise FileNotFoundError(f"划分清单引用了缺失 NPZ：{missing[:10]}")
+
+    print("数据集：Sleep-EDF Expanded / Sleep Cassette")
+    print(f"记录数：{split.get('n_records', len(all_records))}")
+    print(f"受试者数：{split.get('n_subjects', len(set.union(*subjects.values())))}")
+    print(f"Epoch 数：{split.get('n_epochs', 'unknown')}")
+    for name in groups:
+        print(f"{name}: {len(subjects[name])} subjects, {len(records[name])} records")
+    print("受试者级数据划分检查通过；本轮优化只使用 train/val，test 保持隔离。")
+
+
 def main_loop(max_rounds: int) -> None:
     print("=" * 70)
     print("Sleep staging self-improvement")
     print("=" * 70)
 
+    validate_dataset_inputs()
     config_before_round = CONFIG_FILE.read_text(encoding="utf-8")
     initial_metrics = run_experiment(TASK_DIR / "outputs" / "round_0_initial")
     best_metrics = initial_metrics.copy()
