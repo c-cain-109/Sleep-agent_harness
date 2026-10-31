@@ -207,10 +207,12 @@ def main_loop(max_rounds: int) -> None:
                 )
                 best_metrics = new_metrics.copy()
                 best_round = round_num
+                current_metrics = new_metrics.copy()
             else:
                 CONFIG_FILE.write_text(config_before_round, encoding="utf-8")
+                current_metrics = best_metrics.copy()
 
-            current_metrics = new_metrics.copy()
+
             append_history(
                 {
                     "round": round_num,
