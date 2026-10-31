@@ -20,5 +20,7 @@ outputs/
 .venv/
 venv/
 env/
-tasks/sleep_edf/data/raw/
-tasks/sleep_edf/data/processed/
+# Local Sleep-EDF datasets
+/data/raw/
+/tasks/sleep_edf/data/raw/
+/tasks/sleep_edf/data/processed/
