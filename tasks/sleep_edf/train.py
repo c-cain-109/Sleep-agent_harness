@@ -231,7 +231,7 @@ def main():
     parser.add_argument("--batch-size", type=int)
     parser.add_argument("--lr", type=float)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
+    parser.add_argument("--device", choices=["cpu", "mps", "cuda", "auto"], default="auto")
     parser.add_argument("--smoke-test", action="store_true")
     parser.add_argument("--data-dir", type=Path,
                         help="所有预处理 NPZ 所在目录，与 --split-file 配合使用")
@@ -265,11 +265,27 @@ def main():
                 "或同时提供 --train-dir 和 --val-dir"
             )
 
-    if args.device == "mps" and not torch.backends.mps.is_available():
-        parser.error("当前 PyTorch 环境无法使用 MPS，请改用 --device cpu")
+    # 自动检测可用设备
+    if args.device == "auto":
+        if torch.cuda.is_available():
+            device = torch.device("cuda")
+            print("自动检测：使用 CUDA")
+        elif torch.backends.mps.is_available():
+            device = torch.device("mps")
+            print("自动检测：使用 MPS")
+        else:
+            device = torch.device("cpu")
+            print("自动检测：使用 CPU")
+    else:
+        # 手动指定设备时检查可用性
+        if args.device == "mps" and not torch.backends.mps.is_available():
+            parser.error("当前 PyTorch 环境无法使用 MPS，请改用 --device cpu 或 --device auto")
+        if args.device == "cuda" and not torch.cuda.is_available():
+            parser.error("当前 PyTorch 环境无法使用 CUDA，请改用 --device cpu 或 --device auto")
+        device = torch.device(args.device)
+        print(f"手动指定：使用 {args.device.upper()}")
 
     set_seed(args.seed)
-    device = torch.device(args.device)
 
     if args.smoke_test:
         print("模式：模拟数据训练测试")
