@@ -112,8 +112,14 @@ def _validate_hyperparams(result: dict) -> dict:
     """
     # 必需字段
     required_keys = {
-        "learning_rate", "batch_size", "num_epochs",
-        "lstm_hidden_size", "dropout", "reasoning"
+        "learning_rate",
+        "batch_size",
+        "num_epochs",
+        "lstm_hidden_size",
+        "dropout",
+        "weight_decay",
+        "patience",
+        "reasoning",
     }
     missing = required_keys - result.keys()
     if missing:
@@ -368,8 +374,9 @@ TinySleepNet
 ## 约束
 - 每次只修改 1-2 个参数（避免同时改动过多）
 - 优先调整 learning_rate 和 dropout（影响最大）
-- 如果过拟合（train loss << val loss），增大 dropout 或 weight_decay
-- 如果欠拟合（train loss 和 val loss 都高），增大 lstm_hidden_size 或降低 dropout
+- 只能依据当前 Prompt 中实际提供的验证指标和历史记录提出调整建议。
+- 不得根据未提供的 train_loss、混淆矩阵或分类别指标推断模型问题。
+- 如果证据不足，应明确说明不确定性，不得编造过拟合或欠拟合诊断。
 
 返回 JSON（不要修改的参数可保持原值）：
 {{
