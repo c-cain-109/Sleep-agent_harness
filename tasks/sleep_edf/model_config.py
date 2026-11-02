@@ -1,27 +1,13 @@
-"""TinySleepNet 超参数配置
-
-Agent 可修改此文件中的参数，Harness 将自动评估并 accept/rollback
-"""
-
-# ============================================================================
-# 训练超参数（Agent 可修改）
-# ============================================================================
+"""TinySleepNet hyperparameters managed by the sleep harness."""
 
 LEARNING_RATE = 0.0001
 BATCH_SIZE = 32
-NUM_EPOCHS = 5
-PATIENCE = 3
+NUM_EPOCHS = 10
+PATIENCE = 5
 
-# 模型结构
 LSTM_HIDDEN_SIZE = 128
 DROPOUT = 0.5
-
-# 优化器
 WEIGHT_DECAY = 0.0001
-
-# ============================================================================
-# 固定参数（Agent 不应修改）
-# ============================================================================
 
 INPUT_SIZE = 3000
 NUM_CLASSES = 5
