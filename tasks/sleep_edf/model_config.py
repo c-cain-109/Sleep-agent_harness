@@ -1,6 +1,6 @@
 """TinySleepNet hyperparameters managed by the sleep harness."""
 
-LEARNING_RATE = 0.0001
+LEARNING_RATE = 0.00015
 BATCH_SIZE = 32
 NUM_EPOCHS = 15
 PATIENCE = 6
