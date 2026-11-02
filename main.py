@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 PROJECT_ROOT = Path(__file__).resolve().parent
 TASK_DIR = PROJECT_ROOT / "tasks" / "sleep_edf"
 CONFIG_FILE = TASK_DIR / "model_config.py"
-DATA_DIR = TASK_DIR / "data" / "processed" / "sleep-edf-sc-full"
+DATA_DIR = TASK_DIR / "data" / "sleep-edf-sc-full"
 SPLIT_FILE = DATA_DIR / "subject_split.json"
 RUN_HISTORY = PROJECT_ROOT / "logs" / "sleep_run_history.jsonl"
 

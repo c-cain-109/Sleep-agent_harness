@@ -99,7 +99,7 @@ Harness 校验并执行新实验
 本地预处理数据位于：
 
 ```text
-tasks/sleep_edf/data/processed/sleep-edf-sc-full/
+tasks/sleep_edf/data/sleep-edf-sc-full/
 ```
 
 目录中应包含各记录的 NPZ 文件、`subject_split.json` 及数据集清单等文件。
@@ -203,7 +203,7 @@ ANTHROPIC_API_KEY=替换为自己的API_Key
 如果已经获得预处理好的完整数据集，将其放到：
 
 ```text
-tasks/sleep_edf/data/processed/sleep-edf-sc-full/
+tasks/sleep_edf/data/sleep-edf-sc-full/
 ```
 
 至少需要：
