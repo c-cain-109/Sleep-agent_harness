@@ -1,0 +1,854 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "n_subjects": 78,
+  "n_records": 153,
+  "n_epochs": 199352,
+  "feasible": true,
+  "reason": "ok",
+  "subjects": {
+    "train": [
+      "SC433",
+      "SC451",
+      "SC441",
+      "SC428",
+      "SC461",
+      "SC425",
+      "SC400",
+      "SC460",
+      "SC421",
+      "SC437",
+      "SC418",
+      "SC443",
+      "SC426",
+      "SC457",
+      "SC459",
+      "SC404",
+      "SC427",
+      "SC424",
+      "SC417",
+      "SC407",
+      "SC429",
+      "SC473",
+      "SC482",
+      "SC481",
+      "SC458",
+      "SC464",
+      "SC405",
+      "SC401",
+      "SC474",
+      "SC444",
+      "SC402",
+      "SC446",
+      "SC463",
+      "SC475",
+      "SC420",
+      "SC477",
+      "SC453",
+      "SC432",
+      "SC440",
+      "SC423",
+      "SC480",
+      "SC449",
+      "SC415",
+      "SC409",
+      "SC431",
+      "SC452",
+      "SC416",
+      "SC445",
+      "SC447",
+      "SC456",
+      "SC462",
+      "SC403",
+      "SC434",
+      "SC430"
+    ],
+    "val": [
+      "SC410",
+      "SC470",
+      "SC476",
+      "SC455",
+      "SC450",
+      "SC406",
+      "SC438",
+      "SC472",
+      "SC411",
+      "SC471",
+      "SC442",
+      "SC422"
+    ],
+    "test": [
+      "SC419",
+      "SC435",
+      "SC465",
+      "SC448",
+      "SC412",
+      "SC454",
+      "SC414",
+      "SC413",
+      "SC467",
+      "SC436",
+      "SC466",
+      "SC408"
+    ]
+  },
+  "records": {
+    "train": [
+      "SC4001E0",
+      "SC4002E0",
+      "SC4011E0",
+      "SC4012E0",
+      "SC4021E0",
+      "SC4022E0",
+      "SC4031E0",
+      "SC4032E0",
+      "SC4041E0",
+      "SC4042E0",
+      "SC4051E0",
+      "SC4052E0",
+      "SC4071E0",
+      "SC4072E0",
+      "SC4091E0",
+      "SC4092E0",
+      "SC4151E0",
+      "SC4152E0",
+      "SC4161E0",
+      "SC4162E0",
+      "SC4171E0",
+      "SC4172E0",
+      "SC4181E0",
+      "SC4182E0",
+      "SC4201E0",
+      "SC4202E0",
+      "SC4211E0",
+      "SC4212E0",
+      "SC4231E0",
+      "SC4232E0",
+      "SC4241E0",
+      "SC4242E0",
+      "SC4251E0",
+      "SC4252E0",
+      "SC4261F0",
+      "SC4262F0",
+      "SC4271F0",
+      "SC4272F0",
+      "SC4281G0",
+      "SC4282G0",
+      "SC4291G0",
+      "SC4292G0",
+      "SC4301E0",
+      "SC4302E0",
+      "SC4311E0",
+      "SC4312E0",
+      "SC4321E0",
+      "SC4322E0",
+      "SC4331F0",
+      "SC4332F0",
+      "SC4341F0",
+      "SC4342F0",
+      "SC4371F0",
+      "SC4372F0",
+      "SC4401E0",
+      "SC4402E0",
+      "SC4411E0",
+      "SC4412E0",
+      "SC4431E0",
+      "SC4432E0",
+      "SC4441E0",
+      "SC4442E0",
+      "SC4451F0",
+      "SC4452F0",
+      "SC4461F0",
+      "SC4462F0",
+      "SC4471F0",
+      "SC4472F0",
+      "SC4491G0",
+      "SC4492G0",
+      "SC4511E0",
+      "SC4512E0",
+      "SC4522E0",
+      "SC4531E0",
+      "SC4532E0",
+      "SC4561F0",
+      "SC4562F0",
+      "SC4571F0",
+      "SC4572F0",
+      "SC4581G0",
+      "SC4582G0",
+      "SC4591G0",
+      "SC4592G0",
+      "SC4601E0",
+      "SC4602E0",
+      "SC4611E0",
+      "SC4612E0",
+      "SC4621E0",
+      "SC4622E0",
+      "SC4631E0",
+      "SC4632E0",
+      "SC4641E0",
+      "SC4642E0",
+      "SC4731E0",
+      "SC4732E0",
+      "SC4741E0",
+      "SC4742E0",
+      "SC4751E0",
+      "SC4752E0",
+      "SC4771G0",
+      "SC4772G0",
+      "SC4801G0",
+      "SC4802G0",
+      "SC4811G0",
+      "SC4812G0",
+      "SC4821G0",
+      "SC4822G0"
+    ],
+    "val": [
+      "SC4061E0",
+      "SC4062E0",
+      "SC4101E0",
+      "SC4102E0",
+      "SC4111E0",
+      "SC4112E0",
+      "SC4221E0",
+      "SC4222E0",
+      "SC4381F0",
+      "SC4382F0",
+      "SC4421E0",
+      "SC4422E0",
+      "SC4501E0",
+      "SC4502E0",
+      "SC4551F0",
+      "SC4552F0",
+      "SC4701E0",
+      "SC4702E0",
+      "SC4711E0",
+      "SC4712E0",
+      "SC4721E0",
+      "SC4722E0",
+      "SC4761E0",
+      "SC4762E0"
+    ],
+    "test": [
+      "SC4081E0",
+      "SC4082E0",
+      "SC4121E0",
+      "SC4122E0",
+      "SC4131E0",
+      "SC4141E0",
+      "SC4142E0",
+      "SC4191E0",
+      "SC4192E0",
+      "SC4351F0",
+      "SC4352F0",
+      "SC4362F0",
+      "SC4481F0",
+      "SC4482F0",
+      "SC4541F0",
+      "SC4542F0",
+      "SC4651E0",
+      "SC4652E0",
+      "SC4661E0",
+      "SC4662E0",
+      "SC4671G0",
+      "SC4672G0"
+    ]
+  },
+  "per_subject": {
+    "SC400": {
+      "records": [
+        "SC4001E0",
+        "SC4002E0"
+      ],
+      "n_epochs": 1968
+    },
+    "SC401": {
+      "records": [
+        "SC4011E0",
+        "SC4012E0"
+      ],
+      "n_epochs": 3368
+    },
+    "SC402": {
+      "records": [
+        "SC4021E0",
+        "SC4022E0"
+      ],
+      "n_epochs": 2034
+    },
+    "SC403": {
+      "records": [
+        "SC4031E0",
+        "SC4032E0"
+      ],
+      "n_epochs": 1863
+    },
+    "SC404": {
+      "records": [
+        "SC4041E0",
+        "SC4042E0"
+      ],
+      "n_epochs": 2435
+    },
+    "SC405": {
+      "records": [
+        "SC4051E0",
+        "SC4052E0"
+      ],
+      "n_epochs": 1918
+    },
+    "SC406": {
+      "records": [
+        "SC4061E0",
+        "SC4062E0"
+      ],
+      "n_epochs": 1859
+    },
+    "SC407": {
+      "records": [
+        "SC4071E0",
+        "SC4072E0"
+      ],
+      "n_epochs": 2249
+    },
+    "SC408": {
+      "records": [
+        "SC4081E0",
+        "SC4082E0"
+      ],
+      "n_epochs": 2188
+    },
+    "SC409": {
+      "records": [
+        "SC4091E0",
+        "SC4092E0"
+      ],
+      "n_epochs": 2339
+    },
+    "SC410": {
+      "records": [
+        "SC4101E0",
+        "SC4102E0"
+      ],
+      "n_epochs": 2196
+    },
+    "SC411": {
+      "records": [
+        "SC4111E0",
+        "SC4112E0"
+      ],
+      "n_epochs": 1730
+    },
+    "SC412": {
+      "records": [
+        "SC4121E0",
+        "SC4122E0"
+      ],
+      "n_epochs": 2760
+    },
+    "SC413": {
+      "records": [
+        "SC4131E0"
+      ],
+      "n_epochs": 1028
+    },
+    "SC414": {
+      "records": [
+        "SC4141E0",
+        "SC4142E0"
+      ],
+      "n_epochs": 1956
+    },
+    "SC415": {
+      "records": [
+        "SC4151E0",
+        "SC4152E0"
+      ],
+      "n_epochs": 2714
+    },
+    "SC416": {
+      "records": [
+        "SC4161E0",
+        "SC4162E0"
+      ],
+      "n_epochs": 2147
+    },
+    "SC417": {
+      "records": [
+        "SC4171E0",
+        "SC4172E0"
+      ],
+      "n_epochs": 2775
+    },
+    "SC418": {
+      "records": [
+        "SC4181E0",
+        "SC4182E0"
+      ],
+      "n_epochs": 1884
+    },
+    "SC419": {
+      "records": [
+        "SC4191E0",
+        "SC4192E0"
+      ],
+      "n_epochs": 2809
+    },
+    "SC420": {
+      "records": [
+        "SC4201E0",
+        "SC4202E0"
+      ],
+      "n_epochs": 2043
+    },
+    "SC421": {
+      "records": [
+        "SC4211E0",
+        "SC4212E0"
+      ],
+      "n_epochs": 2386
+    },
+    "SC422": {
+      "records": [
+        "SC4221E0",
+        "SC4222E0"
+      ],
+      "n_epochs": 2207
+    },
+    "SC423": {
+      "records": [
+        "SC4231E0",
+        "SC4232E0"
+      ],
+      "n_epochs": 2633
+    },
+    "SC424": {
+      "records": [
+        "SC4241E0",
+        "SC4242E0"
+      ],
+      "n_epochs": 3448
+    },
+    "SC425": {
+      "records": [
+        "SC4251E0",
+        "SC4252E0"
+      ],
+      "n_epochs": 1992
+    },
+    "SC426": {
+      "records": [
+        "SC4261F0",
+        "SC4262F0"
+      ],
+      "n_epochs": 2577
+    },
+    "SC427": {
+      "records": [
+        "SC4271F0",
+        "SC4272F0"
+      ],
+      "n_epochs": 2142
+    },
+    "SC428": {
+      "records": [
+        "SC4281G0",
+        "SC4282G0"
+      ],
+      "n_epochs": 2197
+    },
+    "SC429": {
+      "records": [
+        "SC4291G0",
+        "SC4292G0"
+      ],
+      "n_epochs": 2736
+    },
+    "SC430": {
+      "records": [
+        "SC4301E0",
+        "SC4302E0"
+      ],
+      "n_epochs": 1783
+    },
+    "SC431": {
+      "records": [
+        "SC4311E0",
+        "SC4312E0"
+      ],
+      "n_epochs": 2235
+    },
+    "SC432": {
+      "records": [
+        "SC4321E0",
+        "SC4322E0"
+      ],
+      "n_epochs": 2581
+    },
+    "SC433": {
+      "records": [
+        "SC4331F0",
+        "SC4332F0"
+      ],
+      "n_epochs": 3200
+    },
+    "SC434": {
+      "records": [
+        "SC4341F0",
+        "SC4342F0"
+      ],
+      "n_epochs": 3083
+    },
+    "SC435": {
+      "records": [
+        "SC4351F0",
+        "SC4352F0"
+      ],
+      "n_epochs": 1939
+    },
+    "SC436": {
+      "records": [
+        "SC4362F0"
+      ],
+      "n_epochs": 824
+    },
+    "SC437": {
+      "records": [
+        "SC4371F0",
+        "SC4372F0"
+      ],
+      "n_epochs": 2427
+    },
+    "SC438": {
+      "records": [
+        "SC4381F0",
+        "SC4382F0"
+      ],
+      "n_epochs": 3647
+    },
+    "SC440": {
+      "records": [
+        "SC4401E0",
+        "SC4402E0"
+      ],
+      "n_epochs": 2136
+    },
+    "SC441": {
+      "records": [
+        "SC4411E0",
+        "SC4412E0"
+      ],
+      "n_epochs": 3017
+    },
+    "SC442": {
+      "records": [
+        "SC4421E0",
+        "SC4422E0"
+      ],
+      "n_epochs": 1669
+    },
+    "SC443": {
+      "records": [
+        "SC4431E0",
+        "SC4432E0"
+      ],
+      "n_epochs": 2556
+    },
+    "SC444": {
+      "records": [
+        "SC4441E0",
+        "SC4442E0"
+      ],
+      "n_epochs": 2287
+    },
+    "SC445": {
+      "records": [
+        "SC4451F0",
+        "SC4452F0"
+      ],
+      "n_epochs": 2374
+    },
+    "SC446": {
+      "records": [
+        "SC4461F0",
+        "SC4462F0"
+      ],
+      "n_epochs": 2005
+    },
+    "SC447": {
+      "records": [
+        "SC4471F0",
+        "SC4472F0"
+      ],
+      "n_epochs": 3348
+    },
+    "SC448": {
+      "records": [
+        "SC4481F0",
+        "SC4482F0"
+      ],
+      "n_epochs": 3937
+    },
+    "SC449": {
+      "records": [
+        "SC4491G0",
+        "SC4492G0"
+      ],
+      "n_epochs": 2141
+    },
+    "SC450": {
+      "records": [
+        "SC4501E0",
+        "SC4502E0"
+      ],
+      "n_epochs": 2429
+    },
+    "SC451": {
+      "records": [
+        "SC4511E0",
+        "SC4512E0"
+      ],
+      "n_epochs": 2041
+    },
+    "SC452": {
+      "records": [
+        "SC4522E0"
+      ],
+      "n_epochs": 997
+    },
+    "SC453": {
+      "records": [
+        "SC4531E0",
+        "SC4532E0"
+      ],
+      "n_epochs": 2152
+    },
+    "SC454": {
+      "records": [
+        "SC4541F0",
+        "SC4542F0"
+      ],
+      "n_epochs": 2864
+    },
+    "SC455": {
+      "records": [
+        "SC4551F0",
+        "SC4552F0"
+      ],
+      "n_epochs": 2137
+    },
+    "SC456": {
+      "records": [
+        "SC4561F0",
+        "SC4562F0"
+      ],
+      "n_epochs": 2385
+    },
+    "SC457": {
+      "records": [
+        "SC4571F0",
+        "SC4572F0"
+      ],
+      "n_epochs": 2382
+    },
+    "SC458": {
+      "records": [
+        "SC4581G0",
+        "SC4582G0"
+      ],
+      "n_epochs": 2270
+    },
+    "SC459": {
+      "records": [
+        "SC4591G0",
+        "SC4592G0"
+      ],
+      "n_epochs": 3071
+    },
+    "SC460": {
+      "records": [
+        "SC4601E0",
+        "SC4602E0"
+      ],
+      "n_epochs": 3392
+    },
+    "SC461": {
+      "records": [
+        "SC4611E0",
+        "SC4612E0"
+      ],
+      "n_epochs": 2714
+    },
+    "SC462": {
+      "records": [
+        "SC4621E0",
+        "SC4622E0"
+      ],
+      "n_epochs": 3268
+    },
+    "SC463": {
+      "records": [
+        "SC4631E0",
+        "SC4632E0"
+      ],
+      "n_epochs": 2170
+    },
+    "SC464": {
+      "records": [
+        "SC4641E0",
+        "SC4642E0"
+      ],
+      "n_epochs": 3320
+    },
+    "SC465": {
+      "records": [
+        "SC4651E0",
+        "SC4652E0"
+      ],
+      "n_epochs": 4573
+    },
+    "SC466": {
+      "records": [
+        "SC4661E0",
+        "SC4662E0"
+      ],
+      "n_epochs": 4020
+    },
+    "SC467": {
+      "records": [
+        "SC4671G0",
+        "SC4672G0"
+      ],
+      "n_epochs": 2989
+    },
+    "SC470": {
+      "records": [
+        "SC4701E0",
+        "SC4702E0"
+      ],
+      "n_epochs": 3232
+    },
+    "SC471": {
+      "records": [
+        "SC4711E0",
+        "SC4712E0"
+      ],
+      "n_epochs": 2654
+    },
+    "SC472": {
+      "records": [
+        "SC4721E0",
+        "SC4722E0"
+      ],
+      "n_epochs": 2161
+    },
+    "SC473": {
+      "records": [
+        "SC4731E0",
+        "SC4732E0"
+      ],
+      "n_epochs": 4985
+    },
+    "SC474": {
+      "records": [
+        "SC4741E0",
+        "SC4742E0"
+      ],
+      "n_epochs": 3273
+    },
+    "SC475": {
+      "records": [
+        "SC4751E0",
+        "SC4752E0"
+      ],
+      "n_epochs": 3093
+    },
+    "SC476": {
+      "records": [
+        "SC4761E0",
+        "SC4762E0"
+      ],
+      "n_epochs": 4345
+    },
+    "SC477": {
+      "records": [
+        "SC4771G0",
+        "SC4772G0"
+      ],
+      "n_epochs": 2649
+    },
+    "SC480": {
+      "records": [
+        "SC4801G0",
+        "SC4802G0"
+      ],
+      "n_epochs": 2470
+    },
+    "SC481": {
+      "records": [
+        "SC4811G0",
+        "SC4812G0"
+      ],
+      "n_epochs": 2476
+    },
+    "SC482": {
+      "records": [
+        "SC4821G0",
+        "SC4822G0"
+      ],
+      "n_epochs": 3070
+    }
+  },
+  "stats": {
+    "train": {
+      "n_subjects": 54,
+      "n_records": 107,
+      "n_epochs": 137199,
+      "epoch_share": 0.6882,
+      "subject_share": 0.6923,
+      "label_distribution": {
+        "W": 46934,
+        "N1": 15249,
+        "N2": 47664,
+        "N3": 9302,
+        "REM": 18050
+      }
+    },
+    "val": {
+      "n_subjects": 12,
+      "n_records": 24,
+      "n_epochs": 30266,
+      "epoch_share": 0.1518,
+      "subject_share": 0.1538,
+      "label_distribution": {
+        "W": 10746,
+        "N1": 3162,
+        "N2": 11182,
+        "N3": 1264,
+        "REM": 3912
+      }
+    },
+    "test": {
+      "n_subjects": 12,
+      "n_records": 22,
+      "n_epochs": 31887,
+      "epoch_share": 0.16,
+      "subject_share": 0.1538,
+      "label_distribution": {
+        "W": 12144,
+        "N1": 3111,
+        "N2": 10286,
+        "N3": 2473,
+        "REM": 3873
+      }
+    }
+  },
+  "checks": {
+    "disjoint": true,
+    "covers_all": true,
+    "no_epoch_shuffling": true
+  }
+}

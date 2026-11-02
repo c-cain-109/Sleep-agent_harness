@@ -5,6 +5,7 @@ This is process isolation with a timeout, not an OS-level security sandbox.
 
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 import time
@@ -23,11 +24,17 @@ def run_python_script(
     start_time = time.time()
 
     try:
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+
         proc = subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            encoding="utf-8",
+            errors="replace",
+            env=env,
             cwd=str(cwd or script.parent),
         )
         try:

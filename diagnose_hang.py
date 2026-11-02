@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 TASK_DIR = PROJECT_ROOT / "tasks" / "sleep_edf"
-DATA_DIR = TASK_DIR / "data" / "processed" / "sleep-edf-sc-full"
+DATA_DIR = TASK_DIR / "data" / "sleep-edf-sc-full"
 SPLIT_FILE = DATA_DIR / "subject_split.json"
 
 print("=" * 70)

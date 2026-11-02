@@ -1,0 +1,1853 @@
+2026-10-31 11:11:11 INFO     ==============================================================================
+2026-10-31 11:11:11 INFO     prepare_sleepedf 1.0.0 - Sleep-EDF preprocessing
+2026-10-31 11:11:11 INFO     started: 2026-10-31T03:11:11+00:00
+2026-10-31 11:11:11 INFO     python: 3.11.17 | platform: macOS-26.6-arm64-arm-64bit
+2026-10-31 11:11:11 INFO     numpy: 2.4.6 | mne: 1.13.2
+2026-10-31 11:11:11 INFO     input dir : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data
+2026-10-31 11:11:11 INFO     output dir: tasks/sleep_edf/data/processed/sleep-edf-sc-full
+2026-10-31 11:11:11 INFO     Discovered 153 PSG file(s) and 153 hypnogram file(s)
+2026-10-31 11:11:11 INFO     pairs to process: 153
+2026-10-31 11:11:11 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:11 INFO     record SC4001E0 (subject SC400)
+2026-10-31 11:11:11 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4001E0-PSG.edf
+2026-10-31 11:11:11 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4001EC-Hypnogram.edf
+2026-10-31 11:11:11 INFO       paired by : start_datetime
+2026-10-31 11:11:11 INFO     SC4001E0: signal 79500.000s, annotations 0 - 86400.000s (154 entries)
+2026-10-31 11:11:11 WARNING  SC4001E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79500.0s
+2026-10-31 11:11:11 INFO     SC4001E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:11 INFO     SC4001E0: read 7950000 samples at 100.000 Hz via mne
+2026-10-31 11:11:11 INFO       wrote SC4001E0.npz
+2026-10-31 11:11:11 INFO       epochs: signal=2650 eligible=2650 -> edge_trim=-1809 movement=-0 unknown=-0 nonfinite=-0 => final=841
+2026-10-31 11:11:11 INFO       label distribution: {'W': 188, 'N1': 58, 'N2': 250, 'N3': 220, 'REM': 125}
+2026-10-31 11:11:11 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:11 INFO     record SC4002E0 (subject SC400)
+2026-10-31 11:11:11 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4002E0-PSG.edf
+2026-10-31 11:11:11 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4002EC-Hypnogram.edf
+2026-10-31 11:11:11 INFO       paired by : start_datetime
+2026-10-31 11:11:11 INFO     SC4002E0: signal 84900.000s, annotations 0 - 86400.000s (152 entries)
+2026-10-31 11:11:11 WARNING  SC4002E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84900.0s
+2026-10-31 11:11:11 INFO     SC4002E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:11 INFO     SC4002E0: read 8490000 samples at 100.000 Hz via mne
+2026-10-31 11:11:12 INFO       wrote SC4002E0.npz
+2026-10-31 11:11:12 INFO       epochs: signal=2830 eligible=2830 -> edge_trim=-1702 movement=-1 unknown=-0 nonfinite=-0 => final=1127
+2026-10-31 11:11:12 INFO       label distribution: {'W': 183, 'N1': 59, 'N2': 373, 'N3': 297, 'REM': 215}
+2026-10-31 11:11:12 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:12 INFO     record SC4011E0 (subject SC401)
+2026-10-31 11:11:12 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4011E0-PSG.edf
+2026-10-31 11:11:12 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4011EH-Hypnogram.edf
+2026-10-31 11:11:12 INFO       paired by : start_datetime
+2026-10-31 11:11:12 INFO     SC4011E0: signal 84060.000s, annotations 0 - 86400.000s (126 entries)
+2026-10-31 11:11:12 WARNING  SC4011E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84060.0s
+2026-10-31 11:11:12 INFO     SC4011E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:12 INFO     SC4011E0: read 8406000 samples at 100.000 Hz via mne
+2026-10-31 11:11:12 INFO       wrote SC4011E0.npz
+2026-10-31 11:11:12 INFO       epochs: signal=2802 eligible=2802 -> edge_trim=-1699 movement=-0 unknown=-0 nonfinite=-0 => final=1103
+2026-10-31 11:11:12 INFO       label distribution: {'W': 157, 'N1': 109, 'N2': 562, 'N3': 105, 'REM': 170}
+2026-10-31 11:11:12 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:12 INFO     record SC4012E0 (subject SC401)
+2026-10-31 11:11:12 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4012E0-PSG.edf
+2026-10-31 11:11:12 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4012EC-Hypnogram.edf
+2026-10-31 11:11:12 INFO       paired by : start_datetime
+2026-10-31 11:11:12 INFO     SC4012E0: signal 85500.000s, annotations 0 - 86400.000s (171 entries)
+2026-10-31 11:11:12 WARNING  SC4012E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85500.0s
+2026-10-31 11:11:12 INFO     SC4012E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:12 INFO     SC4012E0: read 8550000 samples at 100.000 Hz via mne
+2026-10-31 11:11:13 INFO       wrote SC4012E0.npz
+2026-10-31 11:11:13 INFO       epochs: signal=2850 eligible=2850 -> edge_trim=-583 movement=-0 unknown=-2 nonfinite=-0 => final=2265
+2026-10-31 11:11:13 INFO       label distribution: {'W': 1241, 'N1': 92, 'N2': 660, 'N3': 96, 'REM': 176}
+2026-10-31 11:11:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:13 INFO     record SC4021E0 (subject SC402)
+2026-10-31 11:11:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4021E0-PSG.edf
+2026-10-31 11:11:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4021EH-Hypnogram.edf
+2026-10-31 11:11:13 INFO       paired by : start_datetime
+2026-10-31 11:11:13 INFO     SC4021E0: signal 84120.000s, annotations 0 - 86400.000s (161 entries)
+2026-10-31 11:11:13 WARNING  SC4021E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84120.0s
+2026-10-31 11:11:13 INFO     SC4021E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:13 INFO     SC4021E0: read 8412000 samples at 100.000 Hz via mne
+2026-10-31 11:11:13 INFO       wrote SC4021E0.npz
+2026-10-31 11:11:13 INFO       epochs: signal=2804 eligible=2804 -> edge_trim=-1779 movement=-0 unknown=-0 nonfinite=-0 => final=1025
+2026-10-31 11:11:13 INFO       label distribution: {'W': 128, 'N1': 94, 'N2': 545, 'N3': 95, 'REM': 163}
+2026-10-31 11:11:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:13 INFO     record SC4022E0 (subject SC402)
+2026-10-31 11:11:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4022E0-PSG.edf
+2026-10-31 11:11:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4022EJ-Hypnogram.edf
+2026-10-31 11:11:13 INFO       paired by : start_datetime
+2026-10-31 11:11:13 INFO     SC4022E0: signal 82680.000s, annotations 0 - 86400.000s (179 entries)
+2026-10-31 11:11:13 WARNING  SC4022E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82680.0s
+2026-10-31 11:11:13 INFO     SC4022E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:13 INFO     SC4022E0: read 8268000 samples at 100.000 Hz via mne
+2026-10-31 11:11:13 INFO       wrote SC4022E0.npz
+2026-10-31 11:11:13 INFO       epochs: signal=2756 eligible=2756 -> edge_trim=-1746 movement=-1 unknown=-0 nonfinite=-0 => final=1009
+2026-10-31 11:11:13 INFO       label distribution: {'W': 125, 'N1': 184, 'N2': 402, 'N3': 119, 'REM': 179}
+2026-10-31 11:11:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:13 INFO     record SC4031E0 (subject SC403)
+2026-10-31 11:11:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4031E0-PSG.edf
+2026-10-31 11:11:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4031EC-Hypnogram.edf
+2026-10-31 11:11:13 INFO       paired by : start_datetime
+2026-10-31 11:11:13 INFO     SC4031E0: signal 84600.000s, annotations 0 - 86400.000s (119 entries)
+2026-10-31 11:11:13 WARNING  SC4031E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84600.0s
+2026-10-31 11:11:13 INFO     SC4031E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:13 INFO     SC4031E0: read 8460000 samples at 100.000 Hz via mne
+2026-10-31 11:11:14 INFO       wrote SC4031E0.npz
+2026-10-31 11:11:14 INFO       epochs: signal=2820 eligible=2820 -> edge_trim=-1868 movement=-0 unknown=-0 nonfinite=-0 => final=952
+2026-10-31 11:11:14 INFO       label distribution: {'W': 140, 'N1': 61, 'N2': 485, 'N3': 57, 'REM': 209}
+2026-10-31 11:11:14 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:14 INFO     record SC4032E0 (subject SC403)
+2026-10-31 11:11:14 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4032E0-PSG.edf
+2026-10-31 11:11:14 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4032EP-Hypnogram.edf
+2026-10-31 11:11:14 INFO       paired by : start_datetime
+2026-10-31 11:11:14 INFO     SC4032E0: signal 81960.000s, annotations 0 - 86400.000s (123 entries)
+2026-10-31 11:11:14 WARNING  SC4032E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81960.0s
+2026-10-31 11:11:14 INFO     SC4032E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:14 INFO     SC4032E0: read 8196000 samples at 100.000 Hz via mne
+2026-10-31 11:11:14 INFO       wrote SC4032E0.npz
+2026-10-31 11:11:14 INFO       epochs: signal=2732 eligible=2732 -> edge_trim=-1821 movement=-0 unknown=-0 nonfinite=-0 => final=911
+2026-10-31 11:11:14 INFO       label distribution: {'W': 136, 'N1': 45, 'N2': 400, 'N3': 131, 'REM': 199}
+2026-10-31 11:11:14 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:14 INFO     record SC4041E0 (subject SC404)
+2026-10-31 11:11:14 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4041E0-PSG.edf
+2026-10-31 11:11:14 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4041EC-Hypnogram.edf
+2026-10-31 11:11:14 INFO       paired by : start_datetime
+2026-10-31 11:11:14 INFO     SC4041E0: signal 77100.000s, annotations 0 - 86400.000s (161 entries)
+2026-10-31 11:11:14 WARNING  SC4041E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 77100.0s
+2026-10-31 11:11:14 INFO     SC4041E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:14 INFO     SC4041E0: read 7710000 samples at 100.000 Hz via mne
+2026-10-31 11:11:15 INFO       wrote SC4041E0.npz
+2026-10-31 11:11:15 INFO       epochs: signal=2570 eligible=2570 -> edge_trim=-1334 movement=-1 unknown=-0 nonfinite=-0 => final=1235
+2026-10-31 11:11:15 INFO       label distribution: {'W': 200, 'N1': 166, 'N2': 620, 'N3': 53, 'REM': 196}
+2026-10-31 11:11:15 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:15 INFO     record SC4042E0 (subject SC404)
+2026-10-31 11:11:15 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4042E0-PSG.edf
+2026-10-31 11:11:15 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4042EC-Hypnogram.edf
+2026-10-31 11:11:15 INFO       paired by : start_datetime
+2026-10-31 11:11:15 INFO     SC4042E0: signal 83760.000s, annotations 0 - 86400.000s (178 entries)
+2026-10-31 11:11:15 WARNING  SC4042E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83760.0s
+2026-10-31 11:11:15 INFO     SC4042E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:15 INFO     SC4042E0: read 8376000 samples at 100.000 Hz via mne
+2026-10-31 11:11:15 INFO       wrote SC4042E0.npz
+2026-10-31 11:11:15 INFO       epochs: signal=2792 eligible=2792 -> edge_trim=-1588 movement=-4 unknown=-0 nonfinite=-0 => final=1200
+2026-10-31 11:11:15 INFO       label distribution: {'W': 185, 'N1': 137, 'N2': 514, 'N3': 94, 'REM': 270}
+2026-10-31 11:11:15 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:15 INFO     record SC4051E0 (subject SC405)
+2026-10-31 11:11:15 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4051E0-PSG.edf
+2026-10-31 11:11:15 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4051EC-Hypnogram.edf
+2026-10-31 11:11:15 INFO       paired by : start_datetime
+2026-10-31 11:11:15 INFO     SC4051E0: signal 81660.000s, annotations 0 - 86400.000s (130 entries)
+2026-10-31 11:11:15 WARNING  SC4051E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81660.0s
+2026-10-31 11:11:15 INFO     SC4051E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:15 INFO     SC4051E0: read 8166000 samples at 100.000 Hz via mne
+2026-10-31 11:11:15 INFO       wrote SC4051E0.npz
+2026-10-31 11:11:15 INFO       epochs: signal=2722 eligible=2722 -> edge_trim=-2050 movement=-0 unknown=-0 nonfinite=-0 => final=672
+2026-10-31 11:11:15 INFO       label distribution: {'W': 208, 'N1': 44, 'N2': 217, 'N3': 135, 'REM': 68}
+2026-10-31 11:11:15 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:15 INFO     record SC4052E0 (subject SC405)
+2026-10-31 11:11:15 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4052E0-PSG.edf
+2026-10-31 11:11:15 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4052EC-Hypnogram.edf
+2026-10-31 11:11:15 INFO       paired by : start_datetime
+2026-10-31 11:11:15 INFO     SC4052E0: signal 84180.000s, annotations 0 - 86400.000s (139 entries)
+2026-10-31 11:11:15 WARNING  SC4052E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84180.0s
+2026-10-31 11:11:15 INFO     SC4052E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:15 INFO     SC4052E0: read 8418000 samples at 100.000 Hz via mne
+2026-10-31 11:11:16 INFO       wrote SC4052E0.npz
+2026-10-31 11:11:16 INFO       epochs: signal=2806 eligible=2806 -> edge_trim=-1558 movement=-2 unknown=-0 nonfinite=-0 => final=1246
+2026-10-31 11:11:16 INFO       label distribution: {'W': 222, 'N1': 114, 'N2': 616, 'N3': 114, 'REM': 180}
+2026-10-31 11:11:16 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:16 INFO     record SC4061E0 (subject SC406)
+2026-10-31 11:11:16 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4061E0-PSG.edf
+2026-10-31 11:11:16 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4061EC-Hypnogram.edf
+2026-10-31 11:11:16 INFO       paired by : start_datetime
+2026-10-31 11:11:16 INFO     SC4061E0: signal 83100.000s, annotations 0 - 86400.000s (78 entries)
+2026-10-31 11:11:16 WARNING  SC4061E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83100.0s
+2026-10-31 11:11:16 INFO     SC4061E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:16 INFO     SC4061E0: read 8310000 samples at 100.000 Hz via mne
+2026-10-31 11:11:16 INFO       wrote SC4061E0.npz
+2026-10-31 11:11:16 INFO       epochs: signal=2770 eligible=2770 -> edge_trim=-1927 movement=-0 unknown=-0 nonfinite=-0 => final=843
+2026-10-31 11:11:16 INFO       label distribution: {'W': 142, 'N1': 56, 'N2': 407, 'N3': 136, 'REM': 102}
+2026-10-31 11:11:16 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:16 INFO     record SC4062E0 (subject SC406)
+2026-10-31 11:11:16 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4062E0-PSG.edf
+2026-10-31 11:11:16 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4062EC-Hypnogram.edf
+2026-10-31 11:11:16 INFO       paired by : start_datetime
+2026-10-31 11:11:16 WARNING  SC4062E0: patient_id_matches failed - PSG 'X M X Male_31yr' vs hypnogram 'X F X Female_31yr'
+2026-10-31 11:11:16 INFO     SC4062E0: signal 84900.000s, annotations 0 - 86400.000s (98 entries)
+2026-10-31 11:11:16 WARNING  SC4062E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84900.0s
+2026-10-31 11:11:16 INFO     SC4062E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:16 INFO     SC4062E0: read 8490000 samples at 100.000 Hz via mne
+2026-10-31 11:11:17 INFO       wrote SC4062E0.npz
+2026-10-31 11:11:17 INFO       epochs: signal=2830 eligible=2830 -> edge_trim=-1814 movement=-0 unknown=-0 nonfinite=-0 => final=1016
+2026-10-31 11:11:17 INFO       label distribution: {'W': 193, 'N1': 90, 'N2': 417, 'N3': 129, 'REM': 187}
+2026-10-31 11:11:17 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:17 INFO     record SC4071E0 (subject SC407)
+2026-10-31 11:11:17 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4071E0-PSG.edf
+2026-10-31 11:11:17 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4071EC-Hypnogram.edf
+2026-10-31 11:11:17 INFO       paired by : start_datetime
+2026-10-31 11:11:17 INFO     SC4071E0: signal 84300.000s, annotations 0 - 86400.000s (116 entries)
+2026-10-31 11:11:17 WARNING  SC4071E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:17 INFO     SC4071E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:17 INFO     SC4071E0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:17 INFO       wrote SC4071E0.npz
+2026-10-31 11:11:17 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1834 movement=-0 unknown=-0 nonfinite=-0 => final=976
+2026-10-31 11:11:17 INFO       label distribution: {'W': 124, 'N1': 89, 'N2': 403, 'N3': 162, 'REM': 198}
+2026-10-31 11:11:17 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:17 INFO     record SC4072E0 (subject SC407)
+2026-10-31 11:11:17 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4072E0-PSG.edf
+2026-10-31 11:11:17 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4072EH-Hypnogram.edf
+2026-10-31 11:11:17 INFO       paired by : start_datetime
+2026-10-31 11:11:17 INFO     SC4072E0: signal 83100.000s, annotations 0 - 86400.000s (179 entries)
+2026-10-31 11:11:17 WARNING  SC4072E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83100.0s
+2026-10-31 11:11:17 INFO     SC4072E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:17 INFO     SC4072E0: read 8310000 samples at 100.000 Hz via mne
+2026-10-31 11:11:17 INFO       wrote SC4072E0.npz
+2026-10-31 11:11:17 INFO       epochs: signal=2770 eligible=2770 -> edge_trim=-1497 movement=-0 unknown=-0 nonfinite=-0 => final=1273
+2026-10-31 11:11:17 INFO       label distribution: {'W': 407, 'N1': 84, 'N2': 392, 'N3': 222, 'REM': 168}
+2026-10-31 11:11:17 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:17 INFO     record SC4081E0 (subject SC408)
+2026-10-31 11:11:17 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4081E0-PSG.edf
+2026-10-31 11:11:17 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4081EC-Hypnogram.edf
+2026-10-31 11:11:17 INFO       paired by : start_datetime
+2026-10-31 11:11:17 INFO     SC4081E0: signal 83880.000s, annotations 0 - 86400.000s (142 entries)
+2026-10-31 11:11:17 WARNING  SC4081E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83880.0s
+2026-10-31 11:11:17 INFO     SC4081E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:17 INFO     SC4081E0: read 8388000 samples at 100.000 Hz via mne
+2026-10-31 11:11:18 INFO       wrote SC4081E0.npz
+2026-10-31 11:11:18 INFO       epochs: signal=2796 eligible=2796 -> edge_trim=-1662 movement=-0 unknown=-0 nonfinite=-0 => final=1134
+2026-10-31 11:11:18 INFO       label distribution: {'W': 323, 'N1': 68, 'N2': 262, 'N3': 350, 'REM': 131}
+2026-10-31 11:11:18 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:18 INFO     record SC4082E0 (subject SC408)
+2026-10-31 11:11:18 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4082E0-PSG.edf
+2026-10-31 11:11:18 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4082EP-Hypnogram.edf
+2026-10-31 11:11:18 INFO       paired by : start_datetime
+2026-10-31 11:11:18 INFO     SC4082E0: signal 79020.000s, annotations 0 - 86400.000s (156 entries)
+2026-10-31 11:11:18 WARNING  SC4082E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79020.0s
+2026-10-31 11:11:18 INFO     SC4082E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:18 INFO     SC4082E0: read 7902000 samples at 100.000 Hz via mne
+2026-10-31 11:11:18 INFO       wrote SC4082E0.npz
+2026-10-31 11:11:18 INFO       epochs: signal=2634 eligible=2634 -> edge_trim=-1580 movement=-0 unknown=-0 nonfinite=-0 => final=1054
+2026-10-31 11:11:18 INFO       label distribution: {'W': 144, 'N1': 39, 'N2': 329, 'N3': 282, 'REM': 260}
+2026-10-31 11:11:18 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:18 INFO     record SC4091E0 (subject SC409)
+2026-10-31 11:11:18 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4091E0-PSG.edf
+2026-10-31 11:11:18 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4091EC-Hypnogram.edf
+2026-10-31 11:11:18 INFO       paired by : start_datetime
+2026-10-31 11:11:18 INFO     SC4091E0: signal 81960.000s, annotations 0 - 86400.000s (148 entries)
+2026-10-31 11:11:18 WARNING  SC4091E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81960.0s
+2026-10-31 11:11:18 INFO     SC4091E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:18 INFO     SC4091E0: read 8196000 samples at 100.000 Hz via mne
+2026-10-31 11:11:18 INFO       wrote SC4091E0.npz
+2026-10-31 11:11:18 INFO       epochs: signal=2732 eligible=2732 -> edge_trim=-1589 movement=-11 unknown=-0 nonfinite=-0 => final=1132
+2026-10-31 11:11:18 INFO       label distribution: {'W': 150, 'N1': 19, 'N2': 561, 'N3': 170, 'REM': 232}
+2026-10-31 11:11:18 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:18 INFO     record SC4092E0 (subject SC409)
+2026-10-31 11:11:18 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4092E0-PSG.edf
+2026-10-31 11:11:18 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4092EC-Hypnogram.edf
+2026-10-31 11:11:18 INFO       paired by : start_datetime
+2026-10-31 11:11:18 INFO     SC4092E0: signal 85740.000s, annotations 0 - 86400.000s (117 entries)
+2026-10-31 11:11:18 WARNING  SC4092E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85740.0s
+2026-10-31 11:11:18 INFO     SC4092E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:18 INFO     SC4092E0: read 8574000 samples at 100.000 Hz via mne
+2026-10-31 11:11:19 INFO       wrote SC4092E0.npz
+2026-10-31 11:11:19 INFO       epochs: signal=2858 eligible=2858 -> edge_trim=-837 movement=-12 unknown=-802 nonfinite=-0 => final=1207
+2026-10-31 11:11:19 INFO       label distribution: {'W': 242, 'N1': 81, 'N2': 512, 'N3': 107, 'REM': 265}
+2026-10-31 11:11:19 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:19 INFO     record SC4101E0 (subject SC410)
+2026-10-31 11:11:19 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4101E0-PSG.edf
+2026-10-31 11:11:19 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4101EC-Hypnogram.edf
+2026-10-31 11:11:19 INFO       paired by : start_datetime
+2026-10-31 11:11:19 INFO     SC4101E0: signal 81600.000s, annotations 0 - 86400.000s (63 entries)
+2026-10-31 11:11:19 WARNING  SC4101E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81600.0s
+2026-10-31 11:11:19 INFO     SC4101E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:19 INFO     SC4101E0: read 8160000 samples at 100.000 Hz via mne
+2026-10-31 11:11:19 INFO       wrote SC4101E0.npz
+2026-10-31 11:11:19 INFO       epochs: signal=2720 eligible=2720 -> edge_trim=-1615 movement=-1 unknown=-0 nonfinite=-0 => final=1104
+2026-10-31 11:11:19 INFO       label distribution: {'W': 155, 'N1': 65, 'N2': 671, 'N3': 6, 'REM': 207}
+2026-10-31 11:11:19 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:19 INFO     record SC4102E0 (subject SC410)
+2026-10-31 11:11:19 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4102E0-PSG.edf
+2026-10-31 11:11:19 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4102EC-Hypnogram.edf
+2026-10-31 11:11:19 INFO       paired by : start_datetime
+2026-10-31 11:11:19 INFO     SC4102E0: signal 85740.000s, annotations 0 - 86400.000s (118 entries)
+2026-10-31 11:11:19 WARNING  SC4102E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85740.0s
+2026-10-31 11:11:19 INFO     SC4102E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:19 INFO     SC4102E0: read 8574000 samples at 100.000 Hz via mne
+2026-10-31 11:11:19 INFO       wrote SC4102E0.npz
+2026-10-31 11:11:19 INFO       epochs: signal=2858 eligible=2858 -> edge_trim=-1765 movement=-1 unknown=-0 nonfinite=-0 => final=1092
+2026-10-31 11:11:19 INFO       label distribution: {'W': 144, 'N1': 117, 'N2': 607, 'N3': 25, 'REM': 199}
+2026-10-31 11:11:19 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:19 INFO     record SC4111E0 (subject SC411)
+2026-10-31 11:11:19 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4111E0-PSG.edf
+2026-10-31 11:11:19 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4111EC-Hypnogram.edf
+2026-10-31 11:11:19 INFO       paired by : start_datetime
+2026-10-31 11:11:19 INFO     SC4111E0: signal 79260.000s, annotations 0 - 86400.000s (126 entries)
+2026-10-31 11:11:19 WARNING  SC4111E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79260.0s
+2026-10-31 11:11:20 INFO     SC4111E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:20 INFO     SC4111E0: read 7926000 samples at 100.000 Hz via mne
+2026-10-31 11:11:20 INFO       wrote SC4111E0.npz
+2026-10-31 11:11:20 INFO       epochs: signal=2642 eligible=2642 -> edge_trim=-1713 movement=-1 unknown=-0 nonfinite=-0 => final=928
+2026-10-31 11:11:20 INFO       label distribution: {'W': 126, 'N1': 13, 'N2': 502, 'N3': 129, 'REM': 158}
+2026-10-31 11:11:20 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:20 INFO     record SC4112E0 (subject SC411)
+2026-10-31 11:11:20 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4112E0-PSG.edf
+2026-10-31 11:11:20 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4112EC-Hypnogram.edf
+2026-10-31 11:11:20 INFO       paired by : start_datetime
+2026-10-31 11:11:20 INFO     SC4112E0: signal 83400.000s, annotations 0 - 86400.000s (126 entries)
+2026-10-31 11:11:20 WARNING  SC4112E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83400.0s
+2026-10-31 11:11:20 INFO     SC4112E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:20 INFO     SC4112E0: read 8340000 samples at 100.000 Hz via mne
+2026-10-31 11:11:20 INFO       wrote SC4112E0.npz
+2026-10-31 11:11:20 INFO       epochs: signal=2780 eligible=2780 -> edge_trim=-1978 movement=-0 unknown=-0 nonfinite=-0 => final=802
+2026-10-31 11:11:20 INFO       label distribution: {'W': 126, 'N1': 18, 'N2': 396, 'N3': 111, 'REM': 151}
+2026-10-31 11:11:20 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:20 INFO     record SC4121E0 (subject SC412)
+2026-10-31 11:11:20 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4121E0-PSG.edf
+2026-10-31 11:11:20 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4121EC-Hypnogram.edf
+2026-10-31 11:11:20 INFO       paired by : start_datetime
+2026-10-31 11:11:20 INFO     SC4121E0: signal 83580.000s, annotations 0 - 86400.000s (131 entries)
+2026-10-31 11:11:20 WARNING  SC4121E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83580.0s
+2026-10-31 11:11:20 INFO     SC4121E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:20 INFO     SC4121E0: read 8358000 samples at 100.000 Hz via mne
+2026-10-31 11:11:21 INFO       wrote SC4121E0.npz
+2026-10-31 11:11:21 INFO       epochs: signal=2786 eligible=2786 -> edge_trim=-902 movement=-0 unknown=-101 nonfinite=-0 => final=1783
+2026-10-31 11:11:21 INFO       label distribution: {'W': 907, 'N1': 48, 'N2': 463, 'N3': 107, 'REM': 258}
+2026-10-31 11:11:21 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:21 INFO     record SC4122E0 (subject SC412)
+2026-10-31 11:11:21 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4122E0-PSG.edf
+2026-10-31 11:11:21 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4122EV-Hypnogram.edf
+2026-10-31 11:11:21 INFO       paired by : start_datetime
+2026-10-31 11:11:21 INFO     SC4122E0: signal 78180.000s, annotations 0 - 86400.000s (150 entries)
+2026-10-31 11:11:21 WARNING  SC4122E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78180.0s
+2026-10-31 11:11:21 INFO     SC4122E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:21 INFO     SC4122E0: read 7818000 samples at 100.000 Hz via mne
+2026-10-31 11:11:21 INFO       wrote SC4122E0.npz
+2026-10-31 11:11:21 INFO       epochs: signal=2606 eligible=2606 -> edge_trim=-1629 movement=-0 unknown=-0 nonfinite=-0 => final=977
+2026-10-31 11:11:21 INFO       label distribution: {'W': 290, 'N1': 121, 'N2': 287, 'N3': 80, 'REM': 199}
+2026-10-31 11:11:21 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:21 INFO     record SC4131E0 (subject SC413)
+2026-10-31 11:11:21 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4131E0-PSG.edf
+2026-10-31 11:11:21 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4131EC-Hypnogram.edf
+2026-10-31 11:11:21 INFO       paired by : start_datetime
+2026-10-31 11:11:21 INFO     SC4131E0: signal 84420.000s, annotations 0 - 86400.000s (147 entries)
+2026-10-31 11:11:21 WARNING  SC4131E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84420.0s
+2026-10-31 11:11:21 INFO     SC4131E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:21 INFO     SC4131E0: read 8442000 samples at 100.000 Hz via mne
+2026-10-31 11:11:21 INFO       wrote SC4131E0.npz
+2026-10-31 11:11:21 INFO       epochs: signal=2814 eligible=2814 -> edge_trim=-1786 movement=-0 unknown=-0 nonfinite=-0 => final=1028
+2026-10-31 11:11:21 INFO       label distribution: {'W': 155, 'N1': 57, 'N2': 497, 'N3': 147, 'REM': 172}
+2026-10-31 11:11:21 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:21 INFO     record SC4141E0 (subject SC414)
+2026-10-31 11:11:21 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4141E0-PSG.edf
+2026-10-31 11:11:21 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4141EU-Hypnogram.edf
+2026-10-31 11:11:21 INFO       paired by : start_datetime
+2026-10-31 11:11:21 INFO     SC4141E0: signal 82680.000s, annotations 0 - 86400.000s (122 entries)
+2026-10-31 11:11:21 WARNING  SC4141E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82680.0s
+2026-10-31 11:11:21 INFO     SC4141E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:21 INFO     SC4141E0: read 8268000 samples at 100.000 Hz via mne
+2026-10-31 11:11:22 INFO       wrote SC4141E0.npz
+2026-10-31 11:11:22 INFO       epochs: signal=2756 eligible=2756 -> edge_trim=-1752 movement=-0 unknown=-0 nonfinite=-0 => final=1004
+2026-10-31 11:11:22 INFO       label distribution: {'W': 187, 'N1': 29, 'N2': 404, 'N3': 151, 'REM': 233}
+2026-10-31 11:11:22 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:22 INFO     record SC4142E0 (subject SC414)
+2026-10-31 11:11:22 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4142E0-PSG.edf
+2026-10-31 11:11:22 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4142EU-Hypnogram.edf
+2026-10-31 11:11:22 INFO       paired by : start_datetime
+2026-10-31 11:11:22 INFO     SC4142E0: signal 83220.000s, annotations 0 - 86400.000s (124 entries)
+2026-10-31 11:11:22 WARNING  SC4142E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83220.0s
+2026-10-31 11:11:22 INFO     SC4142E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:22 INFO     SC4142E0: read 8322000 samples at 100.000 Hz via mne
+2026-10-31 11:11:22 INFO       wrote SC4142E0.npz
+2026-10-31 11:11:22 INFO       epochs: signal=2774 eligible=2774 -> edge_trim=-1822 movement=-0 unknown=-0 nonfinite=-0 => final=952
+2026-10-31 11:11:22 INFO       label distribution: {'W': 181, 'N1': 27, 'N2': 386, 'N3': 145, 'REM': 213}
+2026-10-31 11:11:22 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:22 INFO     record SC4151E0 (subject SC415)
+2026-10-31 11:11:22 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4151E0-PSG.edf
+2026-10-31 11:11:22 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4151EC-Hypnogram.edf
+2026-10-31 11:11:22 INFO       paired by : start_datetime
+2026-10-31 11:11:22 INFO     SC4151E0: signal 78600.000s, annotations 0 - 86400.000s (99 entries)
+2026-10-31 11:11:22 WARNING  SC4151E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78600.0s
+2026-10-31 11:11:22 INFO     SC4151E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:22 INFO     SC4151E0: read 7860000 samples at 100.000 Hz via mne
+2026-10-31 11:11:22 INFO       wrote SC4151E0.npz
+2026-10-31 11:11:22 INFO       epochs: signal=2620 eligible=2620 -> edge_trim=-1664 movement=-4 unknown=-0 nonfinite=-0 => final=952
+2026-10-31 11:11:22 INFO       label distribution: {'W': 172, 'N1': 41, 'N2': 354, 'N3': 177, 'REM': 208}
+2026-10-31 11:11:22 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:22 INFO     record SC4152E0 (subject SC415)
+2026-10-31 11:11:22 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4152E0-PSG.edf
+2026-10-31 11:11:22 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4152EC-Hypnogram.edf
+2026-10-31 11:11:22 INFO       paired by : start_datetime
+2026-10-31 11:11:22 INFO     SC4152E0: signal 85920.000s, annotations 0 - 86400.000s (107 entries)
+2026-10-31 11:11:22 WARNING  SC4152E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85920.0s
+2026-10-31 11:11:22 INFO     SC4152E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:22 INFO     SC4152E0: read 8592000 samples at 100.000 Hz via mne
+2026-10-31 11:11:23 INFO       wrote SC4152E0.npz
+2026-10-31 11:11:23 INFO       epochs: signal=2864 eligible=2864 -> edge_trim=-1097 movement=-5 unknown=-0 nonfinite=-0 => final=1762
+2026-10-31 11:11:23 INFO       label distribution: {'W': 807, 'N1': 47, 'N2': 438, 'N3': 178, 'REM': 292}
+2026-10-31 11:11:23 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:23 INFO     record SC4161E0 (subject SC416)
+2026-10-31 11:11:23 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4161E0-PSG.edf
+2026-10-31 11:11:23 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4161EC-Hypnogram.edf
+2026-10-31 11:11:23 INFO       paired by : start_datetime
+2026-10-31 11:11:23 INFO     SC4161E0: signal 78780.000s, annotations 0 - 86400.000s (155 entries)
+2026-10-31 11:11:23 WARNING  SC4161E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78780.0s
+2026-10-31 11:11:23 INFO     SC4161E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:23 INFO     SC4161E0: read 7878000 samples at 100.000 Hz via mne
+2026-10-31 11:11:23 INFO       wrote SC4161E0.npz
+2026-10-31 11:11:23 INFO       epochs: signal=2626 eligible=2626 -> edge_trim=-1477 movement=-5 unknown=-0 nonfinite=-0 => final=1144
+2026-10-31 11:11:23 INFO       label distribution: {'W': 216, 'N1': 55, 'N2': 448, 'N3': 165, 'REM': 260}
+2026-10-31 11:11:23 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:23 INFO     record SC4162E0 (subject SC416)
+2026-10-31 11:11:23 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4162E0-PSG.edf
+2026-10-31 11:11:23 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4162EC-Hypnogram.edf
+2026-10-31 11:11:23 INFO       paired by : start_datetime
+2026-10-31 11:11:23 INFO     SC4162E0: signal 82560.000s, annotations 0 - 86400.000s (135 entries)
+2026-10-31 11:11:23 WARNING  SC4162E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82560.0s
+2026-10-31 11:11:23 INFO     SC4162E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:23 INFO     SC4162E0: read 8256000 samples at 100.000 Hz via mne
+2026-10-31 11:11:24 INFO       wrote SC4162E0.npz
+2026-10-31 11:11:24 INFO       epochs: signal=2752 eligible=2752 -> edge_trim=-1747 movement=-2 unknown=-0 nonfinite=-0 => final=1003
+2026-10-31 11:11:24 INFO       label distribution: {'W': 179, 'N1': 42, 'N2': 459, 'N3': 128, 'REM': 195}
+2026-10-31 11:11:24 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:24 INFO     record SC4171E0 (subject SC417)
+2026-10-31 11:11:24 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4171E0-PSG.edf
+2026-10-31 11:11:24 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4171EU-Hypnogram.edf
+2026-10-31 11:11:24 INFO       paired by : start_datetime
+2026-10-31 11:11:24 INFO     SC4171E0: signal 82260.000s, annotations 0 - 86400.000s (183 entries)
+2026-10-31 11:11:24 WARNING  SC4171E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82260.0s
+2026-10-31 11:11:24 INFO     SC4171E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:24 INFO     SC4171E0: read 8226000 samples at 100.000 Hz via mne
+2026-10-31 11:11:24 INFO       wrote SC4171E0.npz
+2026-10-31 11:11:24 INFO       epochs: signal=2742 eligible=2742 -> edge_trim=-1739 movement=-1 unknown=-0 nonfinite=-0 => final=1002
+2026-10-31 11:11:24 INFO       label distribution: {'W': 176, 'N1': 21, 'N2': 328, 'N3': 215, 'REM': 262}
+2026-10-31 11:11:24 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:24 INFO     record SC4172E0 (subject SC417)
+2026-10-31 11:11:24 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4172E0-PSG.edf
+2026-10-31 11:11:24 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4172EC-Hypnogram.edf
+2026-10-31 11:11:24 INFO       paired by : start_datetime
+2026-10-31 11:11:24 INFO     SC4172E0: signal 81720.000s, annotations 0 - 86400.000s (189 entries)
+2026-10-31 11:11:24 WARNING  SC4172E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81720.0s
+2026-10-31 11:11:24 INFO     SC4172E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:24 INFO     SC4172E0: read 8172000 samples at 100.000 Hz via mne
+2026-10-31 11:11:24 INFO       wrote SC4172E0.npz
+2026-10-31 11:11:24 INFO       epochs: signal=2724 eligible=2724 -> edge_trim=-947 movement=-4 unknown=-0 nonfinite=-0 => final=1773
+2026-10-31 11:11:24 INFO       label distribution: {'W': 689, 'N1': 44, 'N2': 687, 'N3': 188, 'REM': 165}
+2026-10-31 11:11:24 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:24 INFO     record SC4181E0 (subject SC418)
+2026-10-31 11:11:24 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4181E0-PSG.edf
+2026-10-31 11:11:24 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4181EC-Hypnogram.edf
+2026-10-31 11:11:24 INFO       paired by : start_datetime
+2026-10-31 11:11:24 INFO     SC4181E0: signal 82680.000s, annotations 0 - 86400.000s (161 entries)
+2026-10-31 11:11:24 WARNING  SC4181E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82680.0s
+2026-10-31 11:11:24 INFO     SC4181E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:24 INFO     SC4181E0: read 8268000 samples at 100.000 Hz via mne
+2026-10-31 11:11:25 INFO       wrote SC4181E0.npz
+2026-10-31 11:11:25 INFO       epochs: signal=2756 eligible=2756 -> edge_trim=-1792 movement=-0 unknown=-0 nonfinite=-0 => final=964
+2026-10-31 11:11:25 INFO       label distribution: {'W': 138, 'N1': 29, 'N2': 388, 'N3': 291, 'REM': 118}
+2026-10-31 11:11:25 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:25 INFO     record SC4182E0 (subject SC418)
+2026-10-31 11:11:25 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4182E0-PSG.edf
+2026-10-31 11:11:25 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4182EC-Hypnogram.edf
+2026-10-31 11:11:25 INFO       paired by : start_datetime
+2026-10-31 11:11:25 INFO     SC4182E0: signal 85260.000s, annotations 0 - 86400.000s (108 entries)
+2026-10-31 11:11:25 WARNING  SC4182E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85260.0s
+2026-10-31 11:11:25 INFO     SC4182E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:25 INFO     SC4182E0: read 8526000 samples at 100.000 Hz via mne
+2026-10-31 11:11:25 INFO       wrote SC4182E0.npz
+2026-10-31 11:11:25 INFO       epochs: signal=2842 eligible=2842 -> edge_trim=-1922 movement=-0 unknown=-0 nonfinite=-0 => final=920
+2026-10-31 11:11:25 INFO       label distribution: {'W': 147, 'N1': 151, 'N2': 290, 'N3': 216, 'REM': 116}
+2026-10-31 11:11:25 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:25 INFO     record SC4191E0 (subject SC419)
+2026-10-31 11:11:25 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4191E0-PSG.edf
+2026-10-31 11:11:25 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4191EP-Hypnogram.edf
+2026-10-31 11:11:25 INFO       paired by : start_datetime
+2026-10-31 11:11:25 INFO     SC4191E0: signal 83220.000s, annotations 0 - 86400.000s (178 entries)
+2026-10-31 11:11:25 WARNING  SC4191E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83220.0s
+2026-10-31 11:11:25 INFO     SC4191E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:25 INFO     SC4191E0: read 8322000 samples at 100.000 Hz via mne
+2026-10-31 11:11:26 INFO       wrote SC4191E0.npz
+2026-10-31 11:11:26 INFO       epochs: signal=2774 eligible=2774 -> edge_trim=-1239 movement=-0 unknown=-0 nonfinite=-0 => final=1535
+2026-10-31 11:11:26 INFO       label distribution: {'W': 188, 'N1': 118, 'N2': 833, 'N3': 110, 'REM': 286}
+2026-10-31 11:11:26 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:26 INFO     record SC4192E0 (subject SC419)
+2026-10-31 11:11:26 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4192E0-PSG.edf
+2026-10-31 11:11:26 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4192EV-Hypnogram.edf
+2026-10-31 11:11:26 INFO       paired by : start_datetime
+2026-10-31 11:11:26 INFO     SC4192E0: signal 78300.000s, annotations 0 - 86400.000s (128 entries)
+2026-10-31 11:11:26 WARNING  SC4192E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78300.0s
+2026-10-31 11:11:26 INFO     SC4192E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:26 INFO     SC4192E0: read 7830000 samples at 100.000 Hz via mne
+2026-10-31 11:11:26 INFO       wrote SC4192E0.npz
+2026-10-31 11:11:26 INFO       epochs: signal=2610 eligible=2610 -> edge_trim=-1331 movement=-5 unknown=-0 nonfinite=-0 => final=1274
+2026-10-31 11:11:26 INFO       label distribution: {'W': 376, 'N1': 72, 'N2': 434, 'N3': 60, 'REM': 332}
+2026-10-31 11:11:26 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:26 INFO     record SC4201E0 (subject SC420)
+2026-10-31 11:11:26 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4201E0-PSG.edf
+2026-10-31 11:11:26 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4201EC-Hypnogram.edf
+2026-10-31 11:11:26 INFO       paired by : start_datetime
+2026-10-31 11:11:26 INFO     SC4201E0: signal 84120.000s, annotations 0 - 86400.000s (56 entries)
+2026-10-31 11:11:26 WARNING  SC4201E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84120.0s
+2026-10-31 11:11:26 INFO     SC4201E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:26 INFO     SC4201E0: read 8412000 samples at 100.000 Hz via mne
+2026-10-31 11:11:26 INFO       wrote SC4201E0.npz
+2026-10-31 11:11:26 INFO       epochs: signal=2804 eligible=2804 -> edge_trim=-1781 movement=-1 unknown=-0 nonfinite=-0 => final=1022
+2026-10-31 11:11:26 INFO       label distribution: {'W': 263, 'N1': 39, 'N2': 539, 'N3': 4, 'REM': 177}
+2026-10-31 11:11:26 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:26 INFO     record SC4202E0 (subject SC420)
+2026-10-31 11:11:26 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4202E0-PSG.edf
+2026-10-31 11:11:26 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4202EC-Hypnogram.edf
+2026-10-31 11:11:26 INFO       paired by : start_datetime
+2026-10-31 11:11:26 INFO     SC4202E0: signal 80100.000s, annotations 0 - 86400.000s (47 entries)
+2026-10-31 11:11:26 WARNING  SC4202E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80100.0s
+2026-10-31 11:11:26 INFO     SC4202E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:26 INFO     SC4202E0: read 8010000 samples at 100.000 Hz via mne
+2026-10-31 11:11:27 INFO       wrote SC4202E0.npz
+2026-10-31 11:11:27 INFO       epochs: signal=2670 eligible=2670 -> edge_trim=-1649 movement=-0 unknown=-0 nonfinite=-0 => final=1021
+2026-10-31 11:11:27 INFO       label distribution: {'W': 215, 'N1': 120, 'N2': 479, 'N3': 0, 'REM': 207}
+2026-10-31 11:11:27 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:27 INFO     record SC4211E0 (subject SC421)
+2026-10-31 11:11:27 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4211E0-PSG.edf
+2026-10-31 11:11:27 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4211EC-Hypnogram.edf
+2026-10-31 11:11:27 INFO       paired by : start_datetime
+2026-10-31 11:11:27 INFO     SC4211E0: signal 84300.000s, annotations 0 - 86400.000s (118 entries)
+2026-10-31 11:11:27 WARNING  SC4211E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:27 INFO     SC4211E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:27 INFO     SC4211E0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:27 INFO       wrote SC4211E0.npz
+2026-10-31 11:11:27 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1227 movement=-5 unknown=-0 nonfinite=-0 => final=1578
+2026-10-31 11:11:27 INFO       label distribution: {'W': 745, 'N1': 106, 'N2': 527, 'N3': 49, 'REM': 151}
+2026-10-31 11:11:27 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:27 INFO     record SC4212E0 (subject SC421)
+2026-10-31 11:11:27 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4212E0-PSG.edf
+2026-10-31 11:11:27 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4212EC-Hypnogram.edf
+2026-10-31 11:11:27 INFO       paired by : start_datetime
+2026-10-31 11:11:27 INFO     SC4212E0: signal 80820.000s, annotations 0 - 86400.000s (76 entries)
+2026-10-31 11:11:27 WARNING  SC4212E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80820.0s
+2026-10-31 11:11:27 INFO     SC4212E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:27 INFO     SC4212E0: read 8082000 samples at 100.000 Hz via mne
+2026-10-31 11:11:27 INFO       wrote SC4212E0.npz
+2026-10-31 11:11:27 INFO       epochs: signal=2694 eligible=2694 -> edge_trim=-1886 movement=-0 unknown=-0 nonfinite=-0 => final=808
+2026-10-31 11:11:27 INFO       label distribution: {'W': 189, 'N1': 87, 'N2': 402, 'N3': 43, 'REM': 87}
+2026-10-31 11:11:27 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:27 INFO     record SC4221E0 (subject SC422)
+2026-10-31 11:11:27 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4221E0-PSG.edf
+2026-10-31 11:11:27 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4221EJ-Hypnogram.edf
+2026-10-31 11:11:27 INFO       paired by : start_datetime
+2026-10-31 11:11:27 INFO     SC4221E0: signal 81000.000s, annotations 0 - 86400.000s (164 entries)
+2026-10-31 11:11:27 WARNING  SC4221E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81000.0s
+2026-10-31 11:11:27 INFO     SC4221E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:27 INFO     SC4221E0: read 8100000 samples at 100.000 Hz via mne
+2026-10-31 11:11:28 INFO       wrote SC4221E0.npz
+2026-10-31 11:11:28 INFO       epochs: signal=2700 eligible=2700 -> edge_trim=-1601 movement=-0 unknown=-0 nonfinite=-0 => final=1099
+2026-10-31 11:11:28 INFO       label distribution: {'W': 173, 'N1': 221, 'N2': 461, 'N3': 62, 'REM': 182}
+2026-10-31 11:11:28 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:28 INFO     record SC4222E0 (subject SC422)
+2026-10-31 11:11:28 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4222E0-PSG.edf
+2026-10-31 11:11:28 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4222EC-Hypnogram.edf
+2026-10-31 11:11:28 INFO       paired by : start_datetime
+2026-10-31 11:11:28 INFO     SC4222E0: signal 82800.000s, annotations 0 - 86400.000s (182 entries)
+2026-10-31 11:11:28 WARNING  SC4222E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82800.0s
+2026-10-31 11:11:28 INFO     SC4222E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:28 INFO     SC4222E0: read 8280000 samples at 100.000 Hz via mne
+2026-10-31 11:11:28 INFO       wrote SC4222E0.npz
+2026-10-31 11:11:28 INFO       epochs: signal=2760 eligible=2760 -> edge_trim=-1652 movement=-0 unknown=-0 nonfinite=-0 => final=1108
+2026-10-31 11:11:28 INFO       label distribution: {'W': 167, 'N1': 90, 'N2': 497, 'N3': 134, 'REM': 220}
+2026-10-31 11:11:28 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:28 INFO     record SC4231E0 (subject SC423)
+2026-10-31 11:11:28 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4231E0-PSG.edf
+2026-10-31 11:11:28 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4231EJ-Hypnogram.edf
+2026-10-31 11:11:28 INFO       paired by : start_datetime
+2026-10-31 11:11:28 WARNING  SC4231E0: patient_id_matches failed - PSG 'X M X Male_49yr' vs hypnogram 'X F X Female_49yr'
+2026-10-31 11:11:28 INFO     SC4231E0: signal 82380.000s, annotations 0 - 86400.000s (112 entries)
+2026-10-31 11:11:28 WARNING  SC4231E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82380.0s
+2026-10-31 11:11:28 INFO     SC4231E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:28 INFO     SC4231E0: read 8238000 samples at 100.000 Hz via mne
+2026-10-31 11:11:28 INFO       wrote SC4231E0.npz
+2026-10-31 11:11:28 INFO       epochs: signal=2746 eligible=2746 -> edge_trim=-1839 movement=-3 unknown=-0 nonfinite=-0 => final=904
+2026-10-31 11:11:28 INFO       label distribution: {'W': 127, 'N1': 139, 'N2': 414, 'N3': 12, 'REM': 212}
+2026-10-31 11:11:28 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:28 INFO     record SC4232E0 (subject SC423)
+2026-10-31 11:11:28 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4232E0-PSG.edf
+2026-10-31 11:11:28 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4232EV-Hypnogram.edf
+2026-10-31 11:11:28 INFO       paired by : start_datetime
+2026-10-31 11:11:28 INFO     SC4232E0: signal 79200.000s, annotations 0 - 86400.000s (148 entries)
+2026-10-31 11:11:28 WARNING  SC4232E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79200.0s
+2026-10-31 11:11:28 INFO     SC4232E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:28 INFO     SC4232E0: read 7920000 samples at 100.000 Hz via mne
+2026-10-31 11:11:29 INFO       wrote SC4232E0.npz
+2026-10-31 11:11:29 INFO       epochs: signal=2640 eligible=2640 -> edge_trim=-906 movement=-5 unknown=-0 nonfinite=-0 => final=1729
+2026-10-31 11:11:29 INFO       label distribution: {'W': 916, 'N1': 382, 'N2': 213, 'N3': 1, 'REM': 217}
+2026-10-31 11:11:29 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:29 INFO     record SC4241E0 (subject SC424)
+2026-10-31 11:11:29 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4241E0-PSG.edf
+2026-10-31 11:11:29 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4241EC-Hypnogram.edf
+2026-10-31 11:11:29 INFO       paired by : start_datetime
+2026-10-31 11:11:29 INFO     SC4241E0: signal 81060.000s, annotations 0 - 86400.000s (87 entries)
+2026-10-31 11:11:29 WARNING  SC4241E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81060.0s
+2026-10-31 11:11:29 INFO     SC4241E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:29 INFO     SC4241E0: read 8106000 samples at 100.000 Hz via mne
+2026-10-31 11:11:29 INFO       wrote SC4241E0.npz
+2026-10-31 11:11:29 INFO       epochs: signal=2702 eligible=2702 -> edge_trim=-1027 movement=-2 unknown=-0 nonfinite=-0 => final=1673
+2026-10-31 11:11:29 INFO       label distribution: {'W': 846, 'N1': 85, 'N2': 514, 'N3': 44, 'REM': 184}
+2026-10-31 11:11:29 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:29 INFO     record SC4242E0 (subject SC424)
+2026-10-31 11:11:29 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4242E0-PSG.edf
+2026-10-31 11:11:29 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4242EA-Hypnogram.edf
+2026-10-31 11:11:29 INFO       paired by : start_datetime
+2026-10-31 11:11:29 INFO     SC4242E0: signal 81300.000s, annotations 0 - 86400.000s (118 entries)
+2026-10-31 11:11:29 WARNING  SC4242E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81300.0s
+2026-10-31 11:11:29 INFO     SC4242E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:29 INFO     SC4242E0: read 8130000 samples at 100.000 Hz via mne
+2026-10-31 11:11:30 INFO       wrote SC4242E0.npz
+2026-10-31 11:11:30 INFO       epochs: signal=2710 eligible=2710 -> edge_trim=-935 movement=-0 unknown=-0 nonfinite=-0 => final=1775
+2026-10-31 11:11:30 INFO       label distribution: {'W': 944, 'N1': 94, 'N2': 556, 'N3': 5, 'REM': 176}
+2026-10-31 11:11:30 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:30 INFO     record SC4251E0 (subject SC425)
+2026-10-31 11:11:30 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4251E0-PSG.edf
+2026-10-31 11:11:30 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4251EP-Hypnogram.edf
+2026-10-31 11:11:30 INFO       paired by : start_datetime
+2026-10-31 11:11:30 INFO     SC4251E0: signal 82800.000s, annotations 0 - 86400.000s (82 entries)
+2026-10-31 11:11:30 WARNING  SC4251E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82800.0s
+2026-10-31 11:11:30 INFO     SC4251E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:30 INFO     SC4251E0: read 8280000 samples at 100.000 Hz via mne
+2026-10-31 11:11:30 INFO       wrote SC4251E0.npz
+2026-10-31 11:11:30 INFO       epochs: signal=2760 eligible=2760 -> edge_trim=-1788 movement=-0 unknown=-0 nonfinite=-0 => final=972
+2026-10-31 11:11:30 INFO       label distribution: {'W': 133, 'N1': 102, 'N2': 569, 'N3': 22, 'REM': 146}
+2026-10-31 11:11:30 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:30 INFO     record SC4252E0 (subject SC425)
+2026-10-31 11:11:30 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4252E0-PSG.edf
+2026-10-31 11:11:30 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4252EU-Hypnogram.edf
+2026-10-31 11:11:30 INFO       paired by : start_datetime
+2026-10-31 11:11:30 INFO     SC4252E0: signal 79980.000s, annotations 0 - 86400.000s (154 entries)
+2026-10-31 11:11:30 WARNING  SC4252E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79980.0s
+2026-10-31 11:11:30 INFO     SC4252E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:30 INFO     SC4252E0: read 7998000 samples at 100.000 Hz via mne
+2026-10-31 11:11:30 INFO       wrote SC4252E0.npz
+2026-10-31 11:11:30 INFO       epochs: signal=2666 eligible=2666 -> edge_trim=-1645 movement=-1 unknown=-0 nonfinite=-0 => final=1020
+2026-10-31 11:11:30 INFO       label distribution: {'W': 210, 'N1': 113, 'N2': 425, 'N3': 98, 'REM': 174}
+2026-10-31 11:11:30 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:30 INFO     record SC4261F0 (subject SC426)
+2026-10-31 11:11:30 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4261F0-PSG.edf
+2026-10-31 11:11:30 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4261FM-Hypnogram.edf
+2026-10-31 11:11:30 INFO       paired by : start_datetime
+2026-10-31 11:11:30 INFO     SC4261F0: signal 84000.000s, annotations 0 - 86400.000s (194 entries)
+2026-10-31 11:11:30 WARNING  SC4261F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84000.0s
+2026-10-31 11:11:31 INFO     SC4261F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:31 INFO     SC4261F0: read 8400000 samples at 100.000 Hz via mne
+2026-10-31 11:11:31 INFO       wrote SC4261F0.npz
+2026-10-31 11:11:31 INFO       epochs: signal=2800 eligible=2800 -> edge_trim=-1203 movement=-0 unknown=-0 nonfinite=-0 => final=1597
+2026-10-31 11:11:31 INFO       label distribution: {'W': 627, 'N1': 245, 'N2': 405, 'N3': 94, 'REM': 226}
+2026-10-31 11:11:31 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:31 INFO     record SC4262F0 (subject SC426)
+2026-10-31 11:11:31 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4262F0-PSG.edf
+2026-10-31 11:11:31 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4262FC-Hypnogram.edf
+2026-10-31 11:11:31 INFO       paired by : start_datetime
+2026-10-31 11:11:31 INFO     SC4262F0: signal 81600.000s, annotations 0 - 86400.000s (96 entries)
+2026-10-31 11:11:31 WARNING  SC4262F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81600.0s
+2026-10-31 11:11:31 INFO     SC4262F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:31 INFO     SC4262F0: read 8160000 samples at 100.000 Hz via mne
+2026-10-31 11:11:31 INFO       wrote SC4262F0.npz
+2026-10-31 11:11:31 INFO       epochs: signal=2720 eligible=2720 -> edge_trim=-1740 movement=-0 unknown=-0 nonfinite=-0 => final=980
+2026-10-31 11:11:31 INFO       label distribution: {'W': 167, 'N1': 77, 'N2': 464, 'N3': 79, 'REM': 193}
+2026-10-31 11:11:31 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:31 INFO     record SC4271F0 (subject SC427)
+2026-10-31 11:11:31 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4271F0-PSG.edf
+2026-10-31 11:11:31 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4271FC-Hypnogram.edf
+2026-10-31 11:11:31 INFO       paired by : start_datetime
+2026-10-31 11:11:31 INFO     SC4271F0: signal 73200.000s, annotations 0 - 86400.000s (140 entries)
+2026-10-31 11:11:31 WARNING  SC4271F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 73200.0s
+2026-10-31 11:11:31 INFO     SC4271F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:31 INFO     SC4271F0: read 7320000 samples at 100.000 Hz via mne
+2026-10-31 11:11:32 INFO       wrote SC4271F0.npz
+2026-10-31 11:11:32 INFO       epochs: signal=2440 eligible=2440 -> edge_trim=-1388 movement=-0 unknown=-0 nonfinite=-0 => final=1052
+2026-10-31 11:11:32 INFO       label distribution: {'W': 168, 'N1': 72, 'N2': 475, 'N3': 163, 'REM': 174}
+2026-10-31 11:11:32 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:32 INFO     record SC4272F0 (subject SC427)
+2026-10-31 11:11:32 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4272F0-PSG.edf
+2026-10-31 11:11:32 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4272FM-Hypnogram.edf
+2026-10-31 11:11:32 INFO       paired by : start_datetime
+2026-10-31 11:11:32 INFO     SC4272F0: signal 86100.000s, annotations 0 - 86400.000s (169 entries)
+2026-10-31 11:11:32 WARNING  SC4272F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 86100.0s
+2026-10-31 11:11:32 INFO     SC4272F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:32 INFO     SC4272F0: read 8610000 samples at 100.000 Hz via mne
+2026-10-31 11:11:32 INFO       wrote SC4272F0.npz
+2026-10-31 11:11:32 INFO       epochs: signal=2870 eligible=2870 -> edge_trim=-1780 movement=-0 unknown=-0 nonfinite=-0 => final=1090
+2026-10-31 11:11:32 INFO       label distribution: {'W': 223, 'N1': 87, 'N2': 379, 'N3': 178, 'REM': 223}
+2026-10-31 11:11:32 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:32 INFO     record SC4281G0 (subject SC428)
+2026-10-31 11:11:32 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4281G0-PSG.edf
+2026-10-31 11:11:32 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4281GC-Hypnogram.edf
+2026-10-31 11:11:32 INFO       paired by : start_datetime
+2026-10-31 11:11:32 INFO     SC4281G0: signal 83640.000s, annotations 0 - 86400.000s (120 entries)
+2026-10-31 11:11:32 WARNING  SC4281G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83640.0s
+2026-10-31 11:11:32 INFO     SC4281G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:32 INFO     SC4281G0: read 8364000 samples at 100.000 Hz via mne
+2026-10-31 11:11:32 INFO       wrote SC4281G0.npz
+2026-10-31 11:11:32 INFO       epochs: signal=2788 eligible=2788 -> edge_trim=-1661 movement=-0 unknown=-0 nonfinite=-0 => final=1127
+2026-10-31 11:11:32 INFO       label distribution: {'W': 193, 'N1': 76, 'N2': 530, 'N3': 159, 'REM': 169}
+2026-10-31 11:11:32 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:32 INFO     record SC4282G0 (subject SC428)
+2026-10-31 11:11:32 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4282G0-PSG.edf
+2026-10-31 11:11:32 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4282GC-Hypnogram.edf
+2026-10-31 11:11:32 INFO       paired by : start_datetime
+2026-10-31 11:11:32 INFO     SC4282G0: signal 84420.000s, annotations 0 - 86400.000s (90 entries)
+2026-10-31 11:11:32 WARNING  SC4282G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84420.0s
+2026-10-31 11:11:32 INFO     SC4282G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:33 INFO     SC4282G0: read 8442000 samples at 100.000 Hz via mne
+2026-10-31 11:11:33 INFO       wrote SC4282G0.npz
+2026-10-31 11:11:33 INFO       epochs: signal=2814 eligible=2814 -> edge_trim=-1744 movement=-0 unknown=-0 nonfinite=-0 => final=1070
+2026-10-31 11:11:33 INFO       label distribution: {'W': 204, 'N1': 81, 'N2': 474, 'N3': 145, 'REM': 166}
+2026-10-31 11:11:33 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:33 INFO     record SC4291G0 (subject SC429)
+2026-10-31 11:11:33 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4291G0-PSG.edf
+2026-10-31 11:11:33 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4291GA-Hypnogram.edf
+2026-10-31 11:11:33 INFO       paired by : start_datetime
+2026-10-31 11:11:33 INFO     SC4291G0: signal 82680.000s, annotations 0 - 86400.000s (301 entries)
+2026-10-31 11:11:33 WARNING  SC4291G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82680.0s
+2026-10-31 11:11:33 INFO     SC4291G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:33 INFO     SC4291G0: read 8268000 samples at 100.000 Hz via mne
+2026-10-31 11:11:33 INFO       wrote SC4291G0.npz
+2026-10-31 11:11:33 INFO       epochs: signal=2756 eligible=2756 -> edge_trim=-1625 movement=-0 unknown=-0 nonfinite=-0 => final=1131
+2026-10-31 11:11:33 INFO       label distribution: {'W': 244, 'N1': 181, 'N2': 427, 'N3': 104, 'REM': 175}
+2026-10-31 11:11:33 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:33 INFO     record SC4292G0 (subject SC429)
+2026-10-31 11:11:33 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4292G0-PSG.edf
+2026-10-31 11:11:33 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4292GC-Hypnogram.edf
+2026-10-31 11:11:33 INFO       paired by : start_datetime
+2026-10-31 11:11:33 INFO     SC4292G0: signal 84300.000s, annotations 0 - 86400.000s (145 entries)
+2026-10-31 11:11:33 WARNING  SC4292G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:33 INFO     SC4292G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:33 INFO     SC4292G0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:34 INFO       wrote SC4292G0.npz
+2026-10-31 11:11:34 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1202 movement=-3 unknown=-0 nonfinite=-0 => final=1605
+2026-10-31 11:11:34 INFO       label distribution: {'W': 733, 'N1': 49, 'N2': 457, 'N3': 146, 'REM': 220}
+2026-10-31 11:11:34 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:34 INFO     record SC4301E0 (subject SC430)
+2026-10-31 11:11:34 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4301E0-PSG.edf
+2026-10-31 11:11:34 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4301EC-Hypnogram.edf
+2026-10-31 11:11:34 INFO       paired by : start_datetime
+2026-10-31 11:11:34 INFO     SC4301E0: signal 79380.000s, annotations 0 - 86400.000s (126 entries)
+2026-10-31 11:11:34 WARNING  SC4301E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79380.0s
+2026-10-31 11:11:34 INFO     SC4301E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:34 INFO     SC4301E0: read 7938000 samples at 100.000 Hz via mne
+2026-10-31 11:11:34 INFO       wrote SC4301E0.npz
+2026-10-31 11:11:34 INFO       epochs: signal=2646 eligible=2646 -> edge_trim=-1715 movement=-2 unknown=-0 nonfinite=-0 => final=929
+2026-10-31 11:11:34 INFO       label distribution: {'W': 211, 'N1': 109, 'N2': 457, 'N3': 30, 'REM': 122}
+2026-10-31 11:11:34 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:34 INFO     record SC4302E0 (subject SC430)
+2026-10-31 11:11:34 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4302E0-PSG.edf
+2026-10-31 11:11:34 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4302EV-Hypnogram.edf
+2026-10-31 11:11:34 INFO       paired by : start_datetime
+2026-10-31 11:11:34 INFO     SC4302E0: signal 84240.000s, annotations 0 - 86400.000s (111 entries)
+2026-10-31 11:11:34 WARNING  SC4302E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84240.0s
+2026-10-31 11:11:34 INFO     SC4302E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:34 INFO     SC4302E0: read 8424000 samples at 100.000 Hz via mne
+2026-10-31 11:11:34 INFO       wrote SC4302E0.npz
+2026-10-31 11:11:34 INFO       epochs: signal=2808 eligible=2808 -> edge_trim=-1954 movement=-0 unknown=-0 nonfinite=-0 => final=854
+2026-10-31 11:11:34 INFO       label distribution: {'W': 173, 'N1': 96, 'N2': 418, 'N3': 32, 'REM': 135}
+2026-10-31 11:11:34 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:34 INFO     record SC4311E0 (subject SC431)
+2026-10-31 11:11:34 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4311E0-PSG.edf
+2026-10-31 11:11:34 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4311EC-Hypnogram.edf
+2026-10-31 11:11:34 INFO       paired by : start_datetime
+2026-10-31 11:11:34 INFO     SC4311E0: signal 80100.000s, annotations 0 - 86400.000s (140 entries)
+2026-10-31 11:11:34 WARNING  SC4311E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80100.0s
+2026-10-31 11:11:34 INFO     SC4311E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:34 INFO     SC4311E0: read 8010000 samples at 100.000 Hz via mne
+2026-10-31 11:11:34 INFO       wrote SC4311E0.npz
+2026-10-31 11:11:34 INFO       epochs: signal=2670 eligible=2670 -> edge_trim=-1616 movement=-0 unknown=-0 nonfinite=-0 => final=1054
+2026-10-31 11:11:34 INFO       label distribution: {'W': 358, 'N1': 79, 'N2': 362, 'N3': 113, 'REM': 142}
+2026-10-31 11:11:34 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:34 INFO     record SC4312E0 (subject SC431)
+2026-10-31 11:11:34 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4312E0-PSG.edf
+2026-10-31 11:11:34 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4312EM-Hypnogram.edf
+2026-10-31 11:11:34 INFO       paired by : start_datetime
+2026-10-31 11:11:34 INFO     SC4312E0: signal 81000.000s, annotations 0 - 86400.000s (252 entries)
+2026-10-31 11:11:34 WARNING  SC4312E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81000.0s
+2026-10-31 11:11:34 INFO     SC4312E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:34 INFO     SC4312E0: read 8100000 samples at 100.000 Hz via mne
+2026-10-31 11:11:35 INFO       wrote SC4312E0.npz
+2026-10-31 11:11:35 INFO       epochs: signal=2700 eligible=2700 -> edge_trim=-1519 movement=-0 unknown=-0 nonfinite=-0 => final=1181
+2026-10-31 11:11:35 INFO       label distribution: {'W': 313, 'N1': 152, 'N2': 334, 'N3': 191, 'REM': 191}
+2026-10-31 11:11:35 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:35 INFO     record SC4321E0 (subject SC432)
+2026-10-31 11:11:35 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4321E0-PSG.edf
+2026-10-31 11:11:35 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4321EC-Hypnogram.edf
+2026-10-31 11:11:35 INFO       paired by : start_datetime
+2026-10-31 11:11:35 INFO     SC4321E0: signal 80700.000s, annotations 0 - 86400.000s (56 entries)
+2026-10-31 11:11:35 WARNING  SC4321E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80700.0s
+2026-10-31 11:11:35 INFO     SC4321E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:35 INFO     SC4321E0: read 8070000 samples at 100.000 Hz via mne
+2026-10-31 11:11:36 INFO       wrote SC4321E0.npz
+2026-10-31 11:11:36 INFO       epochs: signal=2690 eligible=2690 -> edge_trim=-1129 movement=-1 unknown=-0 nonfinite=-0 => final=1560
+2026-10-31 11:11:36 INFO       label distribution: {'W': 646, 'N1': 204, 'N2': 424, 'N3': 0, 'REM': 286}
+2026-10-31 11:11:36 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:36 INFO     record SC4322E0 (subject SC432)
+2026-10-31 11:11:36 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4322E0-PSG.edf
+2026-10-31 11:11:36 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4322EC-Hypnogram.edf
+2026-10-31 11:11:36 INFO       paired by : start_datetime
+2026-10-31 11:11:36 INFO     SC4322E0: signal 78480.000s, annotations 0 - 86400.000s (134 entries)
+2026-10-31 11:11:36 WARNING  SC4322E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78480.0s
+2026-10-31 11:11:36 INFO     SC4322E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:36 INFO     SC4322E0: read 7848000 samples at 100.000 Hz via mne
+2026-10-31 11:11:36 INFO       wrote SC4322E0.npz
+2026-10-31 11:11:36 INFO       epochs: signal=2616 eligible=2616 -> edge_trim=-1595 movement=-0 unknown=-0 nonfinite=-0 => final=1021
+2026-10-31 11:11:36 INFO       label distribution: {'W': 160, 'N1': 144, 'N2': 475, 'N3': 1, 'REM': 241}
+2026-10-31 11:11:36 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:36 INFO     record SC4331F0 (subject SC433)
+2026-10-31 11:11:36 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4331F0-PSG.edf
+2026-10-31 11:11:36 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4331FV-Hypnogram.edf
+2026-10-31 11:11:36 INFO       paired by : start_datetime
+2026-10-31 11:11:36 INFO     SC4331F0: signal 84300.000s, annotations 0 - 86400.000s (122 entries)
+2026-10-31 11:11:36 WARNING  SC4331F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:36 INFO     SC4331F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:36 INFO     SC4331F0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:36 INFO       wrote SC4331F0.npz
+2026-10-31 11:11:36 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-921 movement=-1 unknown=-0 nonfinite=-0 => final=1888
+2026-10-31 11:11:36 INFO       label distribution: {'W': 1055, 'N1': 212, 'N2': 453, 'N3': 0, 'REM': 168}
+2026-10-31 11:11:36 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:36 INFO     record SC4332F0 (subject SC433)
+2026-10-31 11:11:36 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4332F0-PSG.edf
+2026-10-31 11:11:36 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4332FC-Hypnogram.edf
+2026-10-31 11:11:36 INFO       paired by : start_datetime
+2026-10-31 11:11:36 INFO     SC4332F0: signal 82800.000s, annotations 0 - 86400.000s (115 entries)
+2026-10-31 11:11:36 WARNING  SC4332F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82800.0s
+2026-10-31 11:11:36 INFO     SC4332F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:36 INFO     SC4332F0: read 8280000 samples at 100.000 Hz via mne
+2026-10-31 11:11:37 INFO       wrote SC4332F0.npz
+2026-10-31 11:11:37 INFO       epochs: signal=2760 eligible=2760 -> edge_trim=-1446 movement=-2 unknown=-0 nonfinite=-0 => final=1312
+2026-10-31 11:11:37 INFO       label distribution: {'W': 435, 'N1': 91, 'N2': 648, 'N3': 0, 'REM': 138}
+2026-10-31 11:11:37 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:37 INFO     record SC4341F0 (subject SC434)
+2026-10-31 11:11:37 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4341F0-PSG.edf
+2026-10-31 11:11:37 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4341FA-Hypnogram.edf
+2026-10-31 11:11:37 INFO       paired by : start_datetime
+2026-10-31 11:11:37 INFO     SC4341F0: signal 82500.000s, annotations 0 - 86400.000s (50 entries)
+2026-10-31 11:11:37 WARNING  SC4341F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82500.0s
+2026-10-31 11:11:37 INFO     SC4341F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:37 INFO     SC4341F0: read 8250000 samples at 100.000 Hz via mne
+2026-10-31 11:11:37 INFO       wrote SC4341F0.npz
+2026-10-31 11:11:37 INFO       epochs: signal=2750 eligible=2750 -> edge_trim=-1249 movement=-0 unknown=-0 nonfinite=-0 => final=1501
+2026-10-31 11:11:37 INFO       label distribution: {'W': 618, 'N1': 150, 'N2': 561, 'N3': 0, 'REM': 172}
+2026-10-31 11:11:37 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:37 INFO     record SC4342F0 (subject SC434)
+2026-10-31 11:11:37 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4342F0-PSG.edf
+2026-10-31 11:11:37 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4342FA-Hypnogram.edf
+2026-10-31 11:11:37 INFO       paired by : start_datetime
+2026-10-31 11:11:37 INFO     SC4342F0: signal 83700.000s, annotations 0 - 86400.000s (91 entries)
+2026-10-31 11:11:37 WARNING  SC4342F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83700.0s
+2026-10-31 11:11:37 INFO     SC4342F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:37 INFO     SC4342F0: read 8370000 samples at 100.000 Hz via mne
+2026-10-31 11:11:38 INFO       wrote SC4342F0.npz
+2026-10-31 11:11:38 INFO       epochs: signal=2790 eligible=2790 -> edge_trim=-1208 movement=-0 unknown=-0 nonfinite=-0 => final=1582
+2026-10-31 11:11:38 INFO       label distribution: {'W': 684, 'N1': 136, 'N2': 596, 'N3': 0, 'REM': 166}
+2026-10-31 11:11:38 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:38 INFO     record SC4351F0 (subject SC435)
+2026-10-31 11:11:38 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4351F0-PSG.edf
+2026-10-31 11:11:38 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4351FA-Hypnogram.edf
+2026-10-31 11:11:38 INFO       paired by : start_datetime
+2026-10-31 11:11:38 INFO     SC4351F0: signal 81300.000s, annotations 0 - 86400.000s (153 entries)
+2026-10-31 11:11:38 WARNING  SC4351F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81300.0s
+2026-10-31 11:11:38 INFO     SC4351F0-PSG.edf: reader cross-check OK (max |MNE - native| = 1.42e-14 uV)
+2026-10-31 11:11:38 INFO     SC4351F0: read 8130000 samples at 100.000 Hz via mne
+2026-10-31 11:11:38 INFO       wrote SC4351F0.npz
+2026-10-31 11:11:38 INFO       epochs: signal=2710 eligible=2710 -> edge_trim=-1734 movement=-0 unknown=-0 nonfinite=-0 => final=976
+2026-10-31 11:11:38 INFO       label distribution: {'W': 351, 'N1': 78, 'N2': 419, 'N3': 104, 'REM': 24}
+2026-10-31 11:11:38 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:38 INFO     record SC4352F0 (subject SC435)
+2026-10-31 11:11:38 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4352F0-PSG.edf
+2026-10-31 11:11:38 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4352FV-Hypnogram.edf
+2026-10-31 11:11:38 INFO       paired by : start_datetime
+2026-10-31 11:11:38 INFO     SC4352F0: signal 75960.000s, annotations 0 - 86400.000s (150 entries)
+2026-10-31 11:11:38 WARNING  SC4352F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 75960.0s
+2026-10-31 11:11:38 INFO     SC4352F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:38 INFO     SC4352F0: read 7596000 samples at 100.000 Hz via mne
+2026-10-31 11:11:38 INFO       wrote SC4352F0.npz
+2026-10-31 11:11:38 INFO       epochs: signal=2532 eligible=2532 -> edge_trim=-1567 movement=-2 unknown=-0 nonfinite=-0 => final=963
+2026-10-31 11:11:38 INFO       label distribution: {'W': 222, 'N1': 66, 'N2': 498, 'N3': 105, 'REM': 72}
+2026-10-31 11:11:38 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:38 INFO     record SC4362F0 (subject SC436)
+2026-10-31 11:11:38 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4362F0-PSG.edf
+2026-10-31 11:11:38 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4362FC-Hypnogram.edf
+2026-10-31 11:11:38 INFO       paired by : start_datetime
+2026-10-31 11:11:38 INFO     SC4362F0: signal 67980.000s, annotations 0 - 86400.000s (87 entries)
+2026-10-31 11:11:38 WARNING  SC4362F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 67980.0s
+2026-10-31 11:11:38 INFO     SC4362F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:38 INFO     SC4362F0: read 6798000 samples at 100.000 Hz via mne
+2026-10-31 11:11:39 INFO       wrote SC4362F0.npz
+2026-10-31 11:11:39 INFO       epochs: signal=2266 eligible=2266 -> edge_trim=-1442 movement=-0 unknown=-0 nonfinite=-0 => final=824
+2026-10-31 11:11:39 INFO       label distribution: {'W': 156, 'N1': 53, 'N2': 499, 'N3': 48, 'REM': 68}
+2026-10-31 11:11:39 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:39 INFO     record SC4371F0 (subject SC437)
+2026-10-31 11:11:39 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4371F0-PSG.edf
+2026-10-31 11:11:39 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4371FA-Hypnogram.edf
+2026-10-31 11:11:39 INFO       paired by : start_datetime
+2026-10-31 11:11:39 INFO     SC4371F0: signal 85500.000s, annotations 0 - 86400.000s (103 entries)
+2026-10-31 11:11:39 WARNING  SC4371F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85500.0s
+2026-10-31 11:11:39 INFO     SC4371F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:39 INFO     SC4371F0: read 8550000 samples at 100.000 Hz via mne
+2026-10-31 11:11:39 INFO       wrote SC4371F0.npz
+2026-10-31 11:11:39 INFO       epochs: signal=2850 eligible=2850 -> edge_trim=-1932 movement=-0 unknown=-0 nonfinite=-0 => final=918
+2026-10-31 11:11:39 INFO       label distribution: {'W': 144, 'N1': 234, 'N2': 484, 'N3': 11, 'REM': 45}
+2026-10-31 11:11:39 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:39 INFO     record SC4372F0 (subject SC437)
+2026-10-31 11:11:39 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4372F0-PSG.edf
+2026-10-31 11:11:39 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4372FC-Hypnogram.edf
+2026-10-31 11:11:39 INFO       paired by : start_datetime
+2026-10-31 11:11:39 INFO     SC4372F0: signal 85200.000s, annotations 0 - 86400.000s (59 entries)
+2026-10-31 11:11:39 WARNING  SC4372F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85200.0s
+2026-10-31 11:11:39 INFO     SC4372F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:39 INFO     SC4372F0: read 8520000 samples at 100.000 Hz via mne
+2026-10-31 11:11:40 INFO       wrote SC4372F0.npz
+2026-10-31 11:11:40 INFO       epochs: signal=2840 eligible=2840 -> edge_trim=-1331 movement=-0 unknown=-0 nonfinite=-0 => final=1509
+2026-10-31 11:11:40 INFO       label distribution: {'W': 682, 'N1': 282, 'N2': 433, 'N3': 6, 'REM': 106}
+2026-10-31 11:11:40 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:40 INFO     record SC4381F0 (subject SC438)
+2026-10-31 11:11:40 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4381F0-PSG.edf
+2026-10-31 11:11:40 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4381FC-Hypnogram.edf
+2026-10-31 11:11:40 INFO       paired by : start_datetime
+2026-10-31 11:11:40 INFO     SC4381F0: signal 82500.000s, annotations 0 - 86400.000s (70 entries)
+2026-10-31 11:11:40 WARNING  SC4381F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82500.0s
+2026-10-31 11:11:40 INFO     SC4381F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:40 INFO     SC4381F0: read 8250000 samples at 100.000 Hz via mne
+2026-10-31 11:11:40 INFO       wrote SC4381F0.npz
+2026-10-31 11:11:40 INFO       epochs: signal=2750 eligible=2750 -> edge_trim=-974 movement=-0 unknown=-0 nonfinite=-0 => final=1776
+2026-10-31 11:11:40 INFO       label distribution: {'W': 893, 'N1': 95, 'N2': 612, 'N3': 16, 'REM': 160}
+2026-10-31 11:11:40 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:40 INFO     record SC4382F0 (subject SC438)
+2026-10-31 11:11:40 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4382F0-PSG.edf
+2026-10-31 11:11:40 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4382FW-Hypnogram.edf
+2026-10-31 11:11:40 INFO       paired by : start_datetime
+2026-10-31 11:11:40 INFO     SC4382F0: signal 83100.000s, annotations 0 - 86400.000s (105 entries)
+2026-10-31 11:11:40 WARNING  SC4382F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83100.0s
+2026-10-31 11:11:40 INFO     SC4382F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:40 INFO     SC4382F0: read 8310000 samples at 100.000 Hz via mne
+2026-10-31 11:11:41 INFO       wrote SC4382F0.npz
+2026-10-31 11:11:41 INFO       epochs: signal=2770 eligible=2770 -> edge_trim=-899 movement=-0 unknown=-0 nonfinite=-0 => final=1871
+2026-10-31 11:11:41 INFO       label distribution: {'W': 979, 'N1': 103, 'N2': 583, 'N3': 37, 'REM': 169}
+2026-10-31 11:11:41 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:41 INFO     record SC4401E0 (subject SC440)
+2026-10-31 11:11:41 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4401E0-PSG.edf
+2026-10-31 11:11:41 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4401EC-Hypnogram.edf
+2026-10-31 11:11:41 INFO       paired by : start_datetime
+2026-10-31 11:11:41 INFO     SC4401E0: signal 78900.000s, annotations 0 - 86400.000s (92 entries)
+2026-10-31 11:11:41 WARNING  SC4401E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78900.0s
+2026-10-31 11:11:41 INFO     SC4401E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:41 INFO     SC4401E0: read 7890000 samples at 100.000 Hz via mne
+2026-10-31 11:11:41 INFO       wrote SC4401E0.npz
+2026-10-31 11:11:41 INFO       epochs: signal=2630 eligible=2630 -> edge_trim=-1566 movement=-0 unknown=-0 nonfinite=-0 => final=1064
+2026-10-31 11:11:41 INFO       label distribution: {'W': 410, 'N1': 163, 'N2': 377, 'N3': 4, 'REM': 110}
+2026-10-31 11:11:41 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:41 INFO     record SC4402E0 (subject SC440)
+2026-10-31 11:11:41 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4402E0-PSG.edf
+2026-10-31 11:11:41 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4402EW-Hypnogram.edf
+2026-10-31 11:11:41 INFO       paired by : start_datetime
+2026-10-31 11:11:41 INFO     SC4402E0: signal 83700.000s, annotations 0 - 86400.000s (166 entries)
+2026-10-31 11:11:41 WARNING  SC4402E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83700.0s
+2026-10-31 11:11:41 INFO     SC4402E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:41 INFO     SC4402E0: read 8370000 samples at 100.000 Hz via mne
+2026-10-31 11:11:41 INFO       wrote SC4402E0.npz
+2026-10-31 11:11:41 INFO       epochs: signal=2790 eligible=2790 -> edge_trim=-1718 movement=-0 unknown=-0 nonfinite=-0 => final=1072
+2026-10-31 11:11:41 INFO       label distribution: {'W': 209, 'N1': 92, 'N2': 375, 'N3': 142, 'REM': 254}
+2026-10-31 11:11:41 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:41 INFO     record SC4411E0 (subject SC441)
+2026-10-31 11:11:41 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4411E0-PSG.edf
+2026-10-31 11:11:41 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4411EJ-Hypnogram.edf
+2026-10-31 11:11:41 INFO       paired by : start_datetime
+2026-10-31 11:11:41 INFO     SC4411E0: signal 81840.000s, annotations 0 - 86400.000s (179 entries)
+2026-10-31 11:11:41 WARNING  SC4411E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81840.0s
+2026-10-31 11:11:41 INFO     SC4411E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:41 INFO     SC4411E0: read 8184000 samples at 100.000 Hz via mne
+2026-10-31 11:11:42 INFO       wrote SC4411E0.npz
+2026-10-31 11:11:42 INFO       epochs: signal=2728 eligible=2728 -> edge_trim=-1650 movement=-0 unknown=-0 nonfinite=-0 => final=1078
+2026-10-31 11:11:42 INFO       label distribution: {'W': 181, 'N1': 145, 'N2': 502, 'N3': 46, 'REM': 204}
+2026-10-31 11:11:42 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:42 INFO     record SC4412E0 (subject SC441)
+2026-10-31 11:11:42 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4412E0-PSG.edf
+2026-10-31 11:11:42 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4412EM-Hypnogram.edf
+2026-10-31 11:11:42 INFO       paired by : start_datetime
+2026-10-31 11:11:42 INFO     SC4412E0: signal 85740.000s, annotations 0 - 86400.000s (196 entries)
+2026-10-31 11:11:42 WARNING  SC4412E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85740.0s
+2026-10-31 11:11:42 INFO     SC4412E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:42 INFO     SC4412E0: read 8574000 samples at 100.000 Hz via mne
+2026-10-31 11:11:42 INFO       wrote SC4412E0.npz
+2026-10-31 11:11:42 INFO       epochs: signal=2858 eligible=2858 -> edge_trim=-826 movement=-0 unknown=-93 nonfinite=-0 => final=1939
+2026-10-31 11:11:42 INFO       label distribution: {'W': 1193, 'N1': 64, 'N2': 356, 'N3': 226, 'REM': 100}
+2026-10-31 11:11:42 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:42 INFO     record SC4421E0 (subject SC442)
+2026-10-31 11:11:42 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4421E0-PSG.edf
+2026-10-31 11:11:42 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4421EA-Hypnogram.edf
+2026-10-31 11:11:42 INFO       paired by : start_datetime
+2026-10-31 11:11:42 INFO     SC4421E0: signal 82920.000s, annotations 0 - 86400.000s (127 entries)
+2026-10-31 11:11:42 WARNING  SC4421E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82920.0s
+2026-10-31 11:11:42 INFO     SC4421E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:42 INFO     SC4421E0: read 8292000 samples at 100.000 Hz via mne
+2026-10-31 11:11:43 INFO       wrote SC4421E0.npz
+2026-10-31 11:11:43 INFO       epochs: signal=2764 eligible=2764 -> edge_trim=-1979 movement=-0 unknown=-0 nonfinite=-0 => final=785
+2026-10-31 11:11:43 INFO       label distribution: {'W': 147, 'N1': 34, 'N2': 283, 'N3': 163, 'REM': 158}
+2026-10-31 11:11:43 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:43 INFO     record SC4422E0 (subject SC442)
+2026-10-31 11:11:43 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4422E0-PSG.edf
+2026-10-31 11:11:43 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4422EA-Hypnogram.edf
+2026-10-31 11:11:43 INFO       paired by : start_datetime
+2026-10-31 11:11:43 INFO     SC4422E0: signal 80460.000s, annotations 0 - 86400.000s (158 entries)
+2026-10-31 11:11:43 WARNING  SC4422E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80460.0s
+2026-10-31 11:11:43 INFO     SC4422E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:43 INFO     SC4422E0: read 8046000 samples at 100.000 Hz via mne
+2026-10-31 11:11:43 INFO       wrote SC4422E0.npz
+2026-10-31 11:11:43 INFO       epochs: signal=2682 eligible=2682 -> edge_trim=-1798 movement=-0 unknown=-0 nonfinite=-0 => final=884
+2026-10-31 11:11:43 INFO       label distribution: {'W': 215, 'N1': 159, 'N2': 298, 'N3': 124, 'REM': 88}
+2026-10-31 11:11:43 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:43 INFO     record SC4431E0 (subject SC443)
+2026-10-31 11:11:43 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4431E0-PSG.edf
+2026-10-31 11:11:43 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4431EM-Hypnogram.edf
+2026-10-31 11:11:43 INFO       paired by : start_datetime
+2026-10-31 11:11:43 INFO     SC4431E0: signal 84300.000s, annotations 0 - 86400.000s (110 entries)
+2026-10-31 11:11:43 WARNING  SC4431E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:43 INFO     SC4431E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:43 INFO     SC4431E0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:43 INFO       wrote SC4431E0.npz
+2026-10-31 11:11:43 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1129 movement=-0 unknown=-87 nonfinite=-0 => final=1594
+2026-10-31 11:11:43 INFO       label distribution: {'W': 1037, 'N1': 63, 'N2': 331, 'N3': 82, 'REM': 81}
+2026-10-31 11:11:43 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:43 INFO     record SC4432E0 (subject SC443)
+2026-10-31 11:11:43 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4432E0-PSG.edf
+2026-10-31 11:11:43 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4432EM-Hypnogram.edf
+2026-10-31 11:11:43 INFO       paired by : start_datetime
+2026-10-31 11:11:43 INFO     SC4432E0: signal 83400.000s, annotations 0 - 86400.000s (88 entries)
+2026-10-31 11:11:43 WARNING  SC4432E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83400.0s
+2026-10-31 11:11:43 INFO     SC4432E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:43 INFO     SC4432E0: read 8340000 samples at 100.000 Hz via mne
+2026-10-31 11:11:44 INFO       wrote SC4432E0.npz
+2026-10-31 11:11:44 INFO       epochs: signal=2780 eligible=2780 -> edge_trim=-1818 movement=-0 unknown=-0 nonfinite=-0 => final=962
+2026-10-31 11:11:44 INFO       label distribution: {'W': 150, 'N1': 41, 'N2': 430, 'N3': 144, 'REM': 197}
+2026-10-31 11:11:44 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:44 INFO     record SC4441E0 (subject SC444)
+2026-10-31 11:11:44 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4441E0-PSG.edf
+2026-10-31 11:11:44 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4441EC-Hypnogram.edf
+2026-10-31 11:11:44 INFO       paired by : start_datetime
+2026-10-31 11:11:44 INFO     SC4441E0: signal 78600.000s, annotations 0 - 86400.000s (136 entries)
+2026-10-31 11:11:44 WARNING  SC4441E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78600.0s
+2026-10-31 11:11:44 INFO     SC4441E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:44 INFO     SC4441E0: read 7860000 samples at 100.000 Hz via mne
+2026-10-31 11:11:44 INFO       wrote SC4441E0.npz
+2026-10-31 11:11:44 INFO       epochs: signal=2620 eligible=2620 -> edge_trim=-1425 movement=-0 unknown=-0 nonfinite=-0 => final=1195
+2026-10-31 11:11:44 INFO       label distribution: {'W': 416, 'N1': 183, 'N2': 405, 'N3': 91, 'REM': 100}
+2026-10-31 11:11:44 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:44 INFO     record SC4442E0 (subject SC444)
+2026-10-31 11:11:44 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4442E0-PSG.edf
+2026-10-31 11:11:44 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4442EV-Hypnogram.edf
+2026-10-31 11:11:44 INFO       paired by : start_datetime
+2026-10-31 11:11:44 INFO     SC4442E0: signal 83340.000s, annotations 0 - 86400.000s (150 entries)
+2026-10-31 11:11:44 WARNING  SC4442E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83340.0s
+2026-10-31 11:11:44 INFO     SC4442E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:44 INFO     SC4442E0: read 8334000 samples at 100.000 Hz via mne
+2026-10-31 11:11:44 INFO       wrote SC4442E0.npz
+2026-10-31 11:11:44 INFO       epochs: signal=2778 eligible=2778 -> edge_trim=-1686 movement=-0 unknown=-0 nonfinite=-0 => final=1092
+2026-10-31 11:11:44 INFO       label distribution: {'W': 282, 'N1': 92, 'N2': 530, 'N3': 92, 'REM': 96}
+2026-10-31 11:11:44 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:44 INFO     record SC4451F0 (subject SC445)
+2026-10-31 11:11:44 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4451F0-PSG.edf
+2026-10-31 11:11:44 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4451FY-Hypnogram.edf
+2026-10-31 11:11:44 INFO       paired by : start_datetime
+2026-10-31 11:11:44 INFO     SC4451F0: signal 83700.000s, annotations 0 - 86400.000s (214 entries)
+2026-10-31 11:11:44 WARNING  SC4451F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83700.0s
+2026-10-31 11:11:44 INFO     SC4451F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:44 INFO     SC4451F0: read 8370000 samples at 100.000 Hz via mne
+2026-10-31 11:11:45 INFO       wrote SC4451F0.npz
+2026-10-31 11:11:45 INFO       epochs: signal=2790 eligible=2790 -> edge_trim=-1582 movement=-0 unknown=-0 nonfinite=-0 => final=1208
+2026-10-31 11:11:45 INFO       label distribution: {'W': 269, 'N1': 235, 'N2': 258, 'N3': 307, 'REM': 139}
+2026-10-31 11:11:45 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:45 INFO     record SC4452F0 (subject SC445)
+2026-10-31 11:11:45 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4452F0-PSG.edf
+2026-10-31 11:11:45 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4452FW-Hypnogram.edf
+2026-10-31 11:11:45 INFO       paired by : start_datetime
+2026-10-31 11:11:45 INFO     SC4452F0: signal 80100.000s, annotations 0 - 86400.000s (220 entries)
+2026-10-31 11:11:45 WARNING  SC4452F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80100.0s
+2026-10-31 11:11:45 INFO     SC4452F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:45 INFO     SC4452F0: read 8010000 samples at 100.000 Hz via mne
+2026-10-31 11:11:45 INFO       wrote SC4452F0.npz
+2026-10-31 11:11:45 INFO       epochs: signal=2670 eligible=2670 -> edge_trim=-1504 movement=-0 unknown=-0 nonfinite=-0 => final=1166
+2026-10-31 11:11:45 INFO       label distribution: {'W': 191, 'N1': 162, 'N2': 358, 'N3': 267, 'REM': 188}
+2026-10-31 11:11:45 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:45 INFO     record SC4461F0 (subject SC446)
+2026-10-31 11:11:45 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4461F0-PSG.edf
+2026-10-31 11:11:45 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4461FA-Hypnogram.edf
+2026-10-31 11:11:45 INFO       paired by : start_datetime
+2026-10-31 11:11:45 INFO     SC4461F0: signal 80880.000s, annotations 0 - 86400.000s (98 entries)
+2026-10-31 11:11:45 WARNING  SC4461F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80880.0s
+2026-10-31 11:11:45 INFO     SC4461F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:45 INFO     SC4461F0: read 8088000 samples at 100.000 Hz via mne
+2026-10-31 11:11:45 INFO       wrote SC4461F0.npz
+2026-10-31 11:11:45 INFO       epochs: signal=2696 eligible=2696 -> edge_trim=-1712 movement=-1 unknown=-0 nonfinite=-0 => final=983
+2026-10-31 11:11:45 INFO       label distribution: {'W': 196, 'N1': 118, 'N2': 484, 'N3': 9, 'REM': 176}
+2026-10-31 11:11:45 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:45 INFO     record SC4462F0 (subject SC446)
+2026-10-31 11:11:45 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4462F0-PSG.edf
+2026-10-31 11:11:45 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4462FJ-Hypnogram.edf
+2026-10-31 11:11:45 INFO       paired by : start_datetime
+2026-10-31 11:11:45 INFO     SC4462F0: signal 85680.000s, annotations 0 - 86400.000s (116 entries)
+2026-10-31 11:11:45 WARNING  SC4462F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85680.0s
+2026-10-31 11:11:46 INFO     SC4462F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:46 INFO     SC4462F0: read 8568000 samples at 100.000 Hz via mne
+2026-10-31 11:11:46 INFO       wrote SC4462F0.npz
+2026-10-31 11:11:46 INFO       epochs: signal=2856 eligible=2856 -> edge_trim=-1832 movement=-2 unknown=-0 nonfinite=-0 => final=1022
+2026-10-31 11:11:46 INFO       label distribution: {'W': 147, 'N1': 198, 'N2': 472, 'N3': 19, 'REM': 186}
+2026-10-31 11:11:46 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:46 INFO     record SC4471F0 (subject SC447)
+2026-10-31 11:11:46 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4471F0-PSG.edf
+2026-10-31 11:11:46 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4471FA-Hypnogram.edf
+2026-10-31 11:11:46 INFO       paired by : start_datetime
+2026-10-31 11:11:46 INFO     SC4471F0: signal 82200.000s, annotations 0 - 86400.000s (247 entries)
+2026-10-31 11:11:46 WARNING  SC4471F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82200.0s
+2026-10-31 11:11:46 INFO     SC4471F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:46 INFO     SC4471F0: read 8220000 samples at 100.000 Hz via mne
+2026-10-31 11:11:46 INFO       wrote SC4471F0.npz
+2026-10-31 11:11:46 INFO       epochs: signal=2740 eligible=2740 -> edge_trim=-1552 movement=-1 unknown=-0 nonfinite=-0 => final=1187
+2026-10-31 11:11:46 INFO       label distribution: {'W': 365, 'N1': 78, 'N2': 349, 'N3': 275, 'REM': 120}
+2026-10-31 11:11:46 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:46 INFO     record SC4472F0 (subject SC447)
+2026-10-31 11:11:46 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4472F0-PSG.edf
+2026-10-31 11:11:46 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4472FA-Hypnogram.edf
+2026-10-31 11:11:46 INFO       paired by : start_datetime
+2026-10-31 11:11:46 INFO     SC4472F0: signal 83700.000s, annotations 0 - 86400.000s (231 entries)
+2026-10-31 11:11:46 WARNING  SC4472F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83700.0s
+2026-10-31 11:11:46 INFO     SC4472F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:46 INFO     SC4472F0: read 8370000 samples at 100.000 Hz via mne
+2026-10-31 11:11:47 INFO       wrote SC4472F0.npz
+2026-10-31 11:11:47 INFO       epochs: signal=2790 eligible=2790 -> edge_trim=-628 movement=-1 unknown=-0 nonfinite=-0 => final=2161
+2026-10-31 11:11:47 INFO       label distribution: {'W': 1437, 'N1': 161, 'N2': 299, 'N3': 144, 'REM': 120}
+2026-10-31 11:11:47 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:47 INFO     record SC4481F0 (subject SC448)
+2026-10-31 11:11:47 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4481F0-PSG.edf
+2026-10-31 11:11:47 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4481FV-Hypnogram.edf
+2026-10-31 11:11:47 INFO       paired by : start_datetime
+2026-10-31 11:11:47 INFO     SC4481F0: signal 86400.000s, annotations 0 - 86400.000s (218 entries)
+2026-10-31 11:11:47 INFO     SC4481F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:47 INFO     SC4481F0: read 8640000 samples at 100.000 Hz via mne
+2026-10-31 11:11:47 INFO       wrote SC4481F0.npz
+2026-10-31 11:11:47 INFO       epochs: signal=2880 eligible=2880 -> edge_trim=-853 movement=-0 unknown=-0 nonfinite=-0 => final=2027
+2026-10-31 11:11:47 INFO       label distribution: {'W': 926, 'N1': 299, 'N2': 471, 'N3': 95, 'REM': 236}
+2026-10-31 11:11:47 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:47 INFO     record SC4482F0 (subject SC448)
+2026-10-31 11:11:47 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4482F0-PSG.edf
+2026-10-31 11:11:47 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4482FJ-Hypnogram.edf
+2026-10-31 11:11:47 INFO       paired by : start_datetime
+2026-10-31 11:11:47 INFO     SC4482F0: signal 86400.000s, annotations 0 - 86400.000s (207 entries)
+2026-10-31 11:11:47 INFO     SC4482F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:47 INFO     SC4482F0: read 8640000 samples at 100.000 Hz via mne
+2026-10-31 11:11:48 INFO       wrote SC4482F0.npz
+2026-10-31 11:11:48 INFO       epochs: signal=2880 eligible=2880 -> edge_trim=-970 movement=-0 unknown=-0 nonfinite=-0 => final=1910
+2026-10-31 11:11:48 INFO       label distribution: {'W': 968, 'N1': 146, 'N2': 520, 'N3': 116, 'REM': 160}
+2026-10-31 11:11:48 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:48 INFO     record SC4491G0 (subject SC449)
+2026-10-31 11:11:48 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4491G0-PSG.edf
+2026-10-31 11:11:48 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4491GJ-Hypnogram.edf
+2026-10-31 11:11:48 INFO       paired by : start_datetime
+2026-10-31 11:11:48 INFO     SC4491G0: signal 84000.000s, annotations 0 - 86400.000s (149 entries)
+2026-10-31 11:11:48 WARNING  SC4491G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84000.0s
+2026-10-31 11:11:48 INFO     SC4491G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:48 INFO     SC4491G0: read 8400000 samples at 100.000 Hz via mne
+2026-10-31 11:11:48 INFO       wrote SC4491G0.npz
+2026-10-31 11:11:48 INFO       epochs: signal=2800 eligible=2800 -> edge_trim=-1699 movement=-0 unknown=-0 nonfinite=-0 => final=1101
+2026-10-31 11:11:48 INFO       label distribution: {'W': 210, 'N1': 149, 'N2': 512, 'N3': 14, 'REM': 216}
+2026-10-31 11:11:48 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:48 INFO     record SC4492G0 (subject SC449)
+2026-10-31 11:11:48 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4492G0-PSG.edf
+2026-10-31 11:11:48 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4492GJ-Hypnogram.edf
+2026-10-31 11:11:48 INFO       paired by : start_datetime
+2026-10-31 11:11:48 INFO     SC4492G0: signal 64080.000s, annotations 0 - 86400.000s (169 entries)
+2026-10-31 11:11:48 WARNING  SC4492G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 64080.0s
+2026-10-31 11:11:48 INFO     SC4492G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:48 INFO     SC4492G0: read 6408000 samples at 100.000 Hz via mne
+2026-10-31 11:11:48 INFO       wrote SC4492G0.npz
+2026-10-31 11:11:48 INFO       epochs: signal=2136 eligible=2136 -> edge_trim=-1095 movement=-1 unknown=-0 nonfinite=-0 => final=1040
+2026-10-31 11:11:48 INFO       label distribution: {'W': 307, 'N1': 157, 'N2': 416, 'N3': 27, 'REM': 133}
+2026-10-31 11:11:48 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:48 INFO     record SC4501E0 (subject SC450)
+2026-10-31 11:11:48 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4501E0-PSG.edf
+2026-10-31 11:11:48 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4501EW-Hypnogram.edf
+2026-10-31 11:11:48 INFO       paired by : start_datetime
+2026-10-31 11:11:48 INFO     SC4501E0: signal 82500.000s, annotations 0 - 86400.000s (84 entries)
+2026-10-31 11:11:48 WARNING  SC4501E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82500.0s
+2026-10-31 11:11:48 INFO     SC4501E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:48 INFO     SC4501E0: read 8250000 samples at 100.000 Hz via mne
+2026-10-31 11:11:49 INFO       wrote SC4501E0.npz
+2026-10-31 11:11:49 INFO       epochs: signal=2750 eligible=2750 -> edge_trim=-1424 movement=-0 unknown=-0 nonfinite=-0 => final=1326
+2026-10-31 11:11:49 INFO       label distribution: {'W': 539, 'N1': 190, 'N2': 402, 'N3': 2, 'REM': 193}
+2026-10-31 11:11:49 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:49 INFO     record SC4502E0 (subject SC450)
+2026-10-31 11:11:49 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4502E0-PSG.edf
+2026-10-31 11:11:49 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4502EM-Hypnogram.edf
+2026-10-31 11:11:49 INFO       paired by : start_datetime
+2026-10-31 11:11:49 INFO     SC4502E0: signal 83100.000s, annotations 0 - 86400.000s (138 entries)
+2026-10-31 11:11:49 WARNING  SC4502E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83100.0s
+2026-10-31 11:11:49 INFO     SC4502E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:49 INFO     SC4502E0: read 8310000 samples at 100.000 Hz via mne
+2026-10-31 11:11:49 INFO       wrote SC4502E0.npz
+2026-10-31 11:11:49 INFO       epochs: signal=2770 eligible=2770 -> edge_trim=-1667 movement=-0 unknown=-0 nonfinite=-0 => final=1103
+2026-10-31 11:11:49 INFO       label distribution: {'W': 299, 'N1': 78, 'N2': 493, 'N3': 42, 'REM': 191}
+2026-10-31 11:11:49 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:49 INFO     record SC4511E0 (subject SC451)
+2026-10-31 11:11:49 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4511E0-PSG.edf
+2026-10-31 11:11:49 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4511EJ-Hypnogram.edf
+2026-10-31 11:11:49 INFO       paired by : start_datetime
+2026-10-31 11:11:49 INFO     SC4511E0: signal 81360.000s, annotations 0 - 86400.000s (95 entries)
+2026-10-31 11:11:49 WARNING  SC4511E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81360.0s
+2026-10-31 11:11:49 INFO     SC4511E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:49 INFO     SC4511E0: read 8136000 samples at 100.000 Hz via mne
+2026-10-31 11:11:50 INFO       wrote SC4511E0.npz
+2026-10-31 11:11:50 INFO       epochs: signal=2712 eligible=2712 -> edge_trim=-1625 movement=-0 unknown=-0 nonfinite=-0 => final=1087
+2026-10-31 11:11:50 INFO       label distribution: {'W': 151, 'N1': 409, 'N2': 398, 'N3': 3, 'REM': 126}
+2026-10-31 11:11:50 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:50 INFO     record SC4512E0 (subject SC451)
+2026-10-31 11:11:50 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4512E0-PSG.edf
+2026-10-31 11:11:50 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4512EW-Hypnogram.edf
+2026-10-31 11:11:50 INFO       paired by : start_datetime
+2026-10-31 11:11:50 INFO     SC4512E0: signal 82500.000s, annotations 0 - 86400.000s (102 entries)
+2026-10-31 11:11:50 WARNING  SC4512E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82500.0s
+2026-10-31 11:11:50 INFO     SC4512E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:50 INFO     SC4512E0: read 8250000 samples at 100.000 Hz via mne
+2026-10-31 11:11:50 INFO       wrote SC4512E0.npz
+2026-10-31 11:11:50 INFO       epochs: signal=2750 eligible=2750 -> edge_trim=-1796 movement=-0 unknown=-0 nonfinite=-0 => final=954
+2026-10-31 11:11:50 INFO       label distribution: {'W': 226, 'N1': 179, 'N2': 435, 'N3': 2, 'REM': 112}
+2026-10-31 11:11:50 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:50 INFO     record SC4522E0 (subject SC452)
+2026-10-31 11:11:50 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4522E0-PSG.edf
+2026-10-31 11:11:50 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4522EM-Hypnogram.edf
+2026-10-31 11:11:50 INFO       paired by : start_datetime
+2026-10-31 11:11:50 INFO     SC4522E0: signal 83220.000s, annotations 0 - 86400.000s (68 entries)
+2026-10-31 11:11:50 WARNING  SC4522E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83220.0s
+2026-10-31 11:11:50 INFO     SC4522E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:50 INFO     SC4522E0: read 8322000 samples at 100.000 Hz via mne
+2026-10-31 11:11:50 INFO       wrote SC4522E0.npz
+2026-10-31 11:11:50 INFO       epochs: signal=2774 eligible=2774 -> edge_trim=-1777 movement=-0 unknown=-0 nonfinite=-0 => final=997
+2026-10-31 11:11:50 INFO       label distribution: {'W': 283, 'N1': 89, 'N2': 530, 'N3': 11, 'REM': 84}
+2026-10-31 11:11:50 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:50 INFO     record SC4531E0 (subject SC453)
+2026-10-31 11:11:50 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4531E0-PSG.edf
+2026-10-31 11:11:50 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4531EM-Hypnogram.edf
+2026-10-31 11:11:50 INFO       paired by : start_datetime
+2026-10-31 11:11:50 INFO     SC4531E0: signal 78060.000s, annotations 0 - 86400.000s (206 entries)
+2026-10-31 11:11:50 WARNING  SC4531E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78060.0s
+2026-10-31 11:11:50 INFO     SC4531E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:50 INFO     SC4531E0: read 7806000 samples at 100.000 Hz via mne
+2026-10-31 11:11:50 INFO       wrote SC4531E0.npz
+2026-10-31 11:11:50 INFO       epochs: signal=2602 eligible=2602 -> edge_trim=-1506 movement=-0 unknown=-0 nonfinite=-0 => final=1096
+2026-10-31 11:11:50 INFO       label distribution: {'W': 242, 'N1': 124, 'N2': 465, 'N3': 85, 'REM': 180}
+2026-10-31 11:11:50 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:50 INFO     record SC4532E0 (subject SC453)
+2026-10-31 11:11:50 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4532E0-PSG.edf
+2026-10-31 11:11:50 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4532EV-Hypnogram.edf
+2026-10-31 11:11:50 INFO       paired by : start_datetime
+2026-10-31 11:11:50 INFO     SC4532E0: signal 82320.000s, annotations 0 - 86400.000s (119 entries)
+2026-10-31 11:11:50 WARNING  SC4532E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82320.0s
+2026-10-31 11:11:50 INFO     SC4532E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:50 INFO     SC4532E0: read 8232000 samples at 100.000 Hz via mne
+2026-10-31 11:11:51 INFO       wrote SC4532E0.npz
+2026-10-31 11:11:51 INFO       epochs: signal=2744 eligible=2744 -> edge_trim=-1688 movement=-0 unknown=-0 nonfinite=-0 => final=1056
+2026-10-31 11:11:51 INFO       label distribution: {'W': 175, 'N1': 147, 'N2': 543, 'N3': 21, 'REM': 170}
+2026-10-31 11:11:51 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:51 INFO     record SC4541F0 (subject SC454)
+2026-10-31 11:11:51 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4541F0-PSG.edf
+2026-10-31 11:11:51 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4541FA-Hypnogram.edf
+2026-10-31 11:11:51 INFO       paired by : start_datetime
+2026-10-31 11:11:51 INFO     SC4541F0: signal 82200.000s, annotations 0 - 86400.000s (182 entries)
+2026-10-31 11:11:51 WARNING  SC4541F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82200.0s
+2026-10-31 11:11:51 INFO     SC4541F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:51 INFO     SC4541F0: read 8220000 samples at 100.000 Hz via mne
+2026-10-31 11:11:51 INFO       wrote SC4541F0.npz
+2026-10-31 11:11:51 INFO       epochs: signal=2740 eligible=2740 -> edge_trim=-1023 movement=-1 unknown=-0 nonfinite=-0 => final=1716
+2026-10-31 11:11:51 INFO       label distribution: {'W': 820, 'N1': 199, 'N2': 557, 'N3': 5, 'REM': 135}
+2026-10-31 11:11:51 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:51 INFO     record SC4542F0 (subject SC454)
+2026-10-31 11:11:51 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4542F0-PSG.edf
+2026-10-31 11:11:51 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4542FW-Hypnogram.edf
+2026-10-31 11:11:51 INFO       paired by : start_datetime
+2026-10-31 11:11:51 INFO     SC4542F0: signal 80400.000s, annotations 0 - 86400.000s (247 entries)
+2026-10-31 11:11:51 WARNING  SC4542F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80400.0s
+2026-10-31 11:11:51 INFO     SC4542F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:51 INFO     SC4542F0: read 8040000 samples at 100.000 Hz via mne
+2026-10-31 11:11:52 INFO       wrote SC4542F0.npz
+2026-10-31 11:11:52 INFO       epochs: signal=2680 eligible=2680 -> edge_trim=-1532 movement=-0 unknown=-0 nonfinite=-0 => final=1148
+2026-10-31 11:11:52 INFO       label distribution: {'W': 281, 'N1': 208, 'N2': 461, 'N3': 78, 'REM': 120}
+2026-10-31 11:11:52 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:52 INFO     record SC4551F0 (subject SC455)
+2026-10-31 11:11:52 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4551F0-PSG.edf
+2026-10-31 11:11:52 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4551FC-Hypnogram.edf
+2026-10-31 11:11:52 INFO       paired by : start_datetime
+2026-10-31 11:11:52 INFO     SC4551F0: signal 83160.000s, annotations 0 - 86400.000s (111 entries)
+2026-10-31 11:11:52 WARNING  SC4551F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83160.0s
+2026-10-31 11:11:52 INFO     SC4551F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:52 INFO     SC4551F0: read 8316000 samples at 100.000 Hz via mne
+2026-10-31 11:11:52 INFO       wrote SC4551F0.npz
+2026-10-31 11:11:52 INFO       epochs: signal=2772 eligible=2772 -> edge_trim=-1725 movement=-0 unknown=-0 nonfinite=-0 => final=1047
+2026-10-31 11:11:52 INFO       label distribution: {'W': 314, 'N1': 91, 'N2': 487, 'N3': 48, 'REM': 107}
+2026-10-31 11:11:52 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:52 INFO     record SC4552F0 (subject SC455)
+2026-10-31 11:11:52 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4552F0-PSG.edf
+2026-10-31 11:11:52 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4552FW-Hypnogram.edf
+2026-10-31 11:11:52 INFO       paired by : start_datetime
+2026-10-31 11:11:52 INFO     SC4552F0: signal 84300.000s, annotations 0 - 86400.000s (85 entries)
+2026-10-31 11:11:52 WARNING  SC4552F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:11:52 INFO     SC4552F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:52 INFO     SC4552F0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:11:53 INFO       wrote SC4552F0.npz
+2026-10-31 11:11:53 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1720 movement=-0 unknown=-0 nonfinite=-0 => final=1090
+2026-10-31 11:11:53 INFO       label distribution: {'W': 334, 'N1': 115, 'N2': 395, 'N3': 1, 'REM': 245}
+2026-10-31 11:11:53 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:53 INFO     record SC4561F0 (subject SC456)
+2026-10-31 11:11:53 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4561F0-PSG.edf
+2026-10-31 11:11:53 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4561FJ-Hypnogram.edf
+2026-10-31 11:11:53 INFO       paired by : start_datetime
+2026-10-31 11:11:53 INFO     SC4561F0: signal 81120.000s, annotations 0 - 86400.000s (187 entries)
+2026-10-31 11:11:53 WARNING  SC4561F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81120.0s
+2026-10-31 11:11:53 INFO     SC4561F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:53 INFO     SC4561F0: read 8112000 samples at 100.000 Hz via mne
+2026-10-31 11:11:53 INFO       wrote SC4561F0.npz
+2026-10-31 11:11:53 INFO       epochs: signal=2704 eligible=2704 -> edge_trim=-1465 movement=-2 unknown=-0 nonfinite=-0 => final=1237
+2026-10-31 11:11:53 INFO       label distribution: {'W': 281, 'N1': 521, 'N2': 272, 'N3': 50, 'REM': 113}
+2026-10-31 11:11:53 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:53 INFO     record SC4562F0 (subject SC456)
+2026-10-31 11:11:53 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4562F0-PSG.edf
+2026-10-31 11:11:53 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4562FJ-Hypnogram.edf
+2026-10-31 11:11:53 INFO       paired by : start_datetime
+2026-10-31 11:11:53 INFO     SC4562F0: signal 84000.000s, annotations 0 - 86400.000s (173 entries)
+2026-10-31 11:11:53 WARNING  SC4562F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84000.0s
+2026-10-31 11:11:53 INFO     SC4562F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:53 INFO     SC4562F0: read 8400000 samples at 100.000 Hz via mne
+2026-10-31 11:11:53 INFO       wrote SC4562F0.npz
+2026-10-31 11:11:53 INFO       epochs: signal=2800 eligible=2800 -> edge_trim=-1652 movement=-0 unknown=-0 nonfinite=-0 => final=1148
+2026-10-31 11:11:53 INFO       label distribution: {'W': 283, 'N1': 365, 'N2': 335, 'N3': 28, 'REM': 137}
+2026-10-31 11:11:53 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:53 INFO     record SC4571F0 (subject SC457)
+2026-10-31 11:11:53 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4571F0-PSG.edf
+2026-10-31 11:11:53 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4571FV-Hypnogram.edf
+2026-10-31 11:11:53 INFO       paired by : start_datetime
+2026-10-31 11:11:53 INFO     SC4571F0: signal 85500.000s, annotations 0 - 86400.000s (213 entries)
+2026-10-31 11:11:53 WARNING  SC4571F0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85500.0s
+2026-10-31 11:11:53 INFO     SC4571F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:53 INFO     SC4571F0: read 8550000 samples at 100.000 Hz via mne
+2026-10-31 11:11:54 INFO       wrote SC4571F0.npz
+2026-10-31 11:11:54 INFO       epochs: signal=2850 eligible=2850 -> edge_trim=-1549 movement=-0 unknown=-14 nonfinite=-0 => final=1287
+2026-10-31 11:11:54 INFO       label distribution: {'W': 338, 'N1': 186, 'N2': 513, 'N3': 0, 'REM': 250}
+2026-10-31 11:11:54 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:54 INFO     record SC4572F0 (subject SC457)
+2026-10-31 11:11:54 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4572F0-PSG.edf
+2026-10-31 11:11:54 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4572FC-Hypnogram.edf
+2026-10-31 11:11:54 INFO       paired by : start_datetime
+2026-10-31 11:11:54 INFO     SC4572F0: signal 86400.000s, annotations 0 - 86400.000s (131 entries)
+2026-10-31 11:11:54 INFO     SC4572F0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:54 INFO     SC4572F0: read 8640000 samples at 100.000 Hz via mne
+2026-10-31 11:11:54 INFO       wrote SC4572F0.npz
+2026-10-31 11:11:54 INFO       epochs: signal=2880 eligible=2880 -> edge_trim=-1778 movement=-7 unknown=-0 nonfinite=-0 => final=1095
+2026-10-31 11:11:54 INFO       label distribution: {'W': 175, 'N1': 104, 'N2': 569, 'N3': 29, 'REM': 218}
+2026-10-31 11:11:54 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:54 INFO     record SC4581G0 (subject SC458)
+2026-10-31 11:11:54 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4581G0-PSG.edf
+2026-10-31 11:11:54 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4581GM-Hypnogram.edf
+2026-10-31 11:11:54 INFO       paired by : start_datetime
+2026-10-31 11:11:54 INFO     SC4581G0: signal 82140.000s, annotations 0 - 86400.000s (162 entries)
+2026-10-31 11:11:54 WARNING  SC4581G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82140.0s
+2026-10-31 11:11:54 INFO     SC4581G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:54 INFO     SC4581G0: read 8214000 samples at 100.000 Hz via mne
+2026-10-31 11:11:55 INFO       wrote SC4581G0.npz
+2026-10-31 11:11:55 INFO       epochs: signal=2738 eligible=2738 -> edge_trim=-1643 movement=-0 unknown=-0 nonfinite=-0 => final=1095
+2026-10-31 11:11:55 INFO       label distribution: {'W': 194, 'N1': 152, 'N2': 578, 'N3': 10, 'REM': 161}
+2026-10-31 11:11:55 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:55 INFO     record SC4582G0 (subject SC458)
+2026-10-31 11:11:55 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4582G0-PSG.edf
+2026-10-31 11:11:55 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4582GP-Hypnogram.edf
+2026-10-31 11:11:55 INFO       paired by : start_datetime
+2026-10-31 11:11:55 INFO     SC4582G0: signal 79020.000s, annotations 0 - 86400.000s (181 entries)
+2026-10-31 11:11:55 WARNING  SC4582G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79020.0s
+2026-10-31 11:11:55 INFO     SC4582G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:55 INFO     SC4582G0: read 7902000 samples at 100.000 Hz via mne
+2026-10-31 11:11:55 INFO       wrote SC4582G0.npz
+2026-10-31 11:11:55 INFO       epochs: signal=2634 eligible=2634 -> edge_trim=-1459 movement=-0 unknown=-0 nonfinite=-0 => final=1175
+2026-10-31 11:11:55 INFO       label distribution: {'W': 345, 'N1': 195, 'N2': 543, 'N3': 6, 'REM': 86}
+2026-10-31 11:11:55 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:55 INFO     record SC4591G0 (subject SC459)
+2026-10-31 11:11:55 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4591G0-PSG.edf
+2026-10-31 11:11:55 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4591GY-Hypnogram.edf
+2026-10-31 11:11:55 INFO       paired by : start_datetime
+2026-10-31 11:11:55 INFO     SC4591G0: signal 84600.000s, annotations 0 - 86400.000s (196 entries)
+2026-10-31 11:11:55 WARNING  SC4591G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84600.0s
+2026-10-31 11:11:55 INFO     SC4591G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:55 INFO     SC4591G0: read 8460000 samples at 100.000 Hz via mne
+2026-10-31 11:11:55 INFO       wrote SC4591G0.npz
+2026-10-31 11:11:55 INFO       epochs: signal=2820 eligible=2820 -> edge_trim=-979 movement=-1 unknown=-0 nonfinite=-0 => final=1840
+2026-10-31 11:11:55 INFO       label distribution: {'W': 863, 'N1': 199, 'N2': 363, 'N3': 157, 'REM': 258}
+2026-10-31 11:11:55 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:55 INFO     record SC4592G0 (subject SC459)
+2026-10-31 11:11:55 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4592G0-PSG.edf
+2026-10-31 11:11:55 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4592GY-Hypnogram.edf
+2026-10-31 11:11:55 INFO       paired by : start_datetime
+2026-10-31 11:11:55 INFO     SC4592G0: signal 61200.000s, annotations 0 - 86400.000s (274 entries)
+2026-10-31 11:11:55 WARNING  SC4592G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 61200.0s
+2026-10-31 11:11:56 INFO     SC4592G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:56 INFO     SC4592G0: read 6120000 samples at 100.000 Hz via mne
+2026-10-31 11:11:56 INFO       wrote SC4592G0.npz
+2026-10-31 11:11:56 INFO       epochs: signal=2040 eligible=2040 -> edge_trim=-809 movement=-0 unknown=-0 nonfinite=-0 => final=1231
+2026-10-31 11:11:56 INFO       label distribution: {'W': 504, 'N1': 194, 'N2': 277, 'N3': 101, 'REM': 155}
+2026-10-31 11:11:56 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:56 INFO     record SC4601E0 (subject SC460)
+2026-10-31 11:11:56 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4601E0-PSG.edf
+2026-10-31 11:11:56 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4601EC-Hypnogram.edf
+2026-10-31 11:11:56 INFO       paired by : start_datetime
+2026-10-31 11:11:56 INFO     SC4601E0: signal 81900.000s, annotations 0 - 86400.000s (204 entries)
+2026-10-31 11:11:56 WARNING  SC4601E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81900.0s
+2026-10-31 11:11:56 INFO     SC4601E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:56 INFO     SC4601E0: read 8190000 samples at 100.000 Hz via mne
+2026-10-31 11:11:56 INFO       wrote SC4601E0.npz
+2026-10-31 11:11:56 INFO       epochs: signal=2730 eligible=2730 -> edge_trim=-1381 movement=-0 unknown=-0 nonfinite=-0 => final=1349
+2026-10-31 11:11:56 INFO       label distribution: {'W': 601, 'N1': 38, 'N2': 252, 'N3': 288, 'REM': 170}
+2026-10-31 11:11:56 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:56 INFO     record SC4602E0 (subject SC460)
+2026-10-31 11:11:56 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4602E0-PSG.edf
+2026-10-31 11:11:56 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4602EJ-Hypnogram.edf
+2026-10-31 11:11:56 INFO       paired by : start_datetime
+2026-10-31 11:11:56 INFO     SC4602E0: signal 84000.000s, annotations 0 - 86400.000s (245 entries)
+2026-10-31 11:11:56 WARNING  SC4602E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84000.0s
+2026-10-31 11:11:56 INFO     SC4602E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:56 INFO     SC4602E0: read 8400000 samples at 100.000 Hz via mne
+2026-10-31 11:11:57 INFO       wrote SC4602E0.npz
+2026-10-31 11:11:57 INFO       epochs: signal=2800 eligible=2800 -> edge_trim=-757 movement=-0 unknown=-0 nonfinite=-0 => final=2043
+2026-10-31 11:11:57 INFO       label distribution: {'W': 1111, 'N1': 223, 'N2': 264, 'N3': 196, 'REM': 249}
+2026-10-31 11:11:57 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:57 INFO     record SC4611E0 (subject SC461)
+2026-10-31 11:11:57 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4611E0-PSG.edf
+2026-10-31 11:11:57 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4611EG-Hypnogram.edf
+2026-10-31 11:11:57 INFO       paired by : start_datetime
+2026-10-31 11:11:57 INFO     SC4611E0: signal 79500.000s, annotations 0 - 86400.000s (253 entries)
+2026-10-31 11:11:57 WARNING  SC4611E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79500.0s
+2026-10-31 11:11:57 INFO     SC4611E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:57 INFO     SC4611E0: read 7950000 samples at 100.000 Hz via mne
+2026-10-31 11:11:57 INFO       wrote SC4611E0.npz
+2026-10-31 11:11:57 INFO       epochs: signal=2650 eligible=2650 -> edge_trim=-992 movement=-0 unknown=-6 nonfinite=-0 => final=1652
+2026-10-31 11:11:57 INFO       label distribution: {'W': 715, 'N1': 123, 'N2': 276, 'N3': 139, 'REM': 399}
+2026-10-31 11:11:57 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:57 INFO     record SC4612E0 (subject SC461)
+2026-10-31 11:11:57 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4612E0-PSG.edf
+2026-10-31 11:11:57 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4612EA-Hypnogram.edf
+2026-10-31 11:11:57 INFO       paired by : start_datetime
+2026-10-31 11:11:57 INFO     SC4612E0: signal 81900.000s, annotations 0 - 86400.000s (153 entries)
+2026-10-31 11:11:57 WARNING  SC4612E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81900.0s
+2026-10-31 11:11:57 INFO     SC4612E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:57 INFO     SC4612E0: read 8190000 samples at 100.000 Hz via mne
+2026-10-31 11:11:58 INFO       wrote SC4612E0.npz
+2026-10-31 11:11:58 INFO       epochs: signal=2730 eligible=2730 -> edge_trim=-1668 movement=-0 unknown=-0 nonfinite=-0 => final=1062
+2026-10-31 11:11:58 INFO       label distribution: {'W': 208, 'N1': 96, 'N2': 479, 'N3': 65, 'REM': 214}
+2026-10-31 11:11:58 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:58 INFO     record SC4621E0 (subject SC462)
+2026-10-31 11:11:58 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4621E0-PSG.edf
+2026-10-31 11:11:58 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4621EV-Hypnogram.edf
+2026-10-31 11:11:58 INFO       paired by : start_datetime
+2026-10-31 11:11:58 INFO     SC4621E0: signal 78360.000s, annotations 0 - 86400.000s (190 entries)
+2026-10-31 11:11:58 WARNING  SC4621E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78360.0s
+2026-10-31 11:11:58 INFO     SC4621E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:58 INFO     SC4621E0: read 7836000 samples at 100.000 Hz via mne
+2026-10-31 11:11:58 INFO       wrote SC4621E0.npz
+2026-10-31 11:11:58 INFO       epochs: signal=2612 eligible=2612 -> edge_trim=-1167 movement=-0 unknown=-0 nonfinite=-0 => final=1445
+2026-10-31 11:11:58 INFO       label distribution: {'W': 332, 'N1': 276, 'N2': 745, 'N3': 14, 'REM': 78}
+2026-10-31 11:11:58 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:58 INFO     record SC4622E0 (subject SC462)
+2026-10-31 11:11:58 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4622E0-PSG.edf
+2026-10-31 11:11:58 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4622EJ-Hypnogram.edf
+2026-10-31 11:11:58 INFO       paired by : start_datetime
+2026-10-31 11:11:58 INFO     SC4622E0: signal 85680.000s, annotations 0 - 86400.000s (196 entries)
+2026-10-31 11:11:58 WARNING  SC4622E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85680.0s
+2026-10-31 11:11:58 INFO     SC4622E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:58 INFO     SC4622E0: read 8568000 samples at 100.000 Hz via mne
+2026-10-31 11:11:59 INFO       wrote SC4622E0.npz
+2026-10-31 11:11:59 INFO       epochs: signal=2856 eligible=2856 -> edge_trim=-1033 movement=-0 unknown=-0 nonfinite=-0 => final=1823
+2026-10-31 11:11:59 INFO       label distribution: {'W': 926, 'N1': 347, 'N2': 431, 'N3': 4, 'REM': 115}
+2026-10-31 11:11:59 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:59 INFO     record SC4631E0 (subject SC463)
+2026-10-31 11:11:59 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4631E0-PSG.edf
+2026-10-31 11:11:59 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4631EM-Hypnogram.edf
+2026-10-31 11:11:59 INFO       paired by : start_datetime
+2026-10-31 11:11:59 INFO     SC4631E0: signal 82740.000s, annotations 0 - 86400.000s (158 entries)
+2026-10-31 11:11:59 WARNING  SC4631E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82740.0s
+2026-10-31 11:11:59 INFO     SC4631E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:59 INFO     SC4631E0: read 8274000 samples at 100.000 Hz via mne
+2026-10-31 11:11:59 INFO       wrote SC4631E0.npz
+2026-10-31 11:11:59 INFO       epochs: signal=2758 eligible=2758 -> edge_trim=-1695 movement=-0 unknown=-0 nonfinite=-0 => final=1063
+2026-10-31 11:11:59 INFO       label distribution: {'W': 292, 'N1': 131, 'N2': 481, 'N3': 39, 'REM': 120}
+2026-10-31 11:11:59 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:11:59 INFO     record SC4632E0 (subject SC463)
+2026-10-31 11:11:59 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4632E0-PSG.edf
+2026-10-31 11:11:59 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4632EA-Hypnogram.edf
+2026-10-31 11:11:59 INFO       paired by : start_datetime
+2026-10-31 11:11:59 INFO     SC4632E0: signal 85440.000s, annotations 0 - 86400.000s (167 entries)
+2026-10-31 11:11:59 WARNING  SC4632E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85440.0s
+2026-10-31 11:11:59 INFO     SC4632E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:11:59 INFO     SC4632E0: read 8544000 samples at 100.000 Hz via mne
+2026-10-31 11:12:00 INFO       wrote SC4632E0.npz
+2026-10-31 11:12:00 INFO       epochs: signal=2848 eligible=2848 -> edge_trim=-1741 movement=-0 unknown=-0 nonfinite=-0 => final=1107
+2026-10-31 11:12:00 INFO       label distribution: {'W': 224, 'N1': 157, 'N2': 558, 'N3': 28, 'REM': 140}
+2026-10-31 11:12:00 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:00 INFO     record SC4641E0 (subject SC464)
+2026-10-31 11:12:00 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4641E0-PSG.edf
+2026-10-31 11:12:00 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4641EP-Hypnogram.edf
+2026-10-31 11:12:00 INFO       paired by : start_datetime
+2026-10-31 11:12:00 INFO     SC4641E0: signal 80400.000s, annotations 0 - 86400.000s (88 entries)
+2026-10-31 11:12:00 WARNING  SC4641E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80400.0s
+2026-10-31 11:12:00 INFO     SC4641E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:00 INFO     SC4641E0: read 8040000 samples at 100.000 Hz via mne
+2026-10-31 11:12:00 INFO       wrote SC4641E0.npz
+2026-10-31 11:12:00 INFO       epochs: signal=2680 eligible=2680 -> edge_trim=-1409 movement=-0 unknown=-0 nonfinite=-0 => final=1271
+2026-10-31 11:12:00 INFO       label distribution: {'W': 632, 'N1': 179, 'N2': 382, 'N3': 0, 'REM': 78}
+2026-10-31 11:12:00 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:00 INFO     record SC4642E0 (subject SC464)
+2026-10-31 11:12:00 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4642E0-PSG.edf
+2026-10-31 11:12:00 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4642EP-Hypnogram.edf
+2026-10-31 11:12:00 INFO       paired by : start_datetime
+2026-10-31 11:12:00 INFO     SC4642E0: signal 83700.000s, annotations 0 - 86400.000s (90 entries)
+2026-10-31 11:12:00 WARNING  SC4642E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83700.0s
+2026-10-31 11:12:00 INFO     SC4642E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:00 INFO     SC4642E0: read 8370000 samples at 100.000 Hz via mne
+2026-10-31 11:12:01 INFO       wrote SC4642E0.npz
+2026-10-31 11:12:01 INFO       epochs: signal=2790 eligible=2790 -> edge_trim=-741 movement=-0 unknown=-0 nonfinite=-0 => final=2049
+2026-10-31 11:12:01 INFO       label distribution: {'W': 1161, 'N1': 243, 'N2': 518, 'N3': 0, 'REM': 127}
+2026-10-31 11:12:01 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:01 INFO     record SC4651E0 (subject SC465)
+2026-10-31 11:12:01 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4651E0-PSG.edf
+2026-10-31 11:12:01 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4651EP-Hypnogram.edf
+2026-10-31 11:12:01 INFO       paired by : start_datetime
+2026-10-31 11:12:01 INFO     SC4651E0: signal 85800.000s, annotations 0 - 86400.000s (251 entries)
+2026-10-31 11:12:01 WARNING  SC4651E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85800.0s
+2026-10-31 11:12:01 INFO     SC4651E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:01 INFO     SC4651E0: read 8580000 samples at 100.000 Hz via mne
+2026-10-31 11:12:01 INFO       wrote SC4651E0.npz
+2026-10-31 11:12:01 INFO       epochs: signal=2860 eligible=2860 -> edge_trim=-216 movement=-0 unknown=-0 nonfinite=-0 => final=2644
+2026-10-31 11:12:01 INFO       label distribution: {'W': 1424, 'N1': 100, 'N2': 821, 'N3': 140, 'REM': 159}
+2026-10-31 11:12:01 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:01 INFO     record SC4652E0 (subject SC465)
+2026-10-31 11:12:01 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4652E0-PSG.edf
+2026-10-31 11:12:01 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4652EG-Hypnogram.edf
+2026-10-31 11:12:01 INFO       paired by : start_datetime
+2026-10-31 11:12:01 INFO     SC4652E0: signal 85200.000s, annotations 0 - 86400.000s (401 entries)
+2026-10-31 11:12:01 WARNING  SC4652E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 85200.0s
+2026-10-31 11:12:01 INFO     SC4652E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:01 INFO     SC4652E0: read 8520000 samples at 100.000 Hz via mne
+2026-10-31 11:12:02 INFO       wrote SC4652E0.npz
+2026-10-31 11:12:02 INFO       epochs: signal=2840 eligible=2840 -> edge_trim=-909 movement=-1 unknown=-1 nonfinite=-0 => final=1929
+2026-10-31 11:12:02 INFO       label distribution: {'W': 865, 'N1': 204, 'N2': 463, 'N3': 186, 'REM': 211}
+2026-10-31 11:12:02 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:02 INFO     record SC4661E0 (subject SC466)
+2026-10-31 11:12:02 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4661E0-PSG.edf
+2026-10-31 11:12:02 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4661EJ-Hypnogram.edf
+2026-10-31 11:12:02 INFO       paired by : start_datetime
+2026-10-31 11:12:02 INFO     SC4661E0: signal 82200.000s, annotations 0 - 86400.000s (208 entries)
+2026-10-31 11:12:02 WARNING  SC4661E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82200.0s
+2026-10-31 11:12:02 INFO     SC4661E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:02 INFO     SC4661E0: read 8220000 samples at 100.000 Hz via mne
+2026-10-31 11:12:02 INFO       wrote SC4661E0.npz
+2026-10-31 11:12:02 INFO       epochs: signal=2740 eligible=2740 -> edge_trim=-638 movement=-0 unknown=-76 nonfinite=-0 => final=2026
+2026-10-31 11:12:02 INFO       label distribution: {'W': 1079, 'N1': 375, 'N2': 422, 'N3': 40, 'REM': 110}
+2026-10-31 11:12:02 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:02 INFO     record SC4662E0 (subject SC466)
+2026-10-31 11:12:02 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4662E0-PSG.edf
+2026-10-31 11:12:02 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4662EJ-Hypnogram.edf
+2026-10-31 11:12:02 INFO       paired by : start_datetime
+2026-10-31 11:12:02 INFO     SC4662E0: signal 84600.000s, annotations 0 - 86400.000s (191 entries)
+2026-10-31 11:12:02 WARNING  SC4662E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84600.0s
+2026-10-31 11:12:03 INFO     SC4662E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:03 INFO     SC4662E0: read 8460000 samples at 100.000 Hz via mne
+2026-10-31 11:12:03 INFO       wrote SC4662E0.npz
+2026-10-31 11:12:03 INFO       epochs: signal=2820 eligible=2820 -> edge_trim=-826 movement=-0 unknown=-0 nonfinite=-0 => final=1994
+2026-10-31 11:12:03 INFO       label distribution: {'W': 1017, 'N1': 235, 'N2': 414, 'N3': 78, 'REM': 250}
+2026-10-31 11:12:03 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:03 INFO     record SC4671G0 (subject SC467)
+2026-10-31 11:12:03 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4671G0-PSG.edf
+2026-10-31 11:12:03 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4671GJ-Hypnogram.edf
+2026-10-31 11:12:03 INFO       paired by : start_datetime
+2026-10-31 11:12:03 INFO     SC4671G0: signal 83400.000s, annotations 0 - 86400.000s (229 entries)
+2026-10-31 11:12:03 WARNING  SC4671G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83400.0s
+2026-10-31 11:12:03 INFO     SC4671G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:03 INFO     SC4671G0: read 8340000 samples at 100.000 Hz via mne
+2026-10-31 11:12:04 INFO       wrote SC4671G0.npz
+2026-10-31 11:12:04 INFO       epochs: signal=2780 eligible=2780 -> edge_trim=-812 movement=-0 unknown=-0 nonfinite=-0 => final=1968
+2026-10-31 11:12:04 INFO       label distribution: {'W': 939, 'N1': 356, 'N2': 507, 'N3': 17, 'REM': 149}
+2026-10-31 11:12:04 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:04 INFO     record SC4672G0 (subject SC467)
+2026-10-31 11:12:04 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4672G0-PSG.edf
+2026-10-31 11:12:04 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4672GV-Hypnogram.edf
+2026-10-31 11:12:04 INFO       paired by : start_datetime
+2026-10-31 11:12:04 INFO     SC4672G0: signal 77400.000s, annotations 0 - 86400.000s (115 entries)
+2026-10-31 11:12:04 WARNING  SC4672G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 77400.0s
+2026-10-31 11:12:04 INFO     SC4672G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:04 INFO     SC4672G0: read 7740000 samples at 100.000 Hz via mne
+2026-10-31 11:12:04 INFO       wrote SC4672G0.npz
+2026-10-31 11:12:04 INFO       epochs: signal=2580 eligible=2580 -> edge_trim=-1559 movement=-0 unknown=-0 nonfinite=-0 => final=1021
+2026-10-31 11:12:04 INFO       label distribution: {'W': 345, 'N1': 213, 'N2': 339, 'N3': 29, 'REM': 95}
+2026-10-31 11:12:04 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:04 INFO     record SC4701E0 (subject SC470)
+2026-10-31 11:12:04 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4701E0-PSG.edf
+2026-10-31 11:12:04 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4701EC-Hypnogram.edf
+2026-10-31 11:12:04 INFO       paired by : start_datetime
+2026-10-31 11:12:04 INFO     SC4701E0: signal 80400.000s, annotations 0 - 86400.000s (110 entries)
+2026-10-31 11:12:04 WARNING  SC4701E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80400.0s
+2026-10-31 11:12:04 INFO     SC4701E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:04 INFO     SC4701E0: read 8040000 samples at 100.000 Hz via mne
+2026-10-31 11:12:04 INFO       wrote SC4701E0.npz
+2026-10-31 11:12:04 INFO       epochs: signal=2680 eligible=2680 -> edge_trim=-962 movement=-1 unknown=-0 nonfinite=-0 => final=1717
+2026-10-31 11:12:04 INFO       label distribution: {'W': 736, 'N1': 143, 'N2': 698, 'N3': 35, 'REM': 105}
+2026-10-31 11:12:04 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:04 INFO     record SC4702E0 (subject SC470)
+2026-10-31 11:12:04 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4702E0-PSG.edf
+2026-10-31 11:12:04 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4702EA-Hypnogram.edf
+2026-10-31 11:12:04 INFO       paired by : start_datetime
+2026-10-31 11:12:04 INFO     SC4702E0: signal 78720.000s, annotations 0 - 86400.000s (133 entries)
+2026-10-31 11:12:04 WARNING  SC4702E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78720.0s
+2026-10-31 11:12:05 INFO     SC4702E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:05 INFO     SC4702E0: read 7872000 samples at 100.000 Hz via mne
+2026-10-31 11:12:05 INFO       wrote SC4702E0.npz
+2026-10-31 11:12:05 INFO       epochs: signal=2624 eligible=2624 -> edge_trim=-1109 movement=-0 unknown=-0 nonfinite=-0 => final=1515
+2026-10-31 11:12:05 INFO       label distribution: {'W': 707, 'N1': 233, 'N2': 444, 'N3': 33, 'REM': 98}
+2026-10-31 11:12:05 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:05 INFO     record SC4711E0 (subject SC471)
+2026-10-31 11:12:05 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4711E0-PSG.edf
+2026-10-31 11:12:05 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4711EC-Hypnogram.edf
+2026-10-31 11:12:05 INFO       paired by : start_datetime
+2026-10-31 11:12:05 INFO     SC4711E0: signal 81900.000s, annotations 0 - 86400.000s (128 entries)
+2026-10-31 11:12:05 WARNING  SC4711E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81900.0s
+2026-10-31 11:12:05 INFO     SC4711E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:05 INFO     SC4711E0: read 8190000 samples at 100.000 Hz via mne
+2026-10-31 11:12:06 INFO       wrote SC4711E0.npz
+2026-10-31 11:12:06 INFO       epochs: signal=2730 eligible=2730 -> edge_trim=-1317 movement=-0 unknown=-0 nonfinite=-0 => final=1413
+2026-10-31 11:12:06 INFO       label distribution: {'W': 452, 'N1': 234, 'N2': 605, 'N3': 4, 'REM': 118}
+2026-10-31 11:12:06 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:06 INFO     record SC4712E0 (subject SC471)
+2026-10-31 11:12:06 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4712E0-PSG.edf
+2026-10-31 11:12:06 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4712EA-Hypnogram.edf
+2026-10-31 11:12:06 INFO       paired by : start_datetime
+2026-10-31 11:12:06 INFO     SC4712E0: signal 84600.000s, annotations 0 - 86400.000s (157 entries)
+2026-10-31 11:12:06 WARNING  SC4712E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84600.0s
+2026-10-31 11:12:06 INFO     SC4712E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:06 INFO     SC4712E0: read 8460000 samples at 100.000 Hz via mne
+2026-10-31 11:12:06 INFO       wrote SC4712E0.npz
+2026-10-31 11:12:06 INFO       epochs: signal=2820 eligible=2820 -> edge_trim=-1579 movement=-0 unknown=-0 nonfinite=-0 => final=1241
+2026-10-31 11:12:06 INFO       label distribution: {'W': 430, 'N1': 230, 'N2': 446, 'N3': 0, 'REM': 135}
+2026-10-31 11:12:06 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:06 INFO     record SC4721E0 (subject SC472)
+2026-10-31 11:12:06 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4721E0-PSG.edf
+2026-10-31 11:12:06 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4721EC-Hypnogram.edf
+2026-10-31 11:12:06 INFO       paired by : start_datetime
+2026-10-31 11:12:06 INFO     SC4721E0: signal 70260.000s, annotations 0 - 86400.000s (77 entries)
+2026-10-31 11:12:06 WARNING  SC4721E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 70260.0s
+2026-10-31 11:12:06 INFO     SC4721E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:06 INFO     SC4721E0: read 7026000 samples at 100.000 Hz via mne
+2026-10-31 11:12:06 INFO       wrote SC4721E0.npz
+2026-10-31 11:12:06 INFO       epochs: signal=2342 eligible=2342 -> edge_trim=-1311 movement=-0 unknown=-0 nonfinite=-0 => final=1031
+2026-10-31 11:12:06 INFO       label distribution: {'W': 257, 'N1': 259, 'N2': 341, 'N3': 0, 'REM': 174}
+2026-10-31 11:12:06 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:06 INFO     record SC4722E0 (subject SC472)
+2026-10-31 11:12:06 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4722E0-PSG.edf
+2026-10-31 11:12:06 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4722EM-Hypnogram.edf
+2026-10-31 11:12:06 INFO       paired by : start_datetime
+2026-10-31 11:12:06 INFO     SC4722E0: signal 82380.000s, annotations 0 - 86400.000s (154 entries)
+2026-10-31 11:12:06 WARNING  SC4722E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82380.0s
+2026-10-31 11:12:06 INFO     SC4722E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:06 INFO     SC4722E0: read 8238000 samples at 100.000 Hz via mne
+2026-10-31 11:12:07 INFO       wrote SC4722E0.npz
+2026-10-31 11:12:07 INFO       epochs: signal=2746 eligible=2746 -> edge_trim=-1616 movement=-0 unknown=-0 nonfinite=-0 => final=1130
+2026-10-31 11:12:07 INFO       label distribution: {'W': 310, 'N1': 240, 'N2': 444, 'N3': 0, 'REM': 136}
+2026-10-31 11:12:07 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:07 INFO     record SC4731E0 (subject SC473)
+2026-10-31 11:12:07 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4731E0-PSG.edf
+2026-10-31 11:12:07 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4731EM-Hypnogram.edf
+2026-10-31 11:12:07 INFO       paired by : start_datetime
+2026-10-31 11:12:07 INFO     SC4731E0: signal 83400.000s, annotations 0 - 86400.000s (133 entries)
+2026-10-31 11:12:07 WARNING  SC4731E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83400.0s
+2026-10-31 11:12:07 INFO     SC4731E0-PSG.edf: reader cross-check OK (max |MNE - native| = 1.42e-14 uV)
+2026-10-31 11:12:07 INFO     SC4731E0: read 8340000 samples at 100.000 Hz via mne
+2026-10-31 11:12:07 INFO       wrote SC4731E0.npz
+2026-10-31 11:12:07 INFO       epochs: signal=2780 eligible=2780 -> edge_trim=-113 movement=-0 unknown=-0 nonfinite=-0 => final=2667
+2026-10-31 11:12:07 INFO       label distribution: {'W': 1840, 'N1': 222, 'N2': 470, 'N3': 0, 'REM': 135}
+2026-10-31 11:12:07 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:07 INFO     record SC4732E0 (subject SC473)
+2026-10-31 11:12:07 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4732E0-PSG.edf
+2026-10-31 11:12:07 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4732EJ-Hypnogram.edf
+2026-10-31 11:12:07 INFO       paired by : start_datetime
+2026-10-31 11:12:07 INFO     SC4732E0: signal 75600.000s, annotations 0 - 86400.000s (218 entries)
+2026-10-31 11:12:07 WARNING  SC4732E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 75600.0s
+2026-10-31 11:12:07 INFO     SC4732E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:07 INFO     SC4732E0: read 7560000 samples at 100.000 Hz via mne
+2026-10-31 11:12:08 INFO       wrote SC4732E0.npz
+2026-10-31 11:12:08 INFO       epochs: signal=2520 eligible=2520 -> edge_trim=-201 movement=-1 unknown=-0 nonfinite=-0 => final=2318
+2026-10-31 11:12:08 INFO       label distribution: {'W': 1349, 'N1': 470, 'N2': 363, 'N3': 0, 'REM': 136}
+2026-10-31 11:12:08 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:08 INFO     record SC4741E0 (subject SC474)
+2026-10-31 11:12:08 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4741E0-PSG.edf
+2026-10-31 11:12:08 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4741EA-Hypnogram.edf
+2026-10-31 11:12:08 INFO       paired by : start_datetime
+2026-10-31 11:12:08 INFO     SC4741E0: signal 80700.000s, annotations 0 - 86400.000s (91 entries)
+2026-10-31 11:12:08 WARNING  SC4741E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80700.0s
+2026-10-31 11:12:08 INFO     SC4741E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:08 INFO     SC4741E0: read 8070000 samples at 100.000 Hz via mne
+2026-10-31 11:12:09 INFO       wrote SC4741E0.npz
+2026-10-31 11:12:09 INFO       epochs: signal=2690 eligible=2690 -> edge_trim=-479 movement=-1 unknown=-0 nonfinite=-0 => final=2210
+2026-10-31 11:12:09 INFO       label distribution: {'W': 1229, 'N1': 158, 'N2': 610, 'N3': 0, 'REM': 213}
+2026-10-31 11:12:09 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:09 INFO     record SC4742E0 (subject SC474)
+2026-10-31 11:12:09 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4742E0-PSG.edf
+2026-10-31 11:12:09 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4742EC-Hypnogram.edf
+2026-10-31 11:12:09 INFO       paired by : start_datetime
+2026-10-31 11:12:09 WARNING  SC4742E0: patient_id_matches failed - PSG 'X F X Female_92yr' vs hypnogram 'X M X Male_92yr'
+2026-10-31 11:12:09 INFO     SC4742E0: signal 79500.000s, annotations 0 - 86400.000s (86 entries)
+2026-10-31 11:12:09 WARNING  SC4742E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 79500.0s
+2026-10-31 11:12:09 INFO     SC4742E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:09 INFO     SC4742E0: read 7950000 samples at 100.000 Hz via mne
+2026-10-31 11:12:09 INFO       wrote SC4742E0.npz
+2026-10-31 11:12:09 INFO       epochs: signal=2650 eligible=2650 -> edge_trim=-1587 movement=-0 unknown=-0 nonfinite=-0 => final=1063
+2026-10-31 11:12:09 INFO       label distribution: {'W': 308, 'N1': 207, 'N2': 340, 'N3': 0, 'REM': 208}
+2026-10-31 11:12:09 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:09 INFO     record SC4751E0 (subject SC475)
+2026-10-31 11:12:09 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4751E0-PSG.edf
+2026-10-31 11:12:09 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4751EC-Hypnogram.edf
+2026-10-31 11:12:09 INFO       paired by : start_datetime
+2026-10-31 11:12:09 INFO     SC4751E0: signal 80400.000s, annotations 0 - 86400.000s (58 entries)
+2026-10-31 11:12:09 WARNING  SC4751E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 80400.0s
+2026-10-31 11:12:09 INFO     SC4751E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:09 INFO     SC4751E0: read 8040000 samples at 100.000 Hz via mne
+2026-10-31 11:12:10 INFO       wrote SC4751E0.npz
+2026-10-31 11:12:10 INFO       epochs: signal=2680 eligible=2680 -> edge_trim=-636 movement=-0 unknown=-0 nonfinite=-0 => final=2044
+2026-10-31 11:12:10 INFO       label distribution: {'W': 1428, 'N1': 102, 'N2': 467, 'N3': 0, 'REM': 47}
+2026-10-31 11:12:10 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:10 INFO     record SC4752E0 (subject SC475)
+2026-10-31 11:12:10 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4752E0-PSG.edf
+2026-10-31 11:12:10 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4752EM-Hypnogram.edf
+2026-10-31 11:12:10 INFO       paired by : start_datetime
+2026-10-31 11:12:10 INFO     SC4752E0: signal 74100.000s, annotations 0 - 86400.000s (138 entries)
+2026-10-31 11:12:10 WARNING  SC4752E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 74100.0s
+2026-10-31 11:12:10 INFO     SC4752E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:10 INFO     SC4752E0: read 7410000 samples at 100.000 Hz via mne
+2026-10-31 11:12:10 INFO       wrote SC4752E0.npz
+2026-10-31 11:12:10 INFO       epochs: signal=2470 eligible=2470 -> edge_trim=-1421 movement=-0 unknown=-0 nonfinite=-0 => final=1049
+2026-10-31 11:12:10 INFO       label distribution: {'W': 378, 'N1': 143, 'N2': 436, 'N3': 20, 'REM': 72}
+2026-10-31 11:12:10 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:10 INFO     record SC4761E0 (subject SC476)
+2026-10-31 11:12:10 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4761E0-PSG.edf
+2026-10-31 11:12:10 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4761EP-Hypnogram.edf
+2026-10-31 11:12:10 INFO       paired by : start_datetime
+2026-10-31 11:12:10 INFO     SC4761E0: signal 78900.000s, annotations 0 - 86400.000s (137 entries)
+2026-10-31 11:12:10 WARNING  SC4761E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 78900.0s
+2026-10-31 11:12:10 INFO     SC4761E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:10 INFO     SC4761E0: read 7890000 samples at 100.000 Hz via mne
+2026-10-31 11:12:11 INFO       wrote SC4761E0.npz
+2026-10-31 11:12:11 INFO       epochs: signal=2630 eligible=2630 -> edge_trim=-927 movement=-0 unknown=-20 nonfinite=-0 => final=1683
+2026-10-31 11:12:11 INFO       label distribution: {'W': 1069, 'N1': 127, 'N2': 425, 'N3': 27, 'REM': 35}
+2026-10-31 11:12:11 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:11 INFO     record SC4762E0 (subject SC476)
+2026-10-31 11:12:11 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4762E0-PSG.edf
+2026-10-31 11:12:11 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4762EG-Hypnogram.edf
+2026-10-31 11:12:11 INFO       paired by : start_datetime
+2026-10-31 11:12:11 INFO     SC4762E0: signal 84300.000s, annotations 0 - 86400.000s (254 entries)
+2026-10-31 11:12:11 WARNING  SC4762E0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:12:11 INFO     SC4762E0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:11 INFO     SC4762E0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:12:11 INFO       wrote SC4762E0.npz
+2026-10-31 11:12:11 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-0 movement=-15 unknown=-133 nonfinite=-0 => final=2662
+2026-10-31 11:12:11 INFO       label distribution: {'W': 1839, 'N1': 161, 'N2': 268, 'N3': 0, 'REM': 394}
+2026-10-31 11:12:11 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:11 INFO     record SC4771G0 (subject SC477)
+2026-10-31 11:12:11 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4771G0-PSG.edf
+2026-10-31 11:12:11 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4771GC-Hypnogram.edf
+2026-10-31 11:12:11 INFO       paired by : start_datetime
+2026-10-31 11:12:11 INFO     SC4771G0: signal 82680.000s, annotations 0 - 86400.000s (136 entries)
+2026-10-31 11:12:11 WARNING  SC4771G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 82680.0s
+2026-10-31 11:12:11 INFO     SC4771G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:11 INFO     SC4771G0: read 8268000 samples at 100.000 Hz via mne
+2026-10-31 11:12:12 INFO       wrote SC4771G0.npz
+2026-10-31 11:12:12 INFO       epochs: signal=2756 eligible=2756 -> edge_trim=-1431 movement=-0 unknown=-0 nonfinite=-0 => final=1325
+2026-10-31 11:12:12 INFO       label distribution: {'W': 402, 'N1': 348, 'N2': 461, 'N3': 5, 'REM': 109}
+2026-10-31 11:12:12 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:12 INFO     record SC4772G0 (subject SC477)
+2026-10-31 11:12:12 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4772G0-PSG.edf
+2026-10-31 11:12:12 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4772GC-Hypnogram.edf
+2026-10-31 11:12:12 INFO       paired by : start_datetime
+2026-10-31 11:12:12 INFO     SC4772G0: signal 67260.000s, annotations 0 - 86400.000s (135 entries)
+2026-10-31 11:12:12 WARNING  SC4772G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 67260.0s
+2026-10-31 11:12:12 INFO     SC4772G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:12 INFO     SC4772G0: read 6726000 samples at 100.000 Hz via mne
+2026-10-31 11:12:12 INFO       wrote SC4772G0.npz
+2026-10-31 11:12:12 INFO       epochs: signal=2242 eligible=2242 -> edge_trim=-918 movement=-0 unknown=-0 nonfinite=-0 => final=1324
+2026-10-31 11:12:12 INFO       label distribution: {'W': 753, 'N1': 111, 'N2': 240, 'N3': 87, 'REM': 133}
+2026-10-31 11:12:12 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:12 INFO     record SC4801G0 (subject SC480)
+2026-10-31 11:12:12 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4801G0-PSG.edf
+2026-10-31 11:12:12 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4801GC-Hypnogram.edf
+2026-10-31 11:12:12 INFO       paired by : start_datetime
+2026-10-31 11:12:12 INFO     SC4801G0: signal 83220.000s, annotations 0 - 86400.000s (165 entries)
+2026-10-31 11:12:12 WARNING  SC4801G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 83220.0s
+2026-10-31 11:12:12 INFO     SC4801G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:12 INFO     SC4801G0: read 8322000 samples at 100.000 Hz via mne
+2026-10-31 11:12:13 INFO       wrote SC4801G0.npz
+2026-10-31 11:12:13 INFO       epochs: signal=2774 eligible=2774 -> edge_trim=-1533 movement=-0 unknown=-0 nonfinite=-0 => final=1241
+2026-10-31 11:12:13 INFO       label distribution: {'W': 288, 'N1': 203, 'N2': 595, 'N3': 13, 'REM': 142}
+2026-10-31 11:12:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:13 INFO     record SC4802G0 (subject SC480)
+2026-10-31 11:12:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4802G0-PSG.edf
+2026-10-31 11:12:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4802GV-Hypnogram.edf
+2026-10-31 11:12:13 INFO       paired by : start_datetime
+2026-10-31 11:12:13 INFO     SC4802G0: signal 84300.000s, annotations 0 - 86400.000s (158 entries)
+2026-10-31 11:12:13 WARNING  SC4802G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:12:13 INFO     SC4802G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:13 INFO     SC4802G0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:12:13 INFO       wrote SC4802G0.npz
+2026-10-31 11:12:13 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1581 movement=-0 unknown=-0 nonfinite=-0 => final=1229
+2026-10-31 11:12:13 INFO       label distribution: {'W': 342, 'N1': 204, 'N2': 541, 'N3': 6, 'REM': 136}
+2026-10-31 11:12:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:13 INFO     record SC4811G0 (subject SC481)
+2026-10-31 11:12:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4811G0-PSG.edf
+2026-10-31 11:12:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4811GG-Hypnogram.edf
+2026-10-31 11:12:13 INFO       paired by : start_datetime
+2026-10-31 11:12:13 INFO     SC4811G0: signal 72060.000s, annotations 0 - 86400.000s (225 entries)
+2026-10-31 11:12:13 WARNING  SC4811G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 72060.0s
+2026-10-31 11:12:13 INFO     SC4811G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:13 INFO     SC4811G0: read 7206000 samples at 100.000 Hz via mne
+2026-10-31 11:12:13 INFO       wrote SC4811G0.npz
+2026-10-31 11:12:13 INFO       epochs: signal=2402 eligible=2402 -> edge_trim=-1109 movement=-0 unknown=-0 nonfinite=-0 => final=1293
+2026-10-31 11:12:13 INFO       label distribution: {'W': 360, 'N1': 88, 'N2': 528, 'N3': 121, 'REM': 196}
+2026-10-31 11:12:13 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:13 INFO     record SC4812G0 (subject SC481)
+2026-10-31 11:12:13 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4812G0-PSG.edf
+2026-10-31 11:12:13 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4812GV-Hypnogram.edf
+2026-10-31 11:12:13 INFO       paired by : start_datetime
+2026-10-31 11:12:13 INFO     SC4812G0: signal 72480.000s, annotations 0 - 86400.000s (153 entries)
+2026-10-31 11:12:13 WARNING  SC4812G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 72480.0s
+2026-10-31 11:12:13 INFO     SC4812G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:13 INFO     SC4812G0: read 7248000 samples at 100.000 Hz via mne
+2026-10-31 11:12:14 INFO       wrote SC4812G0.npz
+2026-10-31 11:12:14 INFO       epochs: signal=2416 eligible=2416 -> edge_trim=-1231 movement=-2 unknown=-0 nonfinite=-0 => final=1183
+2026-10-31 11:12:14 INFO       label distribution: {'W': 458, 'N1': 138, 'N2': 347, 'N3': 102, 'REM': 138}
+2026-10-31 11:12:14 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:14 INFO     record SC4821G0 (subject SC482)
+2026-10-31 11:12:14 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4821G0-PSG.edf
+2026-10-31 11:12:14 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4821GC-Hypnogram.edf
+2026-10-31 11:12:14 INFO       paired by : start_datetime
+2026-10-31 11:12:14 INFO     SC4821G0: signal 81660.000s, annotations 0 - 86400.000s (154 entries)
+2026-10-31 11:12:14 WARNING  SC4821G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 81660.0s
+2026-10-31 11:12:14 INFO     SC4821G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:14 INFO     SC4821G0: read 8166000 samples at 100.000 Hz via mne
+2026-10-31 11:12:14 INFO       wrote SC4821G0.npz
+2026-10-31 11:12:14 INFO       epochs: signal=2722 eligible=2722 -> edge_trim=-1017 movement=-1 unknown=-0 nonfinite=-0 => final=1704
+2026-10-31 11:12:14 INFO       label distribution: {'W': 841, 'N1': 66, 'N2': 407, 'N3': 162, 'REM': 228}
+2026-10-31 11:12:14 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:14 INFO     record SC4822G0 (subject SC482)
+2026-10-31 11:12:14 INFO       PSG       : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4822G0-PSG.edf
+2026-10-31 11:12:14 INFO       hypnogram : tasks/sleep_edf/data/raw/sleep-edf/physionet-sleep-data/SC4822GC-Hypnogram.edf
+2026-10-31 11:12:14 INFO       paired by : start_datetime
+2026-10-31 11:12:14 INFO     SC4822G0: signal 84300.000s, annotations 0 - 86400.000s (166 entries)
+2026-10-31 11:12:14 WARNING  SC4822G0: annotation_within_signal failed - annotations end at 86400.0s, signal ends at 84300.0s
+2026-10-31 11:12:14 INFO     SC4822G0-PSG.edf: reader cross-check OK (max |MNE - native| = 2.84e-14 uV)
+2026-10-31 11:12:14 INFO     SC4822G0: read 8430000 samples at 100.000 Hz via mne
+2026-10-31 11:12:15 INFO       wrote SC4822G0.npz
+2026-10-31 11:12:15 INFO       epochs: signal=2810 eligible=2810 -> edge_trim=-1444 movement=-0 unknown=-0 nonfinite=-0 => final=1366
+2026-10-31 11:12:15 INFO       label distribution: {'W': 510, 'N1': 121, 'N2': 400, 'N3': 156, 'REM': 179}
+2026-10-31 11:12:15 INFO     wrote epoch_metadata.csv (199352 rows)
+2026-10-31 11:12:15 INFO     Subject split: train=54 val=12 test=12 subjects (seed=42)
+2026-10-31 11:12:15 INFO     ------------------------------------------------------------------------------
+2026-10-31 11:12:15 INFO     TOTAL epochs: 199352 | distribution: {'W': 69824, 'N1': 21522, 'N2': 69132, 'N3': 13039, 'REM': 25835}
+2026-10-31 11:12:15 INFO     TOTAL label percent: {'W': '35.03%', 'N1': '10.80%', 'N2': '34.68%', 'N3': '6.54%', 'REM': '12.96%'}
+2026-10-31 11:12:15 INFO     exclusions: {'movement_time_epochs': 128, 'unknown_stage_epochs': 1335, 'edge_trim_epochs': 215609, 'uncovered_epochs': 0, 'nonfinite_epochs': 0}
+2026-10-31 11:12:15 INFO     wrote tasks/sleep_edf/data/processed/sleep-edf-sc-full/dataset_manifest.json
+2026-10-31 11:12:15 INFO     done

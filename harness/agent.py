@@ -166,7 +166,6 @@ def _load_dataset_context(project_root: Path) -> str:
         / "tasks"
         / "sleep_edf"
         / "data"
-        / "processed"
         / "sleep-edf-sc-full"
     )
 
@@ -175,7 +174,7 @@ def _load_dataset_context(project_root: Path) -> str:
 
     lines = [
         "数据集：Sleep-EDF Expanded (Sleep Cassette)",
-        "数据目录：tasks/sleep_edf/data/processed/sleep-edf-sc-full",
+        "数据目录：tasks/sleep_edf/data/sleep-edf-sc-full",
         "EEG 通道：EEG Fpz-Cz",
         "采样率：100 Hz",
         "Epoch 长度：30 秒（3000 个采样点）",

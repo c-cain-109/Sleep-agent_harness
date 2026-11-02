@@ -145,7 +145,7 @@ def load_subject_split(
         if saved_subject not in expected_subjects:
             raise ValueError(
                 f"受试者泄漏/映射错误：{record_id} 属于 {saved_subject}，"
-                f"但 {split_name} 清单受试者为 {saved_subjects}"
+                f"但 {split_name} 清单受试者为 {saved_subject}"
             )
         if x.ndim != 2 or x.shape[1] != 3000:
             raise ValueError(f"{path.name} 的 x 应为 (N, 3000)，实际为 {x.shape}")
