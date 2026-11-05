@@ -5,7 +5,7 @@ import re
 import numpy as np
 
 TASK_DIR = Path(__file__).resolve().parents[1]
-DATA_DIR = TASK_DIR / "data" /  "sleep-edf-sc-full"
+DATA_DIR = TASK_DIR / "data" / "sleep-edf-sc-full"
 
 split = json.loads(
     (DATA_DIR / "subject_split.json").read_text(encoding="utf-8")
