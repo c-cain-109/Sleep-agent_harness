@@ -69,6 +69,7 @@ def evaluate_checkpoint(
     device_name: str = "cpu",
     data_dir: Path | None = None,
     split_file: Path | None = None,
+    split_name: str = "val",
 ) -> dict[str, Any]:
     """Load the best checkpoint and return validation metrics."""
     device = torch.device(device_name)
@@ -85,7 +86,7 @@ def evaluate_checkpoint(
     if data_dir is not None or split_file is not None:
         if data_dir is None or split_file is None or data_file is not None:
             raise ValueError("全量评估必须同时提供 data_dir 和 split_file，且不能传 data_file")
-        dataset = load_subject_split(data_dir, split_file, "val")
+        dataset = load_subject_split(data_dir, split_file, split_name)
     elif data_file is not None:
         dataset = load_validation_split(data_file, val_ratio)
     else:
@@ -116,9 +117,10 @@ def evaluate_checkpoint(
     matrix = confusion_matrix(y_true, y_pred, labels=labels)
 
     return {
+        "split": split_name,
         "checkpoint_epoch": int(checkpoint.get("epoch", -1)),
         "n_samples": int(total_samples),
-        "val_loss": total_loss / max(1, total_samples),
+        f"{split_name}_loss": total_loss / max(1, total_samples),
         "balanced_accuracy": float(balanced_accuracy_score(y_true, y_pred)),
         "macro_f1": float(
             f1_score(
@@ -144,9 +146,15 @@ def main() -> int:
     parser.add_argument("--data-file", type=Path)
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--split-file", type=Path)
+    parser.add_argument(
+        "--split",
+        choices=["val", "test"],
+        default="val",
+        help="选择评估数据集，默认 val",
+    )
     parser.add_argument("--val-ratio", type=float, default=0.2)
     parser.add_argument("--batch-size", type=int, default=32)
-    parser.add_argument("--device", choices=["cpu", "mps"], default="cpu")
+    parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cuda")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
 
@@ -165,6 +173,7 @@ def main() -> int:
         device_name=args.device,
         data_dir=args.data_dir,
         split_file=args.split_file,
+        split_name=args.split,
     )
     text = json.dumps(result, ensure_ascii=False, indent=2)
     print(text)
