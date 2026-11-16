@@ -4,13 +4,15 @@
 
 本文件是提供给 Agent 的实验策略参考，不是模型配置文件，也不是实验结果记录。
 
-每轮调参时，Harness 会把本文件内容、当前模型配置、当前验证集指标、数据集划分信息和近期实验记录一并放入 Agent Prompt。Agent 根据这些信息提出下一轮超参数配置。
+每轮调参时，Harness 会把只读任务约束、本文件内容、已审核经验与相关历史案例、当前配置和验证指标按四层顺序放入 Agent Prompt。Agent 根据这些信息提出下一轮超参数配置。
 
 - 本文件：说明 Agent 应如何分析和提出实验方案。
 - `tasks/sleep_edf/model_config.py`：保存当前实际生效的训练超参数。
 - `harness/agent.py`：校验 Agent 返回的参数及其取值范围。
 - `main.py`：执行训练、比较验证集指标，并决定接受（accept）或回滚（rollback）。
-- `logs/sleep_run_history.jsonl`：保存 Harness 写入的实验历史。
+- `logs/sleep_run_history.jsonl`：保存 Harness 写入的旧格式兼容历史。
+- `logs/experiment_memory_v2.jsonl`：保存全部终态的 v2 结构化实验事实。
+- `docs/experiment_memory/experience_memory.md`：只保存程序核验、人工审核后的正式经验。
 
 **重要：** 修改本文件只会改变 Agent 的参考指导，不会直接修改模型参数，也不会绕过代码中的参数校验和 accept/rollback 规则。
 
@@ -27,7 +29,7 @@
 5. 不得通过修改数据划分、排除不利样本或改变评估协议来提高指标。
 6. 不得把模拟数据 Smoke Test 或单记录管线测试的结果当作正式模型性能。
 
-数据集规模、标签分布和划分信息由 Harness 在每轮 Prompt 中动态提供。本文件不重复维护可能过期的数据数量。
+任务和数据边界以 `docs/experiment_memory/task_profile.md` 为准。test 标签分布、test 指标和 test 派生结论不会提供给 Agent。
 
 ## 3. 优化目标与决策指标
 

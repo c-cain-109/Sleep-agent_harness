@@ -1,67 +1,65 @@
 # Agent 实验记忆接入约定
 
-## 目标
+## 职责边界
 
-让每一轮 Agent 能使用历史实验事实和总结经验，减少重复试错，同时确保 Agent 不能自行伪造评估指标。
+- Harness 执行训练、调用固定 Evaluator、比较 validation 指标并决定
+  Accept / Rollback。
+- Harness 写入旧格式日志和 v2 结构化事实；Agent 不能修改事实日志。
+- Agent 提出一个受 Schema 和参数范围约束的超参数候选。
+- 离线反思器只能生成经验候选；程序核验后仍需人工审核。
+- `strategy.md` 由人工维护，Agent 和反思器都不能自动改写。
 
-## 文件职责
+## 每轮输入
 
-- `strategy.md`：供 Agent 阅读的压缩经验摘要、当前假设和下一步计划；可以由 Agent 在实验结束后提出更新。
-- `logs/run_history.jsonl`：追加式实验事实日志；只能由 Harness 根据实际执行结果写入，不允许 Agent 直接编辑或重写。
-- 模型 checkpoint / Git commit：保存可恢复的代码和模型状态；`strategy.md` 不代替版本控制。
+Agent Prompt 按固定顺序接收：
 
-## 每轮开始前，Agent 应读取
+1. 基础层：`task_profile.md` 中的只读任务与评估约束。
+2. 策略层：`strategy.md`。
+3. 经验层：已审核经验、相关案例和近期补充；A/B 模式按实验设计裁剪。
+4. 实时层：当前配置、当前/最佳 validation 指标、轮次和上一轮决策。
 
-1. 完整的 `strategy.md`。
-2. 最近 5 条实验记录（或最近 5 条有效 JSONL 记录）。
-3. 当前最佳验证集 run 的记录。
-4. 当前代码 commit、配置 hash、数据划分 ID 和 evaluator hash。
+每条案例必须带 `run_id`。legacy 记录必须标记为 `legacy_uncontrolled`，不得
+作为严格同协议对照。没有足够相关证据时，Prompt 明确写“无相关案例”。
 
-如果历史记录格式不符合预期，先报告并停止记忆解析，不得默默把解析失败的记录当作不存在。
+## Agent 输出
 
-## 每轮开始时，Agent 必须输出
+Agent 返回全部七个超参数与 `reasoning`。程序校验：
 
-- `hypothesis`：一个可检验的假设。
-- `rationale`：依据哪些历史 run_id 或观察提出该假设。
-- `planned_changes`：准备修改哪些白名单文件。
-- `expected_effect`：预计影响哪个指标及方向。
-- `risk_and_confounders`：可能的风险和混杂因素。
-- `success_criterion`：实验前确定的接受条件。
+- 必需字段齐全且类型正确；
+- 参数在允许范围内；
+- 离散参数为整数；
+- 每轮原则上只改变 1–2 个参数；
+- reasoning 说明假设、依据、预期影响和风险。
 
-## 每轮结束后，Harness 必须先写事实
+Agent 输出的 reasoning 是提案解释，不是实验事实。
 
-Harness 从执行器和固定评估器获取：
+## Harness 必须记录的终态
 
-- run_id、时间、运行状态、超时或异常信息。
-- hypothesis、实际修改文件、代码 commit、配置 hash。
-- 数据划分 ID、评估器 hash、随机种子。
-- 实际 train/validation 指标。
-- accept / rollback / no_change 决策。
+每次运行结束恰写一条 v2 记录：
 
-这些数据由程序写入 `run_history.jsonl`。Agent 不得自行提供或改写指标数值。
+| 终态 | decision | status | 指标 |
+|---|---|---|---|
+| Baseline 完成 | `Baseline` | `completed` | validation 事实 |
+| 超过最佳 | `Accept` | `completed` | validation 事实 |
+| 正常评估但未超过最佳 | `Rollback` | `completed` | validation 事实 + 回滚后配置 |
+| 候选未产生变化 | `Skip` | `skipped` | null |
+| API/训练/评估异常 | `Error` | `error` | null |
+| 执行超时 | `Error` | `timeout` | null |
 
-## 然后再更新 strategy.md
+同时保留旧格式 `sleep_run_history.jsonl` 追加记录，以兼容现有读取器。
 
-可让 Agent 根据新 run_id 更新：
+## 防重复与防伪造
 
-- 已验证经验；
-- 没有改善或失败的方向；
-- 证据可信程度；
-- 下一轮待验证假设。
+- `run_id` 必须唯一，追加前扫描已有 v2 日志。
+- validation 指标只能来自 Evaluator 输出文件。
+- Rollback 必须同时保存失败提案的结果和回滚后实际生效配置。
+- Skip 与 Error 不得描述为训练指标下降。
+- 反思候选中的 `run_id`、decision、status、result type、参数差异和指标必须
+  与原始记录一致，否则拒绝入队。
 
-每条经验都必须引用 run_id。单次实验只能标为“初步”，不能写成已确定规律。
+## test 集隔离
 
-## 防止重复试错的最低规则
-
-- 如果最近记录中相同代码改动、相同配置和相同数据划分已失败，不要原样重复。
-- 如确实要重试，必须说明改变了哪个条件，以及为什么这次结果可能不同。
-- 指标未改善不等于程序运行失败；二者必须分别记录。
-- 不允许因为验证指标波动而删除失败记录。
-
-## 建议的渐进式集成
-
-第一阶段只把 `strategy.md` 和最近 5 条 run history 注入 Agent prompt。
-第二阶段再增加“当前最佳 run”和历史失败检索。
-第三阶段才考虑自动重启 Agent 实例和代际经验继承。
-
-不要在真实数据训练闭环尚未稳定时，同时引入复杂的向量数据库、多 Agent 或自动重启机制。
+- 调参、检索排序、反思、经验审核和 A/B/C 组别选择只使用 validation。
+- test 指标、test 标签统计或由 test 结果推导的策略不得进入 Prompt、v2
+  日志或正式经验。
+- 此前完成的独立 test 结果不能作为本次记忆机制改进的对照证据。

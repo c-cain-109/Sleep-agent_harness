@@ -20,9 +20,14 @@
 
 | 文件 | 说明 |
 |---|---|
-| [README.md](experiment_memory/README.md) | 实验记忆系统介绍 |
+| [README.md](experiment_memory/README_revised.md) | 分层实验记忆系统介绍与命令 |
 | [AGENT_MEMORY_CONTRACT.md](experiment_memory/AGENT_MEMORY_CONTRACT.md) | Agent 使用实验记忆的约定 |
-| [experiment_memory_schema.json](experiment_memory/experiment_memory_schema.json) | 实验记录的数据结构定义 |
+| [experiment_memory_schema_v2.json](experiment_memory/experiment_memory_schema_v2.json) | v2 结构化实验记录的 JSON Schema |
+| [task_profile.md](experiment_memory/task_profile.md) | 每轮注入的只读基础层任务说明 |
+| [experience_memory.md](experiment_memory/experience_memory.md) | 经程序核验和人工审核的正式经验 |
+| [reflection_queue](experiment_memory/reflection_queue/) | 离线反思候选、拒绝原因和审核队列 |
+| [baseline_snapshot.md](experiment_memory/baseline_snapshot.md) | Phase 0 改进前 commit、数据、Evaluator 和旧日志快照 |
+| [experiment_memory_schema.json](experiment_memory/experiment_memory_schema.json) | 初版 Schema，仅保留作历史参考 |
 | [strategy_memory_template.md](experiment_memory/strategy_memory_template.md) | 策略记忆模板 |
 
 ## 3. 开发历史与阶段计划

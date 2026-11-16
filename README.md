@@ -61,7 +61,8 @@ Harness 校验并执行新实验
 | Sandbox | `harness/sandbox.py` | 在受控子进程中执行 Python 脚本 |
 | Evaluator | `harness/evaluate.py` | 计算验证集评价指标 |
 | Git Manager | `harness/git_manager.py` | 接受配置修改或执行回滚 |
-| Memory Store | `harness/memory_store.py` | 读取策略和历史实验记忆 |
+| Memory Store | `harness/memory_store.py` | v2 记录校验、旧日志兼容、相关案例检索与四层上下文 |
+| Memory Reflection | `harness/memory_reflection.py` | 离线经验候选、事实核验和人工审核 |
 | Sleep-EDF Task | `tasks/sleep_edf/` | 模型、数据加载和训练代码 |
 
 ## 3. 数据集与任务定义
@@ -256,11 +257,26 @@ python main.py --rounds 10
 tasks/sleep_edf/outputs/
 ```
 
-实验历史保存在：
+旧格式实验历史继续保存在：
 
 ```text
 logs/sleep_run_history.jsonl
 ```
+
+每次运行终态另追加一条 v2 结构化事实到：
+
+```text
+logs/experiment_memory_v2.jsonl
+```
+
+相关案例检索追踪保存在：
+
+```text
+logs/memory_retrieval_trace.jsonl
+```
+
+这两个新日志同样属于本地运行记录，不提交到 Git。Baseline、Accept、
+Rollback、Skip、Error 和 Timeout 都会写入唯一 `run_id` 的 v2 记录。
 
 Agent 使用的调参策略保存在：
 
@@ -268,13 +284,55 @@ Agent 使用的调参策略保存在：
 strategy.md
 ```
 
+### 四层记忆模式
+
+```bash
+python main.py --rounds 1 --memory-mode layered
+```
+
+可选模式：
+
+- `none`：对应 A 组，只提供基础层与实时层。
+- `legacy`：对应 B 组，提供策略和最近 5 条旧格式记录。
+- `layered`：对应 C 组，提供四层上下文、Top-3 相关案例和最近 2 条补充记录。
+
+这些模式只准备运行入口，不代表已经完成 A/B/C 正式对照实验。
+
+### 测试
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+测试不启动真实训练，也不调用 Agent API。
+
+### 离线反思与人工审核
+
+每累计约 5 轮实验后运行一次反思，而不是每轮训练后调用：
+
+```bash
+python -m harness.memory_reflection --batch-size 5
+```
+
+候选与拒绝结果分别写入 `docs/experiment_memory/reflection_queue/`。只有人工执行
+批准命令后，核验通过的候选才会进入 `experience_memory.md`：
+
+```bash
+python -m harness.memory_reflection `
+  --batch-dir docs/experiment_memory/reflection_queue/<batch_id> `
+  --approve <candidate_id> `
+  --reviewer <reviewer>
+```
+
+`strategy.md` 仍由人工维护，反思程序不会自动改写策略。
+
 ## 9. 文档索引
 
 | 文档 | 内容 |
 |---|---|
 | [文档导航](docs/README.md) | 项目文档入口 |
 | [Agent 调参策略](strategy.md) | Agent 的实验调整参考 |
-| [实验记忆系统](docs/experiment_memory/README.md) | 结构化实验记忆设计 |
+| [分层实验记忆系统](docs/experiment_memory/README_revised.md) | v2 记录、检索、反思和审核 |
 | [预处理说明](tasks/sleep_edf/preprocess/README.md) | EDF 数据预处理方法 |
 | [预处理测试记录](tasks/sleep_edf/preprocess/TESTLOG.md) | 数据预处理测试记录 |
 
@@ -289,17 +347,24 @@ strategy.md
 - 模型前向传播、反向传播和优化器更新测试。
 - 训练与评估脚本对完整数据集的适配。
 - Harness 的全量数据路径和受试者划分检查。
-- Agent 实验记忆的基础读取机制。
+- 旧 Harness 的 8 轮验证集调参闭环已写入旧格式日志。
+- Round 8 之后的独立 test 评估已锁定，不作为本轮记忆策略选择依据。
+- 旧日志读取与策略注入。
+- v2 结构化实验事实写入，覆盖全部运行终态。
+- 可解释 Top-3 案例检索和四层 Prompt 组装。
+- 离线反思候选、程序事实核验和人工审核流程。
+- `none / legacy / layered` 三种记忆模式入口。
+- 不训练、不调用 API 的单元测试。
 
 ### 待完成
 
-- 完整 Sleep-EDF 数据集上的正式基线训练。
-- 验证集正式指标记录与分析。
-- 多轮 Agent 自动调参实验。
-- 实验结果对照与稳定性分析。
-- 测试集最终评估。
+- 用新记忆机制运行至少一次真实单轮闭环。
+- 生成并人工审核第一份正式经验。
+- A/B/C 公平对照实验与稳定性分析。
 
-**注意：** 当前基础模块和数据准备已经完成，但完整数据集上的端到端实验尚未完成。因此，不应将模拟数据测试或 Smoke Test 的结果当作真实睡眠分期性能。
+**注意：** 旧格式历史包含不同 Epoch 预算的 legacy 记录，不能直接作为公平
+A/B/C 对照样本。当前 v2 记忆机制已经通过功能测试，但尚无用新机制完成的真实
+闭环，因此不能把功能测试结果写成模型性能提高的证据。
 
 ---
 
